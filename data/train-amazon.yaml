@@ -1,0 +1,4 @@
+- file: "../build/az-ratings.csv"
+  format: csv
+  entity: rating
+  header: true

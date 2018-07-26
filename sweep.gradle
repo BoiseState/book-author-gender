@@ -1,0 +1,70 @@
+import org.lenskit.gradle.Crossfold
+import org.lenskit.gradle.TrainTest
+import bookrecbuild.NotebookExec
+
+task prepSweepBX(type: NotebookExec, group: 'preparation') {
+    description 'Preprocess the BX data for sweeping'
+    notebook 'SplitBX.ipynb'
+    inputs.file "$buildDir/bx-ratings.csv"
+    inputs.file "$buildDir/bx-implicit.csv"
+    outputs.file "$buildDir/bx-ratings-test.csv"
+    outputs.file "$buildDir/bx-ratings-train.csv"
+    outputs.file "$buildDir/bx-implicit-test.csv"
+    outputs.file "$buildDir/bx-implicit-train.csv"
+}
+
+task sweepBXBias(type: TrainTest, group: 'optimize') {
+    dependsOn prepSweepBX
+    dataSet 'data/bx-tt.yaml'
+
+    outputFile "$buildDir/bx-bias-sweep-results.csv"
+    algorithm 'algorithms/bx/sweep-bias.groovy'
+
+    predict {
+        metric 'rmse'
+        metric 'ndcg'
+    }
+}
+
+task sweepBXExplicit(type: TrainTest, group: 'optimize') {
+    dependsOn prepSweepBX
+    dataSet 'data/bx-tt.yaml'
+
+    outputFile "$buildDir/bx-ratings-sweep-results.csv"
+    userOutputFile "$buildDir/bx-ratings-sweep-users.csv"
+
+    algorithm 'algorithms/bx/sweep-funksvd.groovy'
+    algorithm 'algorithms/bx/sweep-item-item.groovy'
+    algorithm 'algorithms/bx/sweep-user-user.groovy'
+    algorithm 'algorithms/bx/sweep-pf.groovy'
+
+    predict {
+        metric 'rmse'
+        metric 'ndcg'
+    }
+    recommend {
+        listSize 100
+        metric 'ndcg'
+        metric 'map'
+    }
+}
+
+task sweepBXImplicit(type: TrainTest, group: 'optimize') {
+    dependsOn prepSweepBX
+    dataSet 'data/bx-implicit-tt.yaml'
+
+    outputFile "$buildDir/bx-implicit-sweep-results.csv"
+    userOutputFile "$buildDir/bx-implicit-sweep-users.csv"
+
+    algorithm 'Popular', 'algorithms/bx/popularity.groovy'
+    algorithm 'algorithms/bx/sweep-funksvd-implicit.groovy'
+    algorithm 'algorithms/bx/sweep-item-item-implicit.groovy'
+    algorithm 'algorithms/bx/sweep-user-user-implicit.groovy'
+    algorithm 'algorithms/bx/sweep-pf-implicit.groovy'
+
+    recommend {
+        listSize 100
+        metric 'ndcg'
+        metric 'map'
+    }
+}

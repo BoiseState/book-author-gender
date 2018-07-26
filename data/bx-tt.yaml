@@ -1,0 +1,27 @@
+name: "bx-explicit"
+train:
+- name: "bx-explicit.0.train"
+  type: "textfile"
+  file: "../build/bx-ratings-train.csv"
+  format: "csv"
+  header: true
+  entity_type: "rating"
+- type: textfile
+  format: csv
+  file: "../build/bx-explicit-author-gender.csv"
+  header: true
+  entity_type: item
+  columns:
+    bookID: {"name": "id", "type": "long"}
+    authorID: {"name": "authorID", "type": "long"}
+    authorName: {"name": "authorName", "type": "string"}
+    authorGender: {"name": "authorGender", "type": "string"}
+test:
+  name: "bx-explicit.0.test"
+  type: "textfile"
+  file: "../build/bx-ratings-test.csv"
+  format: "csv"
+  entity_type: "rating"
+  header: true
+  metadata: {}
+

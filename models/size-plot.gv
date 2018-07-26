@@ -1,0 +1,8 @@
+png('size-plot.png');
+library(tidyverse)
+df = data_frame(x=seq(0,1000,0.05)) %>%
+    mutate(y=dlnorm(x, 0, 5))
+plt = ggplot(df) + aes(x, y) + geom_line() + scale_x_log10()
+print(plt)
+
+

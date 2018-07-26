@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.lenskit</groupId>
+  <artifactId>lenskit-api</artifactId>
+  <versioning>
+    <versions>
+      <version>3.0-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20180505135707</lastUpdated>
+  </versioning>
+</metadata>

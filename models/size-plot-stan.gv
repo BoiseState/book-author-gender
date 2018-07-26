@@ -1,0 +1,22 @@
+png('size-plot-stan.png');
+library(rstan)
+library(tidyverse)
+code = '
+parameters {
+    real<lower=0> val;
+}
+model {
+    val ~ lognormal(0, 5);
+}
+'
+message("fitting STAN model")
+fit = stan(model_code=code, data=list())
+message("plotting")
+sims = rstan::extract(fit, permuted=TRUE)
+data = data_frame(x=sims$val)
+ggplot(data) +
+    aes(x) +
+    geom_density() +
+    scale_x_log10()
+
+

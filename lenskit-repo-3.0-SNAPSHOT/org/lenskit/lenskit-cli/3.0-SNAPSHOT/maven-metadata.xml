@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.lenskit</groupId>
+  <artifactId>lenskit-cli</artifactId>
+  <version>3.0-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20180505.135708</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20180505135708</lastUpdated>
+  </versioning>
+</metadata>

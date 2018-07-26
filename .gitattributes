@@ -1,0 +1,7 @@
+*.bat text eol=crlf
+gradlew text eol=lf
+
+*.ipynb	diff=jupyternotebook
+
+*.ipynb	merge=jupyternotebook
+*.jar filter=lfs diff=lfs merge=lfs -text

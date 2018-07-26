@@ -1,0 +1,4 @@
+- file: "../build/sample-user-stubs-explicit.csv"
+  format: csv
+  entity: userID
+  header: true

@@ -1,0 +1,380 @@
+import org.lenskit.gradle.Crossfold
+import org.lenskit.gradle.TrainTest
+import bookrecbuild.NotebookExec
+
+task prepSweepAZ(type: NotebookExec, group: 'preparation') {
+    description 'Preprocess the Amazon data for sweeping'
+    notebook 'SplitAZ.ipynb'
+    inputs.file "$buildDir/az-ratings.csv"
+    outputs.file "$buildDir/az-ratings-test.csv"
+    outputs.file "$buildDir/az-ratings-train.csv"
+}
+
+task sweepAZBias(type: TrainTest, group: 'optimize') {
+//    dependsOn prepSweepAZ
+    dataSet 'data/az-tt.yaml'
+
+    outputFile "$buildDir/az-bias-sweep-results.csv"
+    algorithm 'algorithms/amazon/sweep-bias.groovy'
+
+    predict {
+        metric 'rmse'
+        metric 'ndcg'
+    }
+}
+
+task sweepAZExplicit(type: TrainTest, group: 'optimize') {
+    dependsOn prepSweepAZ
+    dataSet 'data/az-tt.yaml'
+
+    outputFile "$buildDir/az-ratings-sweep-results.csv"
+    userOutputFile "$buildDir/az-ratings-sweep-users.csv"
+
+    algorithm 'algorithms/amazon/sweep-funksvd.groovy'
+    algorithm 'algorithms/amazon/sweep-item-item.groovy'
+    algorithm 'algorithms/amazon/sweep-user-user.groovy'
+    algorithm 'algorithms/amazon/sweep-pf.groovy'
+
+    predict {
+        metric 'rmse'
+        metric 'ndcg'
+    }
+    recommend {
+        listSize 100
+        metric 'ndcg'
+        metric 'map'
+    }
+}
+
+task sweepAZExplicitFunkSVD(type: TrainTest, group: 'optimize') {
+
+    dataSet 'data/az-tt.yaml'
+
+    outputFile "$buildDir/funksvd/az-ratings-sweep-results.csv"
+    userOutputFile "$buildDir/funksvd/az-ratings-sweep-users.csv"
+
+    algorithm 'algorithms/amazon/sweep-funksvd.groovy'
+ 
+    predict {
+        metric 'rmse'
+        metric 'ndcg'
+    }
+    recommend {
+        listSize 100
+        metric 'ndcg'
+        metric 'map'
+    }
+}
+
+task sweepAZExplicitItemItem(type: TrainTest, group: 'optimize') {
+   
+    dataSet 'data/az-tt.yaml'
+
+    outputFile "$buildDir/itemitem/az-ratings-sweep-results.csv"
+    userOutputFile "$buildDir/itemitem/az-ratings-sweep-users.csv"
+
+    algorithm 'algorithms/amazon/sweep-item-item.groovy'
+
+    predict {
+        metric 'rmse'
+        metric 'ndcg'
+    }
+    recommend {
+        listSize 100
+        metric 'ndcg'
+        metric 'map'
+    }
+}
+
+task sweepAZExplicitUserUser(type: TrainTest, group: 'optimize') {
+   
+    dataSet 'data/az-tt.yaml'
+
+    outputFile "$buildDir/useruser/az-ratings-sweep-results.csv"
+    userOutputFile "$buildDir/useruser/az-ratings-sweep-users.csv"
+
+    algorithm 'algorithms/amazon/sweep-user-user.groovy'
+
+    predict {
+        metric 'rmse'
+        metric 'ndcg'
+    }
+    recommend {
+        listSize 100
+        metric 'ndcg'
+        metric 'map'
+    }
+}
+
+task sweepAZExplicitPF(type: TrainTest, group: 'optimize') {
+
+    dataSet 'data/az-tt.yaml'
+
+    outputFile "$buildDir/pf/az-ratings-sweep-results.csv"
+    userOutputFile "$buildDir/pf/az-ratings-sweep-users.csv"
+
+    algorithm 'algorithms/amazon/sweep-pf.groovy'
+
+    predict {
+        metric 'rmse'
+        metric 'ndcg'
+    }
+    recommend {
+        listSize 100
+        metric 'ndcg'
+        metric 'map'
+    }
+}
+
+task sweepAZExplicitPF01(type: TrainTest, group: 'optimize') {
+
+    dataSet 'data/az-tt.yaml'
+
+    outputFile "$buildDir/pf/az-ratings-sweep-results-01.csv"
+    userOutputFile "$buildDir/pf/az-ratings-sweep-users-01.csv"
+
+    algorithm 'algorithms/amazon/sweep-pf-1.groovy'
+
+    predict {
+        metric 'rmse'
+        metric 'ndcg'
+    }
+    recommend {
+        listSize 100
+        metric 'ndcg'
+        metric 'map'
+    }
+}
+
+task sweepAZExplicitPF02(type: TrainTest, group: 'optimize') {
+
+    dataSet 'data/az-tt.yaml'
+
+    outputFile "$buildDir/pf/az-ratings-sweep-results-02.csv"
+    userOutputFile "$buildDir/pf/az-ratings-sweep-users-02.csv"
+
+    algorithm 'algorithms/amazon/sweep-pf-2.groovy'
+
+    predict {
+        metric 'rmse'
+        metric 'ndcg'
+    }
+    recommend {
+        listSize 100
+        metric 'ndcg'
+        metric 'map'
+    }
+}
+
+task sweepAZExplicitPF03(type: TrainTest, group: 'optimize') {
+
+    dataSet 'data/az-tt.yaml'
+
+    outputFile "$buildDir/pf/az-ratings-sweep-results-03.csv"
+    userOutputFile "$buildDir/pf/az-ratings-sweep-users-03.csv"
+
+    algorithm 'algorithms/amazon/sweep-pf-3.groovy'
+
+    predict {
+        metric 'rmse'
+        metric 'ndcg'
+    }
+    recommend {
+        listSize 100
+        metric 'ndcg'
+        metric 'map'
+    }
+}
+
+task sweepAZExplicitPF04(type: TrainTest, group: 'optimize') {
+
+    dataSet 'data/az-tt.yaml'
+
+    outputFile "$buildDir/pf/az-ratings-sweep-results-04.csv"
+    userOutputFile "$buildDir/pf/az-ratings-sweep-users-04.csv"
+
+    algorithm 'algorithms/amazon/sweep-pf-4.groovy'
+
+    predict {
+        metric 'rmse'
+        metric 'ndcg'
+    }
+    recommend {
+        listSize 100
+        metric 'ndcg'
+        metric 'map'
+    }
+}
+
+task sweepAZExplicitPF05(type: TrainTest, group: 'optimize') {
+
+    dataSet 'data/az-tt.yaml'
+
+    outputFile "$buildDir/pf/az-ratings-sweep-results-05.csv"
+    userOutputFile "$buildDir/pf/az-ratings-sweep-users-05.csv"
+
+    algorithm 'algorithms/amazon/sweep-pf-5.groovy'
+
+    predict {
+        metric 'rmse'
+        metric 'ndcg'
+    }
+    recommend {
+        listSize 100
+        metric 'ndcg'
+        metric 'map'
+    }
+}
+
+
+task sweepAZImplicitPopularity(type: TrainTest, group: 'optimize') {
+
+    dataSet 'data/az-tt.yaml'
+
+    outputFile "$buildDir/popular-im/az-implicit-sweep-results.csv"
+    userOutputFile "$buildDir/popular-im/az-implicit-sweep-users.csv"
+
+    algorithm 'Popular', 'algorithms/amazon/popularity.groovy'
+
+    recommend {
+        listSize 100
+        metric 'ndcg'
+        metric 'map'
+    }
+}
+
+task sweepAZImplicitFunkSVD(type: TrainTest, group: 'optimize') {
+    dataSet 'data/az-tt.yaml'
+
+    outputFile "$buildDir/funksvd-im/az-implicit-sweep-results.csv"
+    userOutputFile "$buildDir/funksvd-im/az-implicit-sweep-users.csv"
+
+    algorithm 'algorithms/amazon/sweep-funksvd-implicit.groovy'
+
+    recommend {
+        listSize 100
+        metric 'ndcg'
+        metric 'map'
+    }
+}
+
+task sweepAZImplicitItemItem(type: TrainTest, group: 'optimize') {
+    dataSet 'data/az-tt.yaml'
+
+    outputFile "$buildDir/itemitem-im/az-implicit-sweep-results.csv"
+    userOutputFile "$buildDir/itemitem-im/az-implicit-sweep-users.csv"
+
+    algorithm 'algorithms/amazon/sweep-item-item-implicit.groovy'
+
+    recommend {
+        listSize 100
+        metric 'ndcg'
+        metric 'map'
+    }
+}
+
+task sweepAZImplicitUserUser(type: TrainTest, group: 'optimize') {
+    dataSet 'data/az-tt.yaml'
+
+    outputFile "$buildDir/useruser-im/az-implicit-sweep-results.csv"
+    userOutputFile "$buildDir/useruser-im/az-implicit-sweep-users.csv"
+
+    algorithm 'algorithms/amazon/sweep-user-user-implicit.groovy'
+
+    recommend {
+        listSize 100
+        metric 'ndcg'
+        metric 'map'
+    }
+}
+
+task sweepAZImplicitPF(type: TrainTest, group: 'optimize') {
+    dataSet 'data/az-tt.yaml'
+
+    outputFile "$buildDir/pf-im/az-implicit-sweep-results.csv"
+    userOutputFile "$buildDir/pf-im/az-implicit-sweep-users.csv"
+
+    algorithm 'algorithms/amazon/sweep-pf-implicit.groovy'
+
+    recommend {
+        listSize 100
+        metric 'ndcg'
+        metric 'map'
+    }
+}
+
+task sweepAZImplicitPF01(type: TrainTest, group: 'optimize') {
+    dataSet 'data/az-tt.yaml'
+
+    outputFile "$buildDir/pf-im/az-implicit-sweep-results-01.csv"
+    userOutputFile "$buildDir/pf-im/az-implicit-sweep-users-01.csv"
+
+    algorithm 'algorithms/amazon/sweep-pf-implicit-1.groovy'
+
+    recommend {
+        listSize 100
+        metric 'ndcg'
+        metric 'map'
+    }
+}
+
+task sweepAZImplicitPF02(type: TrainTest, group: 'optimize') {
+    dataSet 'data/az-tt.yaml'
+
+    outputFile "$buildDir/pf-im/az-implicit-sweep-results-02.csv"
+    userOutputFile "$buildDir/pf-im/az-implicit-sweep-users-02.csv"
+
+    algorithm 'algorithms/amazon/sweep-pf-implicit-2.groovy'
+
+    recommend {
+        listSize 100
+        metric 'ndcg'
+        metric 'map'
+    }
+}
+
+task sweepAZImplicitPF03(type: TrainTest, group: 'optimize') {
+    dataSet 'data/az-tt.yaml'
+
+    outputFile "$buildDir/pf-im/az-implicit-sweep-results-03.csv"
+    userOutputFile "$buildDir/pf-im/az-implicit-sweep-users-03.csv"
+
+    algorithm 'algorithms/amazon/sweep-pf-implicit-3.groovy'
+
+    recommend {
+        listSize 100
+        metric 'ndcg'
+        metric 'map'
+    }
+}
+
+task sweepAZImplicitPF04(type: TrainTest, group: 'optimize') {
+    dataSet 'data/az-tt.yaml'
+
+    outputFile "$buildDir/pf-im/az-implicit-sweep-results-04.csv"
+    userOutputFile "$buildDir/pf-im/az-implicit-sweep-users-04.csv"
+
+    algorithm 'algorithms/amazon/sweep-pf-implicit-4.groovy'
+
+    recommend {
+        listSize 100
+        metric 'ndcg'
+        metric 'map'
+    }
+}
+
+task sweepAZImplicitPF05(type: TrainTest, group: 'optimize') {
+    dataSet 'data/az-tt.yaml'
+
+    outputFile "$buildDir/pf-im/az-implicit-sweep-results-05.csv"
+    userOutputFile "$buildDir/pf-im/az-implicit-sweep-users-05.csv"
+
+    algorithm 'algorithms/amazon/sweep-pf-implicit-5.groovy'
+
+    recommend {
+        listSize 100
+        metric 'ndcg'
+        metric 'map'
+    }
+}
+

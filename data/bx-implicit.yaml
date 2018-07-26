@@ -1,0 +1,4 @@
+ratings:
+  file: ../build/bx-implicit.csv
+  format: csv
+  entity_type: rating

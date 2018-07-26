@@ -1,0 +1,87 @@
+import org.lenskit.gradle.*
+
+task sampleBXExplicit(type: Exec, group: 'prepare') {
+    executable 'Rscript'
+    inputs.file 'preproc/sample-users.R'
+    outputs.file "$buildDir/bx-ratings.csv"
+
+    args 'preproc/sample-users.R'
+    args '--rating-table', 'bx_explicit_ratings'
+    args '--rating-file', "$buildDir/bx-ratings.csv"
+    args '--user-output', "$buildDir/sample-users-explicit.csv"
+    args '--rating-output', "$buildDir/sample-ratings-explicit.csv"
+    args '--stub-output', "$buildDir/sample-user-stubs-explicit.csv"
+}
+
+task sampleBXImplicit(type: Exec, group: 'prepare') {
+    executable 'Rscript'
+    inputs.file 'preproc/sample-users.R'
+    outputs.file "$buildDir/bx-implicit.csv"
+
+    args 'preproc/sample-users.R'
+    args '--rating-table', 'bx_all_ratings'
+    args '--rating-file', "$buildDir/bx-implicit.csv"
+    args '--user-output', "$buildDir/sample-users-implicit.csv"
+    args '--rating-output', "$buildDir/sample-ratings-implicit.csv"
+    args '--stub-output', "$buildDir/sample-user-stubs-implicit.csv"
+}
+
+/* Run the LensKit Explicit evaluation on Book Crossing Dataset*/
+task evaluateBXExplicit(type: TrainTest, group: 'evaluate') {
+    description 'Runs the LensKit evaluation.'
+
+    outputFile "$buildDir/eval-results-explicit.csv"
+
+    userOutputFile "$buildDir/eval-users-explicit.csv"
+
+    // configure our algorithms
+    algorithm 'UserUser', 'algorithms/bx/user-user.groovy'
+    algorithm 'ItemItem', 'algorithms/bx/item-item.groovy'
+    algorithm 'Bias', 'algorithms/bx/pers-mean.groovy'
+    algorithm 'FunkSVD', 'algorithms/bx/funksvd.groovy'
+    algorithm 'Popularity', 'algorithms/bx/popularity.groovy'
+    algorithm 'PF', 'algorithms/bx/pf.groovy'
+
+
+    dataSet {
+        trainSource "data/train-explicit.yaml"
+        testSource "data/test-explicit.yaml"
+    }
+    recommend {
+        listSize 100
+        candidateItems "allItems"
+        excludeItems "user.trainItems"
+        outputFile "$buildDir/eval-recommendation-explicit.csv"
+    }
+
+}
+
+/* Run the Lenskit Implicit evaluation on Book Crossing Dataset*/
+task evaluateBXImplicit(type: TrainTest, group: 'evaluate') {
+    description 'Runs the Lenskit implicit evaluation.'
+
+    logFile "$buildDir/implicit.log"
+    logFileLevel 'DEBUG'
+
+    outputFile "$buildDir/eval-results-implicit.csv"
+    userOutputFile "$buildDir/eval-users-implicit.csv"
+
+    // configure our algorithms
+    algorithm 'UserUser-Implicit', 'algorithms/bx/user-user-implicit.groovy'
+    algorithm 'ItemItem-Implicit', 'algorithms/bx/item-item-implicit.groovy'
+    algorithm 'FunkSVD-Implicit', 'algorithms/bx/funksvd-implicit.groovy'
+    algorithm 'Popularity-Implicit', 'algorithms/bx/popularity.groovy'
+    algorithm 'PF-Implicit', 'algorithms/bx/pf-implicit.groovy'
+
+    dataSet {
+        trainSource "data/train-implicit.yaml"
+        testSource "data/test-implicit.yaml"
+    }
+
+    recommend {
+        listSize 100
+        candidateItems "allItems"
+        excludeItems "user.trainItems"
+        outputFile "$buildDir/eval-recommendation-implicit.csv"
+    }
+}
