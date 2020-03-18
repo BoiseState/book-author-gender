@@ -1,0 +1,21 @@
+cmd: python -m scripts.train_model  GR-I bpr
+deps:
+- path: bookgender/algorithms/bpr.py
+  md5: 081433ad549e146182ccc657f77ee5bc
+- path: data/GR-I/tuning/bpr.json
+  md5: ac7ad0478388d83250529fc2f735bb98
+- path: data/GR-I/ratings.parquet
+  md5: 3a43bd07ef0e55b7cba2617d48c6ee41
+outs:
+- path: data/GR-I/models/bpr.model
+  md5: e65331e3d11d2ecd47984149114b028d
+  cache: true
+  metric: false
+  persist: false
+- metric: true
+  path: data/GR-I/models/bpr.json
+  md5: 772255d1e50819211427525b24db54d8
+  cache: true
+  persist: false
+wdir: ../../..
+md5: e76d81c37fe8530b48bbf4e7bd4fce77

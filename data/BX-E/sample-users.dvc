@@ -1,0 +1,26 @@
+cmd: python -m scripts.sample_users BX-E
+deps:
+- md5: 5ed40578850434b9cbe35a4cac3def88
+  path: scripts/sample_users.py
+- md5: 395dbe40b2bddbfb0048c4817b7eba2a
+  path: data/version-stamp.txt
+- md5: 48566b768782e896794a631dbee42942
+  path: data/BX-E/ratings.parquet
+md5: 49e5443b79fd6144f5a5b2fa16937793
+outs:
+- cache: true
+  md5: bc0a2e20f3504af20c26bea0dfa45887
+  metric: false
+  path: data/BX-E/sample-users.csv
+  persist: false
+- cache: true
+  md5: 4fa77e4a8ad26f565374d949b13bdf56
+  metric: false
+  path: data/BX-E/sample-ratings.csv
+  persist: false
+- cache: true
+  md5: b8a62f7c1ea8bb26da729324f56834a0
+  metric: true
+  path: data/BX-E/sample-stats.json
+  persist: false
+wdir: ../..

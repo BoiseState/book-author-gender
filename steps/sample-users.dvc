@@ -1,0 +1,37 @@
+cmd: python -m scripts.aggregate --users
+deps:
+- path: data/AZ/sample-users.csv
+  md5: b1d4d02f9fd67d5ab80bba3ec87ae7cc
+- path: data/AZ/sample-ratings.csv
+  md5: d8a6456011ad78260551f2a0ab274b26
+- path: data/BX-E/sample-users.csv
+  md5: bc0a2e20f3504af20c26bea0dfa45887
+- path: data/BX-E/sample-ratings.csv
+  md5: 4fa77e4a8ad26f565374d949b13bdf56
+- path: data/BX-I/sample-users.csv
+  md5: 67fe9d012af9671a7066772ff7a07f62
+- path: data/BX-I/sample-ratings.csv
+  md5: 3d2d654f62138512e2a49f0a229cc484
+- path: data/GR-E/sample-users.csv
+  md5: 10a5d77388f87d3a988baf89c9b98ddb
+- path: data/GR-E/sample-ratings.csv
+  md5: 27bcaba2f791430ee6f8fbfb8001d889
+- path: data/GR-I/sample-users.csv
+  md5: e73561663da36c040609ab574ec16485
+- path: data/GR-I/sample-ratings.csv
+  md5: fc90a275e30c11ea298b0ab1f2a7072d
+- path: scripts/aggregate.py
+  md5: 280790430ce3dca94168bcc5c625f866
+outs:
+- path: data/study-users.csv
+  md5: 123e5a813bfa0d2ad59839c59836d472
+  cache: true
+  metric: false
+  persist: false
+- path: data/study-ratings.csv
+  md5: c1d238d5b6340048d3d4688bbf2f72f6
+  cache: true
+  metric: false
+  persist: false
+wdir: ..
+md5: b0a61b1090a0b374d3e237ad255a48d7

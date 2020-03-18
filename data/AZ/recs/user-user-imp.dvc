@@ -1,0 +1,26 @@
+cmd: python -m scripts.recommend AZ user-user-imp
+deps:
+- path: scripts/recommend.py
+  md5: ab700085f93e80dd7657a692a4f20712
+- path: data/AZ/sample-users.csv
+  md5: b1d4d02f9fd67d5ab80bba3ec87ae7cc
+- path: data/AZ/models/user-user-imp.model
+  md5: c1fdb498ecf93c593387ebb064f214a0
+outs:
+- path: data/AZ/recs/user-user-imp.parquet
+  md5: 2627d196963af62970c03f63e99ae6f5
+  cache: true
+  metric: false
+  persist: false
+- path: data/AZ/recs/user-user-imp.csv.gz
+  md5: 3662102a40ed33b9024f2abc9363a01d
+  cache: true
+  metric: false
+  persist: false
+- metric: true
+  path: data/AZ/recs/user-user-imp.json
+  md5: 5b1974ea360f38ac3f4351b5ace141e6
+  cache: true
+  persist: false
+wdir: ../../..
+md5: bfa9d0c6d4baf7e6852fca3e1fec2806

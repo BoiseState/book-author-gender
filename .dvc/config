@@ -1,0 +1,8 @@
+['remote "minio"']
+url = s3://book-rec-fairness
+endpointurl = https://abyss.boisestate.edu
+profile = piret-minio
+[core]
+remote = minio
+[cache]
+protected = true

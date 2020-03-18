@@ -1,0 +1,16 @@
+md5: c40a78f743cc3ae3a910cae333c74678
+cmd: python -m scripts.run-notebook --overwrite AlgoPerf.ipynb
+wdir: .
+deps:
+- md5: 38da73589ee46e311973eecc2f31fdc7
+  path: AlgoPerf.ipynb
+- path: data/rec-perf.csv
+  md5: 5d9af4d209e0b4ec9a9acacbea01e78e
+- path: data/rec-tune.json
+  md5: 7a4233cdb93e2eeeef1e73282222385e
+outs:
+- md5: 457f36ee1866e206217d502cc3ee89ff
+  path: AlgoPerf.html
+  cache: false
+  metric: false
+  persist: false

@@ -1,4 +1,0 @@
-- file: "../build/bx-ratings.csv"
-  format: csv
-  entity: rating
-  header: true

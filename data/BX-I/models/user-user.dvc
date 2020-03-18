@@ -1,0 +1,21 @@
+cmd: python -m scripts.train_model  BX-I user-user
+deps:
+- path: bookgender/algorithms/user_user.py
+  md5: 316ebcd6b040c5e80baa889e6cdbcf97
+- path: data/BX-I/tuning/user-user.json
+  md5: 7abdbec2bcc88fe50f6871f780aa98be
+- path: data/BX-I/ratings.parquet
+  md5: 3d69f3df8b00127a78538232a7d13ba2
+outs:
+- path: data/BX-I/models/user-user.model
+  md5: 89e4771930ea7a9f6f7139b7da3ed261
+  cache: true
+  metric: false
+  persist: false
+- metric: true
+  path: data/BX-I/models/user-user.json
+  md5: 7d29e7a375fc35bbefede9d8d2564286
+  cache: true
+  persist: false
+wdir: ../../..
+md5: 07839a3e7f882037dd6331d4b08a15d5

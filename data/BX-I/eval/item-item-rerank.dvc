@@ -1,0 +1,23 @@
+cmd: python -m scripts.eval_algo --pretrained --rerank BX-I item-item
+deps:
+- path: scripts/eval_algo.py
+  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: data/BX-I/eval/item-item.model
+  md5: 80f27e7fdea46c40df9217fde1f538e2
+- path: data/BX-I/eval/test-ratings.parquet
+  md5: ce951afa66086d35769f0691d9747956
+- path: data/BX-I/tuning/item-item.json
+  md5: 309f9ff49e57efa47e2e62016ab20333
+outs:
+- path: data/BX-I/eval/item-item-rerank-recs.parquet
+  md5: 9820797b85ce6f437c7e076b512616ba
+  cache: true
+  metric: false
+  persist: false
+- path: data/BX-I/eval/item-item-rerank.csv
+  md5: c25da150ff02ede512a0dc32741c4717
+  cache: true
+  metric: false
+  persist: false
+wdir: ../../..
+md5: e199df9d9649d8c46724f0a9ae3a66d1

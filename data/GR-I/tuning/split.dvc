@@ -1,0 +1,30 @@
+cmd: python -m scripts.split_ratings GR-I
+deps:
+- path: data/GR-I/ratings.parquet
+  md5: 3a43bd07ef0e55b7cba2617d48c6ee41
+- path: scripts/split_ratings.py
+  md5: 9c6d7d37d4b551203a830c2306f60885
+outs:
+- path: data/GR-I/tuning/train-ratings.csv.gz
+  cache: true
+  metric: false
+  persist: false
+  md5: a164cfc448bad567cba0e7b815c5e326
+- path: data/GR-I/tuning/train-ratings.parquet
+  cache: true
+  metric: false
+  persist: false
+  md5: 2a8a843e0a9177055c77a887bf05c5cd
+- path: data/GR-I/tuning/test-ratings.csv.gz
+  cache: true
+  metric: false
+  persist: false
+  md5: b757c13c2e9daba0a0792e33a7d1146c
+- path: data/GR-I/tuning/test-ratings.parquet
+  cache: true
+  metric: false
+  persist: false
+  md5: e3da22b6ba5adbb6ba06ecd6600d216a
+wdir: ../../..
+md5: 390cb98786b824d1c9766d1e43671834
+locked: true

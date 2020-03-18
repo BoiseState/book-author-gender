@@ -1,6 +1,0 @@
-[submodule "ol-processing-tools"]
-	path = ol-processing-tools
-	url = ../ol-processing-tools.git
-[submodule "paper"]
-	path = paper
-	url = https://git.overleaf.com/8852224zqnhzgfpkcvh

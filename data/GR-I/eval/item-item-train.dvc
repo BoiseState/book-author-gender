@@ -1,0 +1,16 @@
+cmd: python -m scripts.train_model --train-data eval GR-I item-item
+deps:
+- path: bookgender/algorithms/item_item.py
+  md5: 0240a6e1726c57ee1a1969a05b81cb89
+- path: data/GR-I/tuning/item-item.json
+  md5: 747e95128ad3a909dcadd276c5f283f9
+- path: data/GR-I/eval/train-ratings.parquet
+  md5: 72552cacda7efa06a0efa797957d00e9
+outs:
+- path: data/GR-I/eval/item-item.model
+  md5: 3d75df676e453f8eeaae1ab5adb83889
+  cache: true
+  metric: false
+  persist: false
+wdir: ../../..
+md5: ae903ab35408f2d2f795e25b77d181cf

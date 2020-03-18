@@ -1,0 +1,26 @@
+cmd: python -m scripts.recommend GR-I bpr
+deps:
+- path: scripts/recommend.py
+  md5: ab700085f93e80dd7657a692a4f20712
+- path: data/GR-I/sample-users.csv
+  md5: e73561663da36c040609ab574ec16485
+- path: data/GR-I/models/bpr.model
+  md5: e65331e3d11d2ecd47984149114b028d
+outs:
+- path: data/GR-I/recs/bpr.parquet
+  md5: 16788dd3d8bc4c2e4fc931ac57867097
+  cache: true
+  metric: false
+  persist: false
+- path: data/GR-I/recs/bpr.csv.gz
+  md5: 153b986def703959cd924440ee869047
+  cache: true
+  metric: false
+  persist: false
+- metric: true
+  path: data/GR-I/recs/bpr.json
+  md5: 665e52b7166beee43f26f36668821ec3
+  cache: true
+  persist: false
+wdir: ../../..
+md5: 0c9f5cd8148e53841fde5d6982ebc42d

@@ -1,0 +1,23 @@
+cmd: python -m scripts.eval_algo --pretrained BX-I user-user
+deps:
+- path: scripts/eval_algo.py
+  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: data/BX-I/eval/user-user.model
+  md5: b45e73c4012699df7deac10b3a58bee7
+- path: data/BX-I/eval/test-ratings.parquet
+  md5: ce951afa66086d35769f0691d9747956
+- path: data/BX-I/tuning/user-user.json
+  md5: 7abdbec2bcc88fe50f6871f780aa98be
+outs:
+- path: data/BX-I/eval/user-user-recs.parquet
+  md5: b0606d1cb4c7cce4014072e3a3d88f9c
+  cache: true
+  metric: false
+  persist: false
+- metric: true
+  path: data/BX-I/eval/user-user-metrics.json
+  md5: 38e18e21e151653df6b377601d882e84
+  cache: true
+  persist: false
+wdir: ../../..
+md5: 8feda32063a8051a66026ab1bc9b6a5b

@@ -1,0 +1,23 @@
+cmd: python -m scripts.eval_algo GR-I item-item
+deps:
+- path: scripts/eval_algo.py
+  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: data/GR-I/eval/item-item.model
+  md5: 3d75df676e453f8eeaae1ab5adb83889
+- path: data/GR-I/eval/test-ratings.parquet
+  md5: 0d1e9582b4caa1a9fb5c00da36d5a1aa
+- path: data/GR-I/tuning/item-item.json
+  md5: 747e95128ad3a909dcadd276c5f283f9
+outs:
+- path: data/GR-I/eval/item-item-recs.parquet
+  md5: b00b626d3286896047c5b265dd8a174b
+  cache: true
+  metric: false
+  persist: false
+- metric: true
+  path: data/GR-I/eval/item-item-metrics.json
+  md5: 4547fbafeb9de9c86b894d6dbcd375c0
+  cache: true
+  persist: false
+wdir: ../../..
+md5: 377821f02519490eaab75507ae3f3851

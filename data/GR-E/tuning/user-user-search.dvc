@@ -1,0 +1,24 @@
+cmd: python -m scripts.search_model GR-E user-user
+deps:
+- path: scripts/search_model.py
+  md5: ceb12d6491c6b2adcf6b364dff30c6ec
+- path: data/GR-E/tuning/train-ratings.parquet
+  md5: 861d5a7727250e26345e1797ac080150
+- path: data/GR-E/tuning/test-ratings.parquet
+  md5: 8a6e869ad015618de28c349cf31efe7c
+- path: bookgender/algorithms/user_user.py
+  md5: 316ebcd6b040c5e80baa889e6cdbcf97
+outs:
+- path: data/GR-E/tuning/user-user.opt
+  md5: e36e48fd3d3164d700fc35f4c37201e6
+  cache: true
+  metric: false
+  persist: false
+- cache: false
+  metric: true
+  path: data/GR-E/tuning/user-user.json
+  md5: 81425f3982937995f723534b6c247727
+  persist: false
+wdir: ../../..
+md5: e87b651e2b1957149c37f766a475cf6d
+locked: true

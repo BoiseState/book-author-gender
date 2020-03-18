@@ -1,0 +1,25 @@
+cmd: python -m scripts.run-notebook --overwrite RecModelAnalysis.ipynb
+deps:
+- md5: 36513a1377b6df78d6fdddc4eb95e0ab
+  path: RecModelAnalysis.ipynb
+- path: data/profile-data.pkl
+  md5: 74eaba8f483e0c1c0cf3dec3fdc0d709
+- path: data/rec-data.pkl
+  md5: b529691a580939fccc6235aec0150027
+- path: data/BX-I/full-samples.h5
+  md5: 9022caebaca5d9aebc88f7b50f9b13aa
+- path: data/BX-E/full-samples.h5
+  md5: afa276ed86f88af3000c1f043170da8b
+- path: data/AZ/full-samples.h5
+  md5: 400e22570cdbb066f8eb4c8ca2a30c87
+- path: data/GR-I/full-samples.h5
+  md5: b7392f870334291e5332c6ae8cece458
+- path: data/GR-E/full-samples.h5
+  md5: e2337cde4b6b797f081a99c213eca92a
+outs:
+- md5: 4a6ba5b30c6758f4d75060cf2c297754
+  path: RecModelAnalysis.html
+  cache: false
+  metric: false
+  persist: false
+md5: eb733d46a5d5aafbd4b1ee29f6678d50

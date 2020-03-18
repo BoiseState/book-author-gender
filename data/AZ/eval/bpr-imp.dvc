@@ -1,0 +1,23 @@
+cmd: python -m scripts.eval_algo --drop-ratings -N bpr-imp --pretrained AZ bpr
+deps:
+- path: scripts/eval_algo.py
+  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: data/AZ/eval/bpr-imp.model
+  md5: ccd7bda8628e43b3f0a41092907f6f23
+- path: data/AZ/eval/test-ratings.parquet
+  md5: 14807f645afe40091a14a9be0b7045c9
+- path: data/AZ/tuning/bpr-imp.json
+  md5: 4fb124217be60caa17ebe3e02ef33d4f
+outs:
+- path: data/AZ/eval/bpr-imp-recs.parquet
+  md5: f7d7fc2cf75a66b421d13d15823cb738
+  cache: true
+  metric: false
+  persist: false
+- metric: true
+  path: data/AZ/eval/bpr-imp-metrics.json
+  md5: 023b8593b39d0b6ba3e59131dddb10c2
+  cache: true
+  persist: false
+wdir: ../../..
+md5: 3b0ec7b4f885f47d3458f7484e9265b2

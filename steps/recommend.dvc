@@ -1,0 +1,57 @@
+cmd: python -m scripts.aggregate --recs
+deps:
+- path: data/BX-E/recs/user-user.parquet
+  md5: d5bfc69f9786bf561f72e76ca07d06dc
+- path: data/BX-E/recs/item-item.parquet
+  md5: 272ec04982339734d5404fe9553f0d27
+- path: data/BX-E/recs/als.parquet
+  md5: b4d7a3c3fda0dcd8ece618f0437a6b3d
+- path: data/BX-I/recs/user-user.parquet
+  md5: e67af96189ebd18396d98bb5c68307ad
+- path: data/BX-I/recs/item-item.parquet
+  md5: 379fb493e0a1adde63bfc9e8e28be30a
+- path: data/BX-I/recs/wrls.parquet
+  md5: 03bf8b7316077e39857e147bf2fcf238
+- path: data/BX-I/recs/bpr.parquet
+  md5: 97ca73c4b4a2e028a958417b543bea6c
+- path: data/AZ/recs/user-user.parquet
+  md5: 2298488f9df7c24e576115521009f443
+- path: data/AZ/recs/item-item.parquet
+  md5: db80550f3a1ec5880e1bdfe109a7a838
+- path: data/AZ/recs/als.parquet
+  md5: 23141d7cdded4bcaa630b7529b464946
+- path: data/AZ/recs/user-user-imp.parquet
+  md5: 2627d196963af62970c03f63e99ae6f5
+- path: data/AZ/recs/item-item-imp.parquet
+  md5: 7edc67254f0144c1aea21f039249321f
+- path: data/AZ/recs/wrls-imp.parquet
+  md5: 8dbd4c35bf66234fd1ff6e09cf5b1100
+- path: data/AZ/recs/bpr-imp.parquet
+  md5: ea84124733baf7ab06c6afccc1748bbc
+- path: data/GR-E/recs/user-user.parquet
+  md5: 87f297876af03320287550d3c436aee2
+- path: data/GR-E/recs/item-item.parquet
+  md5: 648623b3b1068086fa5d9d80f502fbc5
+- path: data/GR-I/recs/user-user.parquet
+  md5: 2e68ed6bb981e55ae7da393fe3c0792d
+- path: data/GR-I/recs/item-item.parquet
+  md5: 887e5a26885403a6caf7772b54d68895
+- path: data/GR-I/recs/wrls.parquet
+  md5: 127f6aaed28ef111c550e9d0a22a5667
+- path: data/GR-I/recs/bpr.parquet
+  md5: 16788dd3d8bc4c2e4fc931ac57867097
+- path: scripts/aggregate.py
+  md5: 280790430ce3dca94168bcc5c625f866
+outs:
+- path: data/study-recs.csv.gz
+  md5: c910ee428970d2ce786dd0a939651d54
+  cache: true
+  metric: false
+  persist: false
+- path: data/study-recs.parquet
+  md5: 4f6c4502ae0e4159fcba61ff95f83ee7
+  cache: true
+  metric: false
+  persist: false
+wdir: ..
+md5: 2e57327675039060975b95de2ffbf99e

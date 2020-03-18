@@ -1,0 +1,23 @@
+cmd: python -m scripts.eval_algo --drop-ratings -N wrls-imp --pretrained AZ wrls
+deps:
+- path: scripts/eval_algo.py
+  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: data/AZ/eval/wrls-imp.model
+  md5: 35ef75af237a01257043105d1ea04796
+- path: data/AZ/eval/test-ratings.parquet
+  md5: 14807f645afe40091a14a9be0b7045c9
+- path: data/AZ/tuning/wrls-imp.json
+  md5: b59e14500a3f30cc28307adccc2f3593
+outs:
+- path: data/AZ/eval/wrls-imp-recs.parquet
+  md5: ccba8bf3be5a456d5cba6c47cb39dcbc
+  cache: true
+  metric: false
+  persist: false
+- metric: true
+  path: data/AZ/eval/wrls-imp-metrics.json
+  md5: 7ae3547a84fcfc823558cf6958d8d9b4
+  cache: true
+  persist: false
+wdir: ../../..
+md5: 4c4f978c5c3a1c3408b9ebdc2994df9b

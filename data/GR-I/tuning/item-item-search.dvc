@@ -1,0 +1,24 @@
+cmd: python -m scripts.search_model GR-I item-item
+deps:
+- path: scripts/search_model.py
+  md5: ceb12d6491c6b2adcf6b364dff30c6ec
+- path: data/GR-I/tuning/train-ratings.parquet
+  md5: 2a8a843e0a9177055c77a887bf05c5cd
+- path: data/GR-I/tuning/test-ratings.parquet
+  md5: e3da22b6ba5adbb6ba06ecd6600d216a
+- path: bookgender/algorithms/item_item.py
+  md5: 0240a6e1726c57ee1a1969a05b81cb89
+outs:
+- path: data/GR-I/tuning/item-item.opt
+  md5: b7f1687da726643daefe0894fc46afc6
+  cache: true
+  metric: false
+  persist: false
+- cache: false
+  metric: true
+  path: data/GR-I/tuning/item-item.json
+  md5: 747e95128ad3a909dcadd276c5f283f9
+  persist: false
+wdir: ../../..
+md5: db7af82c3ca93e0a5a8005888a7d008c
+locked: true

@@ -1,0 +1,20 @@
+deps:
+- md5: 123e5a813bfa0d2ad59839c59836d472
+  path: data/study-users.csv
+- md5: c910ee428970d2ce786dd0a939651d54
+  path: data/study-recs.csv.gz
+- path: PySummary.html
+  md5: 37c4cd02509855b00692cbf74e34d5a4
+- path: AlgoPerf.html
+  md5: 457f36ee1866e206217d502cc3ee89ff
+- path: ProfileDataPrep.html
+  md5: 6c9275d89ea04a660d8097fa85414ea0
+- path: ProfileModelAnalysis.html
+  md5: 914efd068befc3c159bb9d919d8b02ed
+- path: ProfileModelFullAnalysis.html
+  md5: 8ee2d7a45009ea588509d1ee01e1fd3b
+- path: RecDataPrep.html
+  md5: 07e2741a5d3a91787b947d9acde926dd
+- path: RecModelAnalysis.html
+  md5: 4a6ba5b30c6758f4d75060cf2c297754
+md5: 97183bfbd5034fbf6e44b3b67162ccf5

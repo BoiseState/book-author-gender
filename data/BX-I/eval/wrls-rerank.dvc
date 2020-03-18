@@ -1,0 +1,23 @@
+cmd: python -m scripts.eval_algo --pretrained --rerank BX-I wrls
+deps:
+- path: scripts/eval_algo.py
+  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: data/BX-I/eval/wrls.model
+  md5: 4ab8bec9ec966cb2e2cde83603906198
+- path: data/BX-I/eval/test-ratings.parquet
+  md5: ce951afa66086d35769f0691d9747956
+- path: data/BX-I/tuning/wrls.json
+  md5: 0a1584ec794cd8623d8b977882d7dd92
+outs:
+- path: data/BX-I/eval/wrls-rerank-recs.parquet
+  md5: a0dac0400bb8fd88c18c9eee29de088a
+  cache: true
+  metric: false
+  persist: false
+- path: data/BX-I/eval/wrls-rerank.csv
+  md5: a96695822bae5d7cab6259cb65ea5c6b
+  cache: true
+  metric: false
+  persist: false
+wdir: ../../..
+md5: 3b5cee70f66e921c87439a1d65b9ef7e

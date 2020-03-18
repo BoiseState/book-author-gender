@@ -1,0 +1,23 @@
+cmd: python -m scripts.eval_algo --pretrained AZ item-item
+deps:
+- path: scripts/eval_algo.py
+  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: data/AZ/eval/item-item.model
+  md5: ad48c7e7921e6d6e6a13e68677f2111c
+- path: data/AZ/eval/test-ratings.parquet
+  md5: 14807f645afe40091a14a9be0b7045c9
+- path: data/AZ/tuning/item-item.json
+  md5: 3f3a14a85d0020ead808622c55060a0a
+outs:
+- path: data/AZ/eval/item-item-recs.parquet
+  md5: 56b63f5ec7478cd98082f0109fe36b1c
+  cache: true
+  metric: false
+  persist: false
+- metric: true
+  path: data/AZ/eval/item-item-metrics.json
+  md5: 7caeec0e82297d6ce33a48b1f406fa40
+  cache: true
+  persist: false
+wdir: ../../..
+md5: c42bd211a79c3aed11ae7b0eb3089ec0

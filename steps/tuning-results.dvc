@@ -1,0 +1,52 @@
+cmd: python -m scripts.aggregate --rec-tune
+deps:
+- path: data/BX-E/tuning/user-user.json
+  md5: 50fd40f0ceef51a4e3e529f84bdce15b
+- path: data/BX-E/tuning/item-item.json
+  md5: 0b292e8423a99c94ef9668a6575c5a82
+- path: data/BX-E/tuning/als.json
+  md5: ff7679dcb4491c12031522c4cb3ce0f8
+- path: data/BX-I/tuning/user-user.json
+  md5: 7abdbec2bcc88fe50f6871f780aa98be
+- path: data/BX-I/tuning/item-item.json
+  md5: 309f9ff49e57efa47e2e62016ab20333
+- path: data/BX-I/tuning/wrls.json
+  md5: 0a1584ec794cd8623d8b977882d7dd92
+- path: data/BX-I/tuning/bpr.json
+  md5: 208fb35169f8376a4faee070b19e2e30
+- path: data/AZ/tuning/user-user.json
+  md5: cdf7fa82dbcb7bb596e8098f3f239834
+- path: data/AZ/tuning/item-item.json
+  md5: 3f3a14a85d0020ead808622c55060a0a
+- path: data/AZ/tuning/als.json
+  md5: c096c581c6cb187328a13b93afe9b288
+- path: data/AZ/tuning/user-user-imp.json
+  md5: a942d231c1ce93fc7900fe2f57af868d
+- path: data/AZ/tuning/item-item-imp.json
+  md5: 19b2a99a6a00c1320ca5d46e5412dca4
+- path: data/AZ/tuning/wrls-imp.json
+  md5: b59e14500a3f30cc28307adccc2f3593
+- path: data/AZ/tuning/bpr-imp.json
+  md5: 4fb124217be60caa17ebe3e02ef33d4f
+- path: data/GR-E/tuning/user-user.json
+  md5: 81425f3982937995f723534b6c247727
+- path: data/GR-E/tuning/item-item.json
+  md5: 75e06020ba965a8bb7a75d1f379e113a
+- path: data/GR-I/tuning/user-user.json
+  md5: 807351c5c2b16cd4abd294ad47553076
+- path: data/GR-I/tuning/item-item.json
+  md5: 747e95128ad3a909dcadd276c5f283f9
+- path: data/GR-I/tuning/wrls.json
+  md5: 8f65bb547a1b42a9d870b02d2612df0d
+- path: data/GR-I/tuning/bpr.json
+  md5: ac7ad0478388d83250529fc2f735bb98
+- path: scripts/aggregate.py
+  md5: 280790430ce3dca94168bcc5c625f866
+outs:
+- path: data/rec-tune.json
+  md5: 7a4233cdb93e2eeeef1e73282222385e
+  cache: true
+  metric: false
+  persist: false
+wdir: ..
+md5: 1c7de1920aa37e5d1ba79a04cce14d5a

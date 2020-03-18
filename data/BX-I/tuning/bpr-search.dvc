@@ -1,0 +1,24 @@
+cmd: python -m scripts.search_model BX-I bpr
+deps:
+- path: scripts/search_model.py
+  md5: ceb12d6491c6b2adcf6b364dff30c6ec
+- path: data/BX-I/tuning/train-ratings.parquet
+  md5: c880d96b53ed419ab21beab18ca9ae63
+- path: data/BX-I/tuning/test-ratings.parquet
+  md5: 1be15559f6c2929f879261a13c83535d
+- path: bookgender/algorithms/bpr.py
+  md5: e5ddd4c699c33eab32bb454bfd1e3301
+outs:
+- path: data/BX-I/tuning/bpr.opt
+  md5: 70a59efba9deb5196a54839c999ed415
+  cache: true
+  metric: false
+  persist: false
+- cache: false
+  metric: true
+  path: data/BX-I/tuning/bpr.json
+  md5: 208fb35169f8376a4faee070b19e2e30
+  persist: false
+wdir: ../../..
+md5: 36e7530fc44f261789db94307fce5de8
+locked: true

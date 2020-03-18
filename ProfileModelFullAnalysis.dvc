@@ -1,0 +1,29 @@
+md5: fcaa044b464240d3e6234b756e6ec82e
+cmd: python -m scripts.run-notebook -o ProfileModelFullAnalysis.html -p ProfileModelFullAnalysis.json
+  ProfileModelAnalysis.ipynb
+deps:
+- path: ProfileModelFullAnalysis.json
+  md5: 760f09b9bb33cb84334d21d12f6697ea
+- md5: 74dbddd95095416f601b8c00e7bba213
+  path: ProfileModelAnalysis.ipynb
+# depend on profile model analysis outputs, to force ordering
+- path: ProfileModelAnalysis.html
+  md5: 914efd068befc3c159bb9d919d8b02ed
+- path: data/profile-data.pkl
+  md5: 74eaba8f483e0c1c0cf3dec3fdc0d709
+- path: data/BX-I/full-samples.h5
+  md5: 9022caebaca5d9aebc88f7b50f9b13aa
+- path: data/BX-E/full-samples.h5
+  md5: afa276ed86f88af3000c1f043170da8b
+- path: data/AZ/full-samples.h5
+  md5: 400e22570cdbb066f8eb4c8ca2a30c87
+- path: data/GR-I/full-samples.h5
+  md5: b7392f870334291e5332c6ae8cece458
+- path: data/GR-E/full-samples.h5
+  md5: e2337cde4b6b797f081a99c213eca92a
+outs:
+- md5: 8ee2d7a45009ea588509d1ee01e1fd3b
+  path: ProfileModelFullAnalysis.html
+  cache: false
+  metric: false
+  persist: false

@@ -1,0 +1,6 @@
+/train-ratings.csv.gz
+/train-ratings.parquet
+/test-ratings.csv.gz
+/test-ratings.parquet
+/user-user.opt
+/item-item.opt

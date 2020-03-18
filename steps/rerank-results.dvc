@@ -1,0 +1,52 @@
+cmd: python -m scripts.aggregate --rec-rerank
+deps:
+- path: data/BX-E/eval/user-user-rerank.csv
+  md5: a23db6c46b597f7912b1a6ee7b79e252
+- path: data/BX-E/eval/item-item-rerank.csv
+  md5: 0a54b457c67bb96705da56fc5f2d891d
+- path: data/BX-E/eval/als-rerank.csv
+  md5: 9e07cf6373b69f2d0620c0f25545ca10
+- path: data/BX-I/eval/user-user-rerank.csv
+  md5: c71810878a6c8dc6744f8088e74822e8
+- path: data/BX-I/eval/item-item-rerank.csv
+  md5: c25da150ff02ede512a0dc32741c4717
+- path: data/BX-I/eval/wrls-rerank.csv
+  md5: a96695822bae5d7cab6259cb65ea5c6b
+- path: data/BX-I/eval/bpr-rerank.csv
+  md5: 5274ed9642850266aa03ef055d359786
+- path: data/AZ/eval/user-user-rerank.csv
+  md5: 85f9a5cbe7867e1fb28b27e1f4191f26
+- path: data/AZ/eval/item-item-rerank.csv
+  md5: 88a11c72a580f71b84d5cb1237bda8e2
+- path: data/AZ/eval/als-rerank.csv
+  md5: bc5a7042e1404e5fc87049c6b81ae261
+- path: data/AZ/eval/user-user-imp-rerank.csv
+  md5: 515c891ff018d99b01e45cfa6213076a
+- path: data/AZ/eval/item-item-imp-rerank.csv
+  md5: de21638d09f4b6fff58176b41f4dd27e
+- path: data/AZ/eval/wrls-imp-rerank.csv
+  md5: dc1723ecc537d283118c69e1923f4714
+- path: data/AZ/eval/bpr-imp-rerank.csv
+  md5: b769a55e556b149dfb12bf68a8f30f03
+- path: data/GR-E/eval/user-user-rerank.csv
+  md5: 98569954f1746ca1cb574af86d29bcf3
+- path: data/GR-E/eval/item-item-rerank.csv
+  md5: b8a5e0ed46bfc80b841e8bed73df2a05
+- path: data/GR-I/eval/user-user-rerank.csv
+  md5: 10b43ace88cc166b21a6bb0c1673f1dd
+- path: data/GR-I/eval/item-item-rerank.csv
+  md5: f7200e04d24d0a52549ce421b608a48c
+- path: data/GR-I/eval/wrls-rerank.csv
+  md5: 2bcb44d452f580b7bbc10d144c030443
+- path: data/GR-I/eval/bpr-rerank.csv
+  md5: 4f7a8be714f59e73447a0269974534a5
+- path: scripts/aggregate.py
+  md5: 280790430ce3dca94168bcc5c625f866
+outs:
+- path: data/rerank-perf.csv
+  md5: ff3ec7015548cb1b660dcb54683ddc24
+  cache: true
+  metric: false
+  persist: false
+wdir: ..
+md5: f41784f2599d63230a56d74472887ef0

@@ -1,0 +1,26 @@
+md5: 56daf820792d202ce53b40bf7390f51f
+cmd: python -m scripts.run-notebook -o ProfileFullDummyAnalysis.html -p ProfileFullDummyAnalysis.json
+  ProfileModelAnalysis.ipynb
+wdir: .
+deps:
+- path: ProfileFullDummyAnalysis.json
+  md5: 555a722670df64308b45e47454afee7f
+- md5: 899aca4bc1e3e71b7ea2dff0c9e6ac80
+  path: ProfileModelAnalysis.ipynb
+# depend on profile model analysis outputs, to force ordering
+- path: ProfileModelAnalysis.html
+  md5: a9bfa562503d0f3a340de225f75defba
+- path: data/profile-data.pkl
+  md5: 7e48ba546f8bbc4c5e74924ad7e556bb
+- path: data/BX-I/full-dcode-samples.h5
+  md5: 1b0fbe50bf5d99cd507d6b003815aed9
+- path: data/BX-E/full-dcode-samples.h5
+  md5: dcb9e65952f57184854949bc7e6d3a4e
+- path: data/AZ/full-dcode-samples.h5
+  md5: 687ed7231eca9fe385d8da30201cf28e
+outs:
+- md5: e23f056f950a3f22d08192d1e5303db6
+  path: ProfileFullDummyAnalysis.html
+  cache: false
+  metric: false
+  persist: false

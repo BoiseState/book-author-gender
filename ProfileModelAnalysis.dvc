@@ -1,0 +1,23 @@
+md5: 9422c8a530bf333478bca1e106ed3aff
+cmd: python -m scripts.run-notebook --overwrite ProfileModelAnalysis.ipynb
+deps:
+- md5: 74dbddd95095416f601b8c00e7bba213
+  path: ProfileModelAnalysis.ipynb
+- path: data/profile-data.pkl
+  md5: 74eaba8f483e0c1c0cf3dec3fdc0d709
+- path: data/BX-I/profile-samples.h5
+  md5: 9af737438d8134b520006ce96283368a
+- path: data/BX-E/profile-samples.h5
+  md5: 3aa72e2ada645d05defedbc61324bd8d
+- path: data/AZ/profile-samples.h5
+  md5: 83bd3fa761c8c7b01bb46360a8b79a29
+- path: data/GR-I/profile-samples.h5
+  md5: 68c852b263defaca1f9fd3d5a0cf6476
+- path: data/GR-E/profile-samples.h5
+  md5: ff0b41fd53fd8504299f6522fd4b6d94
+outs:
+- md5: 914efd068befc3c159bb9d919d8b02ed
+  path: ProfileModelAnalysis.html
+  cache: false
+  metric: false
+  persist: false

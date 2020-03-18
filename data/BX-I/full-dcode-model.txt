@@ -1,0 +1,26 @@
+Inference for Stan model: full_6f92c84df7342b4cbfa7fbe116279bd3.
+4 chains, each with iter=2000; warmup=1000; thin=1; 
+post-warmup draws per chain=1000, total post-warmup draws=4000.
+
+          mean se_mean     sd   2.5%    25%    50%    75%  97.5%  n_eff   Rhat
+mu     -5.3e-3  1.4e-3 8.7e-3  -0.02  -0.01-5.2e-3 7.1e-4   0.01     39   1.11
+sigma   8.8e-3  2.6e-3 6.5e-3 2.7e-3 3.9e-3 6.3e-3   0.01   0.02      6   1.67
+nMean    39.78    0.05   2.02  35.98  38.38  39.77  41.14  43.88   1876    1.0
+nDisp     0.36  3.3e-4   0.01   0.34   0.35   0.36   0.37   0.39   1917    1.0
+recB[1]  -0.02    0.02   0.11  -0.31  -0.05  -0.02   0.02   0.16     43   1.09
+recB[2]  -0.08    0.02   0.12   -0.4  -0.12  -0.06  -0.02    0.1     26   1.15
+recB[3]  -0.11  9.0e-3   0.05  -0.22  -0.13   -0.1  -0.08  -0.02     25   1.17
+recB[4]  -0.08  6.8e-3   0.04  -0.16  -0.09  -0.07  -0.06-8.4e-3     27   1.14
+recS[1]   -0.4     7.9  12.81 -26.08  -6.55  -2.33   5.76  25.26      3   2.36
+recS[2]  -1.99    7.86  13.21 -30.86  -7.75  -3.76   5.51  24.37      3   2.15
+recS[3]  -0.15    3.64   5.99 -10.02  -3.59  -1.43   1.75  14.22      3    2.7
+recS[4]   -0.7    2.46   4.14  -8.39  -3.08  -1.25   0.34   9.13      3   2.26
+recV[1]   0.06  3.8e-3   0.02   0.02   0.04   0.06   0.07    0.1     28   1.12
+recV[2]   0.06  3.0e-3   0.02   0.02   0.05   0.06   0.07   0.09     37   1.09
+recV[3]   0.02  3.9e-3   0.01 8.3e-3   0.02   0.02   0.03   0.04      7    1.7
+recV[4]   0.02  2.6e-3   0.01 5.0e-3 9.9e-3   0.01   0.02   0.04     18    1.4
+
+Samples were drawn using NUTS at Thu Aug  8 09:17:55 2019.
+For each parameter, n_eff is a crude measure of effective sample size,
+and Rhat is the potential scale reduction factor on split chains (at 
+convergence, Rhat=1).

@@ -1,0 +1,70 @@
+name: bookfair
+channels:
+- mdekstrand/label/dev
+- lenskit
+- mdekstrand
+- defaults
+- conda-forge
+dependencies:
+- python=3.7
+- pip
+- invoke
+- lenskit
+- docopt
+- pandas>=0.24,<1.0
+- pyarrow
+- xarray
+- fastparquet
+- sqlalchemy
+- seaborn
+- tqdm
+- zstandard
+- python-blosc
+- notebook
+- ipython
+- ipywidgets
+- jupyterlab
+- nbformat
+- nbconvert
+- pytables
+- cffi
+- joblib
+- postgresql>=11
+- psycopg2
+- scipy
+- tbb
+- scikit-learn
+- implicit
+- pystan
+- rpy2
+- tzlocal
+- simplegeneric
+- r-ggplot2
+- r-dplyr
+- hpfrec
+- colorama
+- humanize
+- requests
+- nodejs
+- git
+- flake8
+# DVC deps
+- contextlib2
+- gitpython
+- configparser
+- pyyaml
+- paramiko>=2.4.1
+- configobj
+- pillow
+- ply
+- pip:
+  - chromalog
+  - nbstripout
+  - nbdime
+  - papermill
+  - pystache
+  - dvc[s3]
+  - git+https://github.com/scikit-optimize/scikit-optimize#0.6
+  - arviz
+  - ggplot
+#   - scikit-optimize

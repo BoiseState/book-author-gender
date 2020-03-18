@@ -1,0 +1,26 @@
+cmd: python -m scripts.run-notebook -o RecDummyAnalysis.html -p RecDummyAnalysis.json
+  RecModelAnalysis.ipynb
+wdir: .
+deps:
+- md5: b315f9fe051ab1caf7209848c9673864
+  path: RecModelAnalysis.ipynb
+- path: data/profile-data.pkl
+  md5: 7e48ba546f8bbc4c5e74924ad7e556bb
+- path: data/rec-data.pkl
+  md5: 9aba6eafd6d2bacb420cd872394e219a
+- path: data/BX-I/full-dcode-samples.h5
+  md5: 1b0fbe50bf5d99cd507d6b003815aed9
+- path: data/BX-E/full-dcode-samples.h5
+  md5: dcb9e65952f57184854949bc7e6d3a4e
+- path: data/AZ/full-dcode-samples.h5
+  md5: 687ed7231eca9fe385d8da30201cf28e
+# depend on main analysis for ordering
+- path: RecModelAnalysis.html
+  md5: c74f11e5e19632236a6db6440c301a63
+outs:
+- md5: 3dac3df6afeb0c5f637b6b561dd099e2
+  path: RecDummyAnalysis.html
+  cache: false
+  metric: false
+  persist: false
+md5: 2a301d9700aec8a8738fecc42c53563a

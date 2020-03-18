@@ -1,0 +1,23 @@
+cmd: python -m scripts.eval_algo --pretrained BX-E als
+deps:
+- path: scripts/eval_algo.py
+  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: data/BX-E/eval/als.model
+  md5: 2547ab0920a5688edd00bba090320de8
+- path: data/BX-E/eval/test-ratings.parquet
+  md5: 594b329bfefc7c641e7c1fee32121f03
+- path: data/BX-E/tuning/als.json
+  md5: ff7679dcb4491c12031522c4cb3ce0f8
+outs:
+- path: data/BX-E/eval/als-recs.parquet
+  md5: 17308e42a47622c3fa46966314c56009
+  cache: true
+  metric: false
+  persist: false
+- metric: true
+  path: data/BX-E/eval/als-metrics.json
+  md5: aa205ce3eecbfba9e4100b56c421245b
+  cache: true
+  persist: false
+wdir: ../../..
+md5: 9745ed028615186173ee3b6ff1595fdf

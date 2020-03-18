@@ -1,0 +1,29 @@
+cmd: python -m scripts.split_ratings -d eval AZ
+deps:
+- path: data/AZ/ratings.parquet
+  md5: 1add0b5d70203ca01df2cc4e012986aa
+- path: scripts/split_ratings.py
+  md5: 9c6d7d37d4b551203a830c2306f60885
+outs:
+- path: data/AZ/eval/train-ratings.csv.gz
+  md5: 78325aed3c6dcec8b963c1121c150d9b
+  cache: true
+  metric: false
+  persist: false
+- path: data/AZ/eval/train-ratings.parquet
+  md5: 19f8714d439dbd93b991d8c076bb2758
+  cache: true
+  metric: false
+  persist: false
+- path: data/AZ/eval/test-ratings.csv.gz
+  md5: f2cc00098f411265f5033ac524391e4b
+  cache: true
+  metric: false
+  persist: false
+- path: data/AZ/eval/test-ratings.parquet
+  md5: 14807f645afe40091a14a9be0b7045c9
+  cache: true
+  metric: false
+  persist: false
+wdir: ../../..
+md5: 3cc9b1a8db1a3a8e94c286b4035104aa

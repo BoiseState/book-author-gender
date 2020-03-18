@@ -1,0 +1,24 @@
+cmd: python -m scripts.search_model GR-I wrls
+deps:
+- path: scripts/search_model.py
+  md5: ceb12d6491c6b2adcf6b364dff30c6ec
+- path: data/GR-I/tuning/train-ratings.parquet
+  md5: 2a8a843e0a9177055c77a887bf05c5cd
+- path: data/GR-I/tuning/test-ratings.parquet
+  md5: e3da22b6ba5adbb6ba06ecd6600d216a
+- path: bookgender/algorithms/wrls.py
+  md5: fd0089120bc6e1a6e36457a2a1b74adc
+outs:
+- path: data/GR-I/tuning/wrls.opt
+  md5: ddccaa2458dd9823f33bd6d8bc585668
+  cache: true
+  metric: false
+  persist: false
+- cache: false
+  metric: true
+  path: data/GR-I/tuning/wrls.json
+  md5: 8f65bb547a1b42a9d870b02d2612df0d
+  persist: false
+wdir: ../../..
+md5: 5c110b6e79603124795dc1e98cde53a3
+locked: true

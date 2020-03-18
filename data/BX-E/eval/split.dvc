@@ -1,0 +1,29 @@
+cmd: python -m scripts.split_ratings -d eval BX-E
+deps:
+- path: data/BX-E/ratings.parquet
+  md5: 48566b768782e896794a631dbee42942
+- path: scripts/split_ratings.py
+  md5: 9c6d7d37d4b551203a830c2306f60885
+outs:
+- path: data/BX-E/eval/train-ratings.csv.gz
+  md5: 05263a87cca76c292fc68c6e1a572008
+  cache: true
+  metric: false
+  persist: false
+- path: data/BX-E/eval/train-ratings.parquet
+  md5: aa7fc06ec6bbc978c0334f2e1fddc696
+  cache: true
+  metric: false
+  persist: false
+- path: data/BX-E/eval/test-ratings.csv.gz
+  md5: f2c60b735608f969a4e37aeb448fbfbc
+  cache: true
+  metric: false
+  persist: false
+- path: data/BX-E/eval/test-ratings.parquet
+  md5: 594b329bfefc7c641e7c1fee32121f03
+  cache: true
+  metric: false
+  persist: false
+wdir: ../../..
+md5: 0f8b1b14cdf99180c6d8ec318a337501

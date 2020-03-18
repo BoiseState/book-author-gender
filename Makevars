@@ -1,1 +1,0 @@
-CXXFLAGS = -mtune=native -march=native -O3 -Wno-deprecated-declarations -Wno-ignored-attributes -DBOOST_MATH_PROMOTE_DOUBLE_POLICY=false

@@ -1,0 +1,23 @@
+cmd: python -m scripts.eval_algo --pretrained GR-E item-item
+deps:
+- path: scripts/eval_algo.py
+  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: data/GR-E/eval/item-item.model
+  md5: bd574d23afb9bcd2827810bee20e200d
+- path: data/GR-E/eval/test-ratings.parquet
+  md5: 75082d5ecb6cab9152a4449de2e02a43
+- path: data/GR-E/tuning/item-item.json
+  md5: 75e06020ba965a8bb7a75d1f379e113a
+outs:
+- path: data/GR-E/eval/item-item-recs.parquet
+  md5: 713f2cf584d7cc7d1f0e8257bd831a7c
+  cache: true
+  metric: false
+  persist: false
+- metric: true
+  path: data/GR-E/eval/item-item-metrics.json
+  md5: b080a6e07446078cf768d2b0423bcd5b
+  cache: true
+  persist: false
+wdir: ../../..
+md5: fe1cfc4ed07c5f7b2cd0f7c80ed07778

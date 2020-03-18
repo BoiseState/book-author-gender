@@ -1,0 +1,23 @@
+cmd: python -m scripts.eval_algo --pretrained BX-I bpr
+deps:
+- path: scripts/eval_algo.py
+  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: data/BX-I/eval/bpr.model
+  md5: 59f85fbbd13e806b2ad1ea735c7606b1
+- path: data/BX-I/eval/test-ratings.parquet
+  md5: ce951afa66086d35769f0691d9747956
+- path: data/BX-I/tuning/bpr.json
+  md5: 208fb35169f8376a4faee070b19e2e30
+outs:
+- path: data/BX-I/eval/bpr-recs.parquet
+  md5: 2ab1e9ca51220c50f1512dc7d4da6e27
+  cache: true
+  metric: false
+  persist: false
+- metric: true
+  path: data/BX-I/eval/bpr-metrics.json
+  md5: 148146f74c327de2dff84e0bb03ab7e3
+  cache: true
+  persist: false
+wdir: ../../..
+md5: 07df646433e48268f2a323c84823186c

@@ -1,0 +1,16 @@
+/version-stamp.txt
+/author-gender.csv.gz
+/author-gender.parquet
+/study-users.csv
+/study-ratings.csv
+/study-recs.parquet
+/loc-books.csv.gz
+/loc-books.parquet
+/profile-data.pkl
+/rec-perf.csv
+/study-recs.csv.gz
+/rec-data.pkl
+/rec-tune.json
+/book-hash.parquet
+/book-hash.csv.gz
+/rerank-perf.csv

@@ -1,0 +1,14 @@
+/train-ratings.csv.gz
+/train-ratings.parquet
+/test-ratings.csv.gz
+/test-ratings.parquet
+/user-user-recs.parquet
+/user-user-metrics.json
+/item-item.model
+/item-item-recs.parquet
+/item-item-metrics.json
+/user-user.model
+/item-item-rerank-recs.parquet
+/item-item-rerank.csv
+/user-user-rerank-recs.parquet
+/user-user-rerank.csv

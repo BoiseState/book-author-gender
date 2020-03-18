@@ -1,0 +1,23 @@
+cmd: python -m scripts.eval_algo --pretrained GR-E user-user
+deps:
+- path: scripts/eval_algo.py
+  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: data/GR-E/eval/user-user.model
+  md5: 6795cd2b8ff4e1dcbe3f4afba764d113
+- path: data/GR-E/eval/test-ratings.parquet
+  md5: 75082d5ecb6cab9152a4449de2e02a43
+- path: data/GR-E/tuning/user-user.json
+  md5: 81425f3982937995f723534b6c247727
+outs:
+- path: data/GR-E/eval/user-user-recs.parquet
+  md5: d667d0510fc9900a0346d1f0356ffe99
+  cache: true
+  metric: false
+  persist: false
+- metric: true
+  path: data/GR-E/eval/user-user-metrics.json
+  md5: 372c0599a1c343e86d8a05360115a11d
+  cache: true
+  persist: false
+wdir: ../../..
+md5: 01f3a5c68d69ff5bedc37e69bfcc05b5

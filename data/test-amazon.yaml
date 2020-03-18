@@ -1,4 +1,0 @@
-- file: "../build/sample-user-stubs-amazon.csv"
-  format: csv
-  entity: userID
-  header: true

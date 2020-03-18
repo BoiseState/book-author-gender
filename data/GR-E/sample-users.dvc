@@ -1,0 +1,26 @@
+cmd: python -m scripts.sample_users GR-E
+deps:
+- md5: 5ed40578850434b9cbe35a4cac3def88
+  path: scripts/sample_users.py
+- md5: 395dbe40b2bddbfb0048c4817b7eba2a
+  path: data/version-stamp.txt
+- md5: 1485ad61d5ba06d26b0f30768bf0407d
+  path: data/GR-E/ratings.parquet
+md5: 98402d6ba399813b260413e6c3377e7e
+outs:
+- cache: true
+  md5: 10a5d77388f87d3a988baf89c9b98ddb
+  metric: false
+  path: data/GR-E/sample-users.csv
+  persist: false
+- cache: true
+  md5: 27bcaba2f791430ee6f8fbfb8001d889
+  metric: false
+  path: data/GR-E/sample-ratings.csv
+  persist: false
+- cache: true
+  md5: 3287552ada01a906ddbd3d21b8a2b7b6
+  metric: true
+  path: data/GR-E/sample-stats.json
+  persist: false
+wdir: ../..

@@ -1,0 +1,21 @@
+cmd: python -m scripts.train_model  BX-I bpr
+deps:
+- path: bookgender/algorithms/bpr.py
+  md5: 081433ad549e146182ccc657f77ee5bc
+- path: data/BX-I/tuning/bpr.json
+  md5: 208fb35169f8376a4faee070b19e2e30
+- path: data/BX-I/ratings.parquet
+  md5: 3d69f3df8b00127a78538232a7d13ba2
+outs:
+- path: data/BX-I/models/bpr.model
+  cache: true
+  metric: false
+  persist: false
+  md5: 32128a2422035fe6a25d419b8e6ac704
+- metric: true
+  path: data/BX-I/models/bpr.json
+  md5: 369b34b5fb452f0c55057748220322a3
+  cache: true
+  persist: false
+wdir: ../../..
+md5: 2a3be6476d2870a2d602668fba182530

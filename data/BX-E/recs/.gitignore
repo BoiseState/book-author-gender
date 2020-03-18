@@ -1,0 +1,12 @@
+/item-item.parquet
+/item-item.csv.gz
+/item-item.json
+/user-user.parquet
+/user-user.csv.gz
+/user-user.json
+/hpf.parquet
+/hpf.csv.gz
+/hpf.json
+/als.parquet
+/als.csv.gz
+/als.json

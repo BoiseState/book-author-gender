@@ -1,0 +1,21 @@
+cmd: python -m scripts.train_model  BX-I wrls
+deps:
+- path: bookgender/algorithms/wrls.py
+  md5: fd0089120bc6e1a6e36457a2a1b74adc
+- path: data/BX-I/tuning/wrls.json
+  md5: 0a1584ec794cd8623d8b977882d7dd92
+- path: data/BX-I/ratings.parquet
+  md5: 3d69f3df8b00127a78538232a7d13ba2
+outs:
+- path: data/BX-I/models/wrls.model
+  md5: 966c9fb17f1683b6bcf10279fe4cd7d4
+  cache: true
+  metric: false
+  persist: false
+- metric: true
+  path: data/BX-I/models/wrls.json
+  md5: 85ad9ccf986639ae109faa16d814b0eb
+  cache: true
+  persist: false
+wdir: ../../..
+md5: 71f8fc13263ae29b8f3e666f714cb6d7

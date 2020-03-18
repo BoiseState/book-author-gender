@@ -1,0 +1,23 @@
+cmd: python -m scripts.eval_algo --pretrained --rerank GR-I wrls
+deps:
+- path: scripts/eval_algo.py
+  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: data/GR-I/eval/wrls.model
+  md5: 9810a79a93ed090e38405a30a9a6cb0d
+- path: data/GR-I/eval/test-ratings.parquet
+  md5: 0d1e9582b4caa1a9fb5c00da36d5a1aa
+- path: data/GR-I/tuning/wrls.json
+  md5: 8f65bb547a1b42a9d870b02d2612df0d
+outs:
+- path: data/GR-I/eval/wrls-rerank-recs.parquet
+  md5: ccddc06f9fe56f303c1a411ab47f0d14
+  cache: true
+  metric: false
+  persist: false
+- path: data/GR-I/eval/wrls-rerank.csv
+  md5: 2bcb44d452f580b7bbc10d144c030443
+  cache: true
+  metric: false
+  persist: false
+wdir: ../../..
+md5: d867af6f3e3b93f930fe529201a9d86a

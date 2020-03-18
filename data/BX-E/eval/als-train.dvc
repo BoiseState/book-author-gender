@@ -1,0 +1,16 @@
+cmd: python -m scripts.train_model --train-data eval BX-E als
+deps:
+- path: bookgender/algorithms/als.py
+  md5: 8f271139f0a7c1926be7d20f033f457a
+- path: data/BX-E/tuning/als.json
+  md5: ff7679dcb4491c12031522c4cb3ce0f8
+- path: data/BX-E/eval/train-ratings.parquet
+  md5: aa7fc06ec6bbc978c0334f2e1fddc696
+outs:
+- path: data/BX-E/eval/als.model
+  md5: 2547ab0920a5688edd00bba090320de8
+  cache: true
+  metric: false
+  persist: false
+wdir: ../../..
+md5: 147901f27c3b44d1f2e95ceb1348bfde

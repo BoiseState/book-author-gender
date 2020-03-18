@@ -1,0 +1,23 @@
+md5: cff7f1e5263afafd45d77be463281bde
+cmd: python -m scripts.run-notebook --overwrite ProfileDataPrep.ipynb
+wdir: .
+deps:
+- md5: 873b1de99feb35d035e738c4e6e24700
+  path: ProfileDataPrep.ipynb
+- path: data/loc-books.csv.gz
+  md5: 322caeceab397a4d686af56346368fc4
+- path: data/author-gender.csv.gz
+  md5: 451bc3bb984fb7ad0c727025da6ced07
+- path: data/study-ratings.csv
+  md5: c1d238d5b6340048d3d4688bbf2f72f6
+outs:
+- path: data/profile-data.pkl
+  md5: 74eaba8f483e0c1c0cf3dec3fdc0d709
+  cache: true
+  metric: false
+  persist: false
+- path: ProfileDataPrep.html
+  cache: false
+  metric: false
+  persist: false
+  md5: 6c9275d89ea04a660d8097fa85414ea0

@@ -1,0 +1,23 @@
+cmd: python -m scripts.eval_algo --drop-ratings -N user-user-imp --pretrained AZ user-user
+deps:
+- path: scripts/eval_algo.py
+  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: data/AZ/eval/user-user-imp.model
+  md5: 436cb13c2529c2b1d317dec4bc2eb187
+- path: data/AZ/eval/test-ratings.parquet
+  md5: 14807f645afe40091a14a9be0b7045c9
+- path: data/AZ/tuning/user-user-imp.json
+  md5: a942d231c1ce93fc7900fe2f57af868d
+outs:
+- path: data/AZ/eval/user-user-imp-recs.parquet
+  md5: 9aaad43967020724354a485988770c14
+  cache: true
+  metric: false
+  persist: false
+- metric: true
+  path: data/AZ/eval/user-user-imp-metrics.json
+  md5: b5aa1e9980a2619bd35186bfdc544bab
+  cache: true
+  persist: false
+wdir: ../../..
+md5: d1cb02d6d0be01e7fe055397f9502950

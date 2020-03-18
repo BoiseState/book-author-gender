@@ -1,0 +1,26 @@
+cmd: python -m scripts.recommend GR-E item-item
+deps:
+- path: scripts/recommend.py
+  md5: ab700085f93e80dd7657a692a4f20712
+- path: data/GR-E/sample-users.csv
+  md5: 10a5d77388f87d3a988baf89c9b98ddb
+- path: data/GR-E/models/item-item.model
+  md5: 3c0965b89fdc9c23a6e76a779dc49e39
+outs:
+- path: data/GR-E/recs/item-item.parquet
+  md5: 648623b3b1068086fa5d9d80f502fbc5
+  cache: true
+  metric: false
+  persist: false
+- path: data/GR-E/recs/item-item.csv.gz
+  md5: 22ad1fee7e3baf98ec27eeea08075cfe
+  cache: true
+  metric: false
+  persist: false
+- metric: true
+  path: data/GR-E/recs/item-item.json
+  md5: bad80a0132ddbe53136b4e0c72aecea5
+  cache: true
+  persist: false
+wdir: ../../..
+md5: e1523e0c5b16d2886684faf7318890dc

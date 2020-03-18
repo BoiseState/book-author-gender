@@ -1,60 +1,66 @@
 # Book Rec Bias repository
 
-This archive contains the files to reproduce _Exploring Author Gender in Book Rating and Recommendation_, published in RecSys 2018.
-
 ## Requirements
 
-* Java 8
-* Conda with R, the Tidyverse, RSTAN, RPostgreSQL, xtable, and Jupyter Notebook
-* Node.js
-* Data sets (described in in `ol-processing-tools/data`)
+* Anaconda
+* The book data, as imported by the `bookdata` tools
 
-For 64-bit Linux, we have provided a Conda environment file to install the analysis & import environment (R, Jupyter, Node.js).
+The Conda environment file adds all required packages:
 
-    conda env create -f environment-linux-x64.yml
+    conda env update -f environment.yml
+    conda activate bookfair
 
-Data storage requires PostgreSQL 10 with the [orafce](https://github.com/orafce/orafce) extension.
+This will also install `dvc`, which we use to script the experiment and store data.
 
-This experiment also requires the following hardware:
+## Configuration
 
--   300GB storage for the PostgreSQL database
--   40GB storage for data files, experiment results, etc.
--   A large compute server for running recommenders — we used a 2x12-core Xeon with 192GB RAM.
--   At least 16, preferably 32 or 64, GB of RAM for running analysis notebooks
+The scripts need to know how to connect to the database.  There are two ways to set 
+this up:
 
-Re-running everything, from data import to final results, will probably take a full week at least.
+-   A `DB_URL` environment variable containing an SQLAlchemy-compatible PostgreSQL URL
+-   A config file `data_conf.ini` with a section `postgresql` containing PsycoPG2
+    configuration parameters.
 
-## Data Import
+If you are inside Boise State and want to share our DVC resources, you also need to
+set up DVC to connect to our data server.  There are two steps here:
 
-We use PostgreSQL to store and manage data and munge it for use in the experiment.  The ol-import-tools directory contains code and instructions for importing and integrating the data sets.
+-   Set up the `piret-minio` AWS credentials in `~/.aws/credentials`.  This file needs
+    a section that looks like:
 
-All of the scripts are set up to expect the data to live in the database `openlib`, and to read other connection parameters (host, user, password) from the standard PostgreSQL environment variables
+        [piret-minio]
+        aws_access_key_id = <access>
+        aws_secret_access_key = <secret>
 
-## Exporting and Sampling Data
+-   Tell DVC to use it:
 
-Run the export and sample tasks:
+        dvc remote modify --local minio profile piret-minio
 
-    ./gradlew sampleBXExplicit sampleBXImplicit sampleAmazonUsers
-    ./gradlew prepSweepBX prepSweepAZ
+## Directory Layout
 
-The sweep prep prepares the train-test data for the accuracy evaluation. It's called `prepSweep` because we also used it for sweeping parameters (a separate run with a different sample).
+We try to keep this repository clean and well-organized.
 
-## Running Recommenders
+- `bookgender` is a Python package that contains our support code.
+- `data` contains the data and traind recommendation models.
+- `steps` contains high-level DVC step files to ask for different
+  parts of the analysis.
+- `scripts` contains scripts to run.  Run these with `python -m scripts.name`
+  to set up `$PYTHONPATH` correctly.
+- Primary notebooks live in the top-level directory.
+- Exploratory notebooks live in `explore`.
 
-The base recommender tasks are:
+## Getting Data
 
-- evaluateBXExplicit
-- evaluateBXImplicit
-- evaluateAZExplicit
-- evaluateAZImplicit
+To download all pre-built models and data from within Boise State, run:
 
-These can take a while - each of the Amazon ones took between 6 and 8 hours on our Xeon server.
+    dvc pull
 
-## Running Analysis
+## Running Everything
 
-The analysis is contained in Jupyter notebooks using IRkernel.  Run the following notebooks:
+To reproduce the entire experiment, run:
 
-- DatasetSummary.ipynb
-- GenderCoverage.ipynb
-- ProfileModels.ipynb
-- RecListModels.ipynb
+    dvc unlock data/*/tuning/*-search.dvc data/version-stamp.dvc
+    dvc repro
+
+This will probably take at least a week on a substantial computer (28 cores, 512GB RAM).  Individual
+steps may require fine-tuning of LensKit parallelism parameters depending on your specific hardware
+configuration.

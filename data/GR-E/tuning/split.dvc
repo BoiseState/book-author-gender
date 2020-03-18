@@ -1,0 +1,30 @@
+cmd: python -m scripts.split_ratings GR-E
+deps:
+- path: data/GR-E/ratings.parquet
+  md5: 1485ad61d5ba06d26b0f30768bf0407d
+- path: scripts/split_ratings.py
+  md5: 9c6d7d37d4b551203a830c2306f60885
+outs:
+- path: data/GR-E/tuning/train-ratings.csv.gz
+  cache: true
+  metric: false
+  persist: false
+  md5: c4fa14e76f4756c6a80ea54dcfe4c9e3
+- path: data/GR-E/tuning/train-ratings.parquet
+  cache: true
+  metric: false
+  persist: false
+  md5: 861d5a7727250e26345e1797ac080150
+- path: data/GR-E/tuning/test-ratings.csv.gz
+  cache: true
+  metric: false
+  persist: false
+  md5: abc2bfe6b875d511932034dcabb33643
+- path: data/GR-E/tuning/test-ratings.parquet
+  cache: true
+  metric: false
+  persist: false
+  md5: 8a6e869ad015618de28c349cf31efe7c
+wdir: ../../..
+md5: 10facf3294a432f28baf9100235f6e42
+locked: true

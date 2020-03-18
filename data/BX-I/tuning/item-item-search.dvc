@@ -1,0 +1,24 @@
+cmd: python -m scripts.search_model BX-I item-item
+deps:
+- path: scripts/search_model.py
+  md5: ceb12d6491c6b2adcf6b364dff30c6ec
+- path: data/BX-I/tuning/train-ratings.parquet
+  md5: c880d96b53ed419ab21beab18ca9ae63
+- path: data/BX-I/tuning/test-ratings.parquet
+  md5: 1be15559f6c2929f879261a13c83535d
+- path: bookgender/algorithms/item_item.py
+  md5: 2df81dfe2615ec8a18768d344e30970c
+outs:
+- path: data/BX-I/tuning/item-item.opt
+  md5: cf7492f05923647a817060246538a4b7
+  cache: true
+  metric: false
+  persist: false
+- cache: false
+  metric: true
+  path: data/BX-I/tuning/item-item.json
+  md5: 309f9ff49e57efa47e2e62016ab20333
+  persist: false
+wdir: ../../..
+md5: 08e6b6d09c2d3a4ba3e30de69ee9595d
+locked: true

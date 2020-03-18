@@ -1,0 +1,16 @@
+cmd: python -m scripts.train_model --train-data eval AZ als
+deps:
+- path: bookgender/algorithms/als.py
+  md5: 8f271139f0a7c1926be7d20f033f457a
+- path: data/AZ/tuning/als.json
+  md5: c096c581c6cb187328a13b93afe9b288
+- path: data/AZ/eval/train-ratings.parquet
+  md5: 19f8714d439dbd93b991d8c076bb2758
+outs:
+- path: data/AZ/eval/als.model
+  md5: b16ceb84931ba7f861ca9b8797c87e0b
+  cache: true
+  metric: false
+  persist: false
+wdir: ../../..
+md5: f9f052fb619190295909b517c2f9afc4

@@ -1,0 +1,26 @@
+cmd: python -m scripts.recommend GR-I wrls
+deps:
+- path: scripts/recommend.py
+  md5: ab700085f93e80dd7657a692a4f20712
+- path: data/GR-I/sample-users.csv
+  md5: e73561663da36c040609ab574ec16485
+- path: data/GR-I/models/wrls.model
+  md5: 51b61639bac687e8153af28f4fd76afb
+outs:
+- path: data/GR-I/recs/wrls.parquet
+  md5: 127f6aaed28ef111c550e9d0a22a5667
+  cache: true
+  metric: false
+  persist: false
+- path: data/GR-I/recs/wrls.csv.gz
+  md5: e5c227932745a0539e0e922cc4f52b54
+  cache: true
+  metric: false
+  persist: false
+- metric: true
+  path: data/GR-I/recs/wrls.json
+  md5: 9405dcf55886c54fbb742a405d11fdd1
+  cache: true
+  persist: false
+wdir: ../../..
+md5: af364eb3a7f5dba9f8eee1debb6a5a39

@@ -1,0 +1,26 @@
+cmd: python -m scripts.recommend AZ bpr-imp
+deps:
+- path: scripts/recommend.py
+  md5: ab700085f93e80dd7657a692a4f20712
+- path: data/AZ/sample-users.csv
+  md5: b1d4d02f9fd67d5ab80bba3ec87ae7cc
+- path: data/AZ/models/bpr-imp.model
+  md5: 46d7701533ea87bd5e16a89a5a158cbd
+outs:
+- path: data/AZ/recs/bpr-imp.parquet
+  md5: ea84124733baf7ab06c6afccc1748bbc
+  cache: true
+  metric: false
+  persist: false
+- path: data/AZ/recs/bpr-imp.csv.gz
+  md5: 2de0d8c8b1b41b202c2090b9fa2b2b61
+  cache: true
+  metric: false
+  persist: false
+- metric: true
+  path: data/AZ/recs/bpr-imp.json
+  md5: 153f41649b5582bdf8a3ddcac9d88506
+  cache: true
+  persist: false
+wdir: ../../..
+md5: 08149e2ac40b21c3077250cb24baecb3

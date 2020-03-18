@@ -1,0 +1,23 @@
+cmd: python -m scripts.eval_algo --pretrained GR-I bpr
+deps:
+- path: scripts/eval_algo.py
+  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: data/GR-I/eval/bpr.model
+  md5: 4c11e1d7354c395c54901fa5702dfbf4
+- path: data/GR-I/eval/test-ratings.parquet
+  md5: 0d1e9582b4caa1a9fb5c00da36d5a1aa
+- path: data/GR-I/tuning/bpr.json
+  md5: ac7ad0478388d83250529fc2f735bb98
+outs:
+- path: data/GR-I/eval/bpr-recs.parquet
+  md5: 1f1ecccb4df28af041bcbe8c0afc25c7
+  cache: true
+  metric: false
+  persist: false
+- metric: true
+  path: data/GR-I/eval/bpr-metrics.json
+  md5: 2501c816cef82261acee303e3f4342cc
+  cache: true
+  persist: false
+wdir: ../../..
+md5: 0f9e50900446fa945fa5cfadcaeacbbc

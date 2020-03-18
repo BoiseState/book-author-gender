@@ -1,0 +1,23 @@
+md5: 2a4349a4b8969cb71a77fa1c6c7f07dd
+cmd: python -m scripts.run_stan_model full BX-E
+wdir: ../..
+deps:
+- md5: 74eaba8f483e0c1c0cf3dec3fdc0d709
+  path: data/profile-data.pkl
+- md5: b529691a580939fccc6235aec0150027
+  path: data/rec-data.pkl
+- md5: 635269ec47b990b0c4f60de65fd3b025
+  path: bookgender/models/full.py
+- md5: 785981cbf6c68ac4d34f72b93488aa54
+  path: models/full.stan
+outs:
+- md5: afa276ed86f88af3000c1f043170da8b
+  path: data/BX-E/full-samples.h5
+  cache: true
+  metric: false
+  persist: false
+- md5: 8bda23922fe1b13cb1c954ef641e1d3d
+  path: data/BX-E/full-model.txt
+  cache: false
+  metric: false
+  persist: false

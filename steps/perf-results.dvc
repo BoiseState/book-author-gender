@@ -1,0 +1,52 @@
+cmd: python -m scripts.aggregate --rec-perf
+deps:
+- path: data/BX-E/eval/user-user-metrics.json
+  md5: cb34ab6ce24080d57d9d2db482cb632f
+- path: data/BX-E/eval/item-item-metrics.json
+  md5: 7267971c409fcb1da6d94d2c3bc4c8c4
+- path: data/BX-E/eval/als-metrics.json
+  md5: aa205ce3eecbfba9e4100b56c421245b
+- path: data/BX-I/eval/user-user-metrics.json
+  md5: 38e18e21e151653df6b377601d882e84
+- path: data/BX-I/eval/item-item-metrics.json
+  md5: 19088d9a2c77773e1a367f8bce8f4555
+- path: data/BX-I/eval/wrls-metrics.json
+  md5: 13dbc9dfc22fc3f7ec8e922235634c69
+- path: data/BX-I/eval/bpr-metrics.json
+  md5: 148146f74c327de2dff84e0bb03ab7e3
+- path: data/AZ/eval/user-user-metrics.json
+  md5: 6aa6db02e14124a6af776964339454d4
+- path: data/AZ/eval/item-item-metrics.json
+  md5: 7caeec0e82297d6ce33a48b1f406fa40
+- path: data/AZ/eval/als-metrics.json
+  md5: 4ed98b5115e1161b8e1ef08c0931556b
+- path: data/AZ/eval/user-user-imp-metrics.json
+  md5: b5aa1e9980a2619bd35186bfdc544bab
+- path: data/AZ/eval/item-item-imp-metrics.json
+  md5: 4c0622605f681ee378e09c64925ace56
+- path: data/AZ/eval/wrls-imp-metrics.json
+  md5: 7ae3547a84fcfc823558cf6958d8d9b4
+- path: data/AZ/eval/bpr-imp-metrics.json
+  md5: 023b8593b39d0b6ba3e59131dddb10c2
+- path: data/GR-E/eval/user-user-metrics.json
+  md5: 372c0599a1c343e86d8a05360115a11d
+- path: data/GR-E/eval/item-item-metrics.json
+  md5: b080a6e07446078cf768d2b0423bcd5b
+- path: data/GR-I/eval/user-user-metrics.json
+  md5: 4c20d9a18b105542cb3279a1c3540408
+- path: data/GR-I/eval/item-item-metrics.json
+  md5: 4547fbafeb9de9c86b894d6dbcd375c0
+- path: data/GR-I/eval/wrls-metrics.json
+  md5: 438edf715ab0ad1e6d82b756f40be193
+- path: data/GR-I/eval/bpr-metrics.json
+  md5: 2501c816cef82261acee303e3f4342cc
+- path: scripts/aggregate.py
+  md5: 280790430ce3dca94168bcc5c625f866
+outs:
+- path: data/rec-perf.csv
+  md5: 5d9af4d209e0b4ec9a9acacbea01e78e
+  cache: true
+  metric: false
+  persist: false
+wdir: ..
+md5: 2ee5bbce13f13d8f5767f220e56ad536

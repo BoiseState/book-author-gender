@@ -1,0 +1,17 @@
+cmd: python -m scripts.export --loc-books
+deps:
+- md5: 395dbe40b2bddbfb0048c4817b7eba2a
+  path: data/version-stamp.txt
+md5: 33b5bf242272368bacb97ecbc2608654
+outs:
+- cache: true
+  md5: 322caeceab397a4d686af56346368fc4
+  metric: false
+  path: data/loc-books.csv.gz
+  persist: false
+- cache: true
+  md5: 5c6ea4b2e62d1d8ee746d229775bb72a
+  metric: false
+  path: data/loc-books.parquet
+  persist: false
+wdir: ..

@@ -1,0 +1,23 @@
+cmd: python -m scripts.eval_algo --pretrained --rerank BX-E user-user
+deps:
+- path: scripts/eval_algo.py
+  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: data/BX-E/eval/user-user.model
+  md5: 3aff7d6c6fc4cd65f7e2f5413b0236f8
+- path: data/BX-E/eval/test-ratings.parquet
+  md5: 594b329bfefc7c641e7c1fee32121f03
+- path: data/BX-E/tuning/user-user.json
+  md5: 50fd40f0ceef51a4e3e529f84bdce15b
+outs:
+- path: data/BX-E/eval/user-user-rerank-recs.parquet
+  md5: afa12c86f77baac5cdfae56e552bef87
+  cache: true
+  metric: false
+  persist: false
+- path: data/BX-E/eval/user-user-rerank.csv
+  md5: a23db6c46b597f7912b1a6ee7b79e252
+  cache: true
+  metric: false
+  persist: false
+wdir: ../../..
+md5: 97c04600073158ed79059966096fc604

@@ -1,0 +1,13 @@
+deps:
+- md5: 1add0b5d70203ca01df2cc4e012986aa
+  path: data/AZ/ratings.parquet
+- md5: 48566b768782e896794a631dbee42942
+  path: data/BX-E/ratings.parquet
+- md5: 3d69f3df8b00127a78538232a7d13ba2
+  path: data/BX-I/ratings.parquet
+- path: data/GR-I/ratings.parquet
+  md5: 3a43bd07ef0e55b7cba2617d48c6ee41
+- path: data/GR-E/ratings.parquet
+  md5: 1485ad61d5ba06d26b0f30768bf0407d
+md5: 983a1fc3d651aeab14403748e5ee3c09
+wdir: ..

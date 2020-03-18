@@ -1,0 +1,24 @@
+cmd: python -m scripts.search_model --drop-ratings --out-name wrls-imp AZ wrls
+deps:
+- path: scripts/search_model.py
+  md5: ceb12d6491c6b2adcf6b364dff30c6ec
+- path: data/AZ/tuning/train-ratings.parquet
+  md5: 2a5c104037ed90660c8a06c65c17b55e
+- path: data/AZ/tuning/test-ratings.parquet
+  md5: 39737a21758a2a0ed8bb566082ad64db
+- path: bookgender/algorithms/wrls.py
+  md5: 58aae69c16bd9df3babf6ee36fbfc57a
+outs:
+- path: data/AZ/tuning/wrls-imp.opt
+  md5: 819ff8bab5bdbe5dd2b3de21f7eadd4b
+  cache: true
+  metric: false
+  persist: false
+- cache: false
+  metric: true
+  path: data/AZ/tuning/wrls-imp.json
+  md5: b59e14500a3f30cc28307adccc2f3593
+  persist: false
+wdir: ../../..
+md5: 459da264b6104b6bcc43ab329e1ea20a
+locked: true

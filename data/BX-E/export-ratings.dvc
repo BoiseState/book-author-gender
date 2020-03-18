@@ -1,0 +1,17 @@
+cmd: python -m scripts.export --ratings bx-e
+deps:
+- md5: 395dbe40b2bddbfb0048c4817b7eba2a
+  path: data/version-stamp.txt
+md5: 56070e95a0208758aad15c121a63d2b6
+outs:
+- cache: true
+  md5: cec57c6a2d0df6a3a2f9a903a08d50b5
+  metric: false
+  path: data/BX-E/ratings.csv.gz
+  persist: false
+- cache: true
+  md5: 48566b768782e896794a631dbee42942
+  metric: false
+  path: data/BX-E/ratings.parquet
+  persist: false
+wdir: ../..

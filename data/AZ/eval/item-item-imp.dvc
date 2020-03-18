@@ -1,0 +1,23 @@
+cmd: python -m scripts.eval_algo --drop-ratings -N item-item-imp --pretrained AZ item-item
+deps:
+- path: scripts/eval_algo.py
+  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: data/AZ/eval/item-item-imp.model
+  md5: c69f93b8fbc5a4994b2c6f4b13cf435d
+- path: data/AZ/eval/test-ratings.parquet
+  md5: 14807f645afe40091a14a9be0b7045c9
+- path: data/AZ/tuning/item-item-imp.json
+  md5: 19b2a99a6a00c1320ca5d46e5412dca4
+outs:
+- path: data/AZ/eval/item-item-imp-recs.parquet
+  md5: 1019695599c0a68e204b860da864dbfe
+  cache: true
+  metric: false
+  persist: false
+- metric: true
+  path: data/AZ/eval/item-item-imp-metrics.json
+  md5: 4c0622605f681ee378e09c64925ace56
+  cache: true
+  persist: false
+wdir: ../../..
+md5: 32660575d4bdc7e85b2ce9533598f616

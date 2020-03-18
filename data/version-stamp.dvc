@@ -1,0 +1,10 @@
+cmd: python -m scripts.data_version
+md5: f70bb5c0d54d3ec208030547ef97c282
+outs:
+- cache: true
+  md5: 395dbe40b2bddbfb0048c4817b7eba2a
+  metric: false
+  path: data/version-stamp.txt
+  persist: false
+wdir: ..
+locked: true

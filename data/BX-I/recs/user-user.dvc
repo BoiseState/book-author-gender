@@ -1,0 +1,26 @@
+cmd: python -m scripts.recommend BX-I user-user
+deps:
+- path: scripts/recommend.py
+  md5: ab700085f93e80dd7657a692a4f20712
+- path: data/BX-I/sample-users.csv
+  md5: 67fe9d012af9671a7066772ff7a07f62
+- path: data/BX-I/models/user-user.model
+  md5: 89e4771930ea7a9f6f7139b7da3ed261
+outs:
+- path: data/BX-I/recs/user-user.parquet
+  md5: e67af96189ebd18396d98bb5c68307ad
+  cache: true
+  metric: false
+  persist: false
+- path: data/BX-I/recs/user-user.csv.gz
+  md5: aeb6f96f13f5d50ceba3208242afa0c9
+  cache: true
+  metric: false
+  persist: false
+- metric: true
+  path: data/BX-I/recs/user-user.json
+  md5: acf11d4cb742b7b0e8a30f70d7d56ed4
+  cache: true
+  persist: false
+wdir: ../../..
+md5: a323b083affb6e9d9f4d39fe51695d54

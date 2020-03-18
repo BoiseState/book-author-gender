@@ -1,0 +1,17 @@
+cmd: python -m scripts.export --ratings az
+deps:
+- md5: 395dbe40b2bddbfb0048c4817b7eba2a
+  path: data/version-stamp.txt
+md5: 9c0e54eb0561d65c5b6b1568530116a0
+outs:
+- cache: true
+  md5: 6a09f1932a6647a7b561bd7ff9b7c3a0
+  metric: false
+  path: data/AZ/ratings.csv.gz
+  persist: false
+- cache: true
+  md5: 1add0b5d70203ca01df2cc4e012986aa
+  metric: false
+  path: data/AZ/ratings.parquet
+  persist: false
+wdir: ../..
