@@ -1,0 +1,31 @@
+cmd: python -m scripts.run-notebook --overwrite ProfileModelCompare.ipynb
+deps:
+- md5: da8f5988d69b986f2d7e9b9a14e6cb83
+  path: ProfileModelCompare.ipynb
+- path: data/BX-I/inference/profile/samples.zarr
+  md5: 0f86cfb1655cefff70db649d7f72d864
+- path: data/BX-E/inference/profile/samples.zarr
+  md5: a7974551e902f2479917931cfca3e6d4
+- path: data/AZ/inference/profile/samples.zarr
+  md5: 02ae6cef9ac3692d68e294b30f3b4bd8
+- path: data/GR-I/inference/profile/samples.zarr
+  md5: 2069f63ea395eae505d6c240f446c125
+- path: data/GR-E/inference/profile/samples.zarr
+  md5: ab1d3f065acb9dd633d2aa533240d80b
+- path: data/BX-I/inference/full/samples.zarr
+  md5: 35abb64dd8b59ff6512a8bbbd874237d
+- path: data/BX-E/inference/full/samples.zarr
+  md5: 9cf19620bd7c61bef2bbd97a4b733081
+- path: data/AZ/inference/full/samples.zarr
+  md5: 198e17f4d10ce5245f3f9cd1538d63e3
+- path: data/GR-I/inference/full/samples.zarr
+  md5: bf29f90ba9e0800d59adc7775f3e7c1d
+- path: data/GR-E/inference/full/samples.zarr
+  md5: c3351039518defd75dd49a11e8d1d1d3
+outs:
+- md5: 38a6f9ae60e39e19f74a20ee8b881410
+  path: ProfileModelCompare.html
+  cache: false
+  metric: false
+  persist: false
+md5: 2ce1f7693752f3bae932dd5d909198db

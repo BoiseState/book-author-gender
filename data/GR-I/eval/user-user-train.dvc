@@ -1,16 +1,18 @@
-cmd: python -m scripts.train_model --train-data eval GR-I user-user
+cmd: python -m scripts.train-model --train-data eval GR-I user-user
 deps:
 - path: bookgender/algorithms/user_user.py
   md5: 316ebcd6b040c5e80baa889e6cdbcf97
 - path: data/GR-I/tuning/user-user.json
   md5: 807351c5c2b16cd4abd294ad47553076
-- path: data/GR-I/eval/train-ratings.parquet
-  md5: 72552cacda7efa06a0efa797957d00e9
+- path: data/GR-I/ratings.parquet
+  md5: 9482afe54bdc01ecd9d13622d1332de9
+- path: data/GR-I/eval/test-ratings.parquet
+  md5: cbd670bc1036d435fcb24e905d8ec6ca
 outs:
 - path: data/GR-I/eval/user-user.model
-  md5: 772e587c81e9cfb028fe1ebe249724c5
+  md5: 084f8ff6639a3c2ca744f049716e982b
   cache: true
   metric: false
   persist: false
 wdir: ../../..
-md5: 99e96c80885d7d2133b43345ee467bc6
+md5: 157cc23d54769614e8f922671bcdcd8b

@@ -1,23 +1,25 @@
-cmd: python -m scripts.eval_algo --pretrained --rerank AZ als
+cmd: python -m scripts.eval-algo --pretrained --rerank AZ als
 deps:
-- path: scripts/eval_algo.py
-  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: scripts/eval-algo.py
+  md5: b236d22dcb1cc6d661edcb11be05d7da
 - path: data/AZ/eval/als.model
-  md5: b16ceb84931ba7f861ca9b8797c87e0b
+  md5: 8eaff6177c486e120b9200cd53ea1ec1
+- path: data/AZ/ratings.parquet
+  md5: 3475e68661d518bafc241b90133432b2
 - path: data/AZ/eval/test-ratings.parquet
-  md5: 14807f645afe40091a14a9be0b7045c9
+  md5: 0108c1e90d17619931d77b5a3f1e62d6
 - path: data/AZ/tuning/als.json
   md5: c096c581c6cb187328a13b93afe9b288
 outs:
 - path: data/AZ/eval/als-rerank-recs.parquet
-  md5: a3609c765fbc1db49d53f92f5722fabb
+  md5: bae886285fdcf2fdbe69522d90060da9
   cache: true
   metric: false
   persist: false
 - path: data/AZ/eval/als-rerank.csv
-  md5: bc5a7042e1404e5fc87049c6b81ae261
+  md5: a69e9bc6a532a0cfbfb8daae2d505ed2
   cache: true
   metric: false
   persist: false
 wdir: ../../..
-md5: 653027ade96e97f2426b20493306139c
+md5: 80afd65ff64ca9cfc13c8ea373cab1c4

@@ -4,7 +4,6 @@ The full integrated profile / list model.
 
 import logging
 from collections import namedtuple
-import pickle
 
 import pandas as pd
 import numpy as np
@@ -12,7 +11,7 @@ import numpy as np
 from lenskit.util import Stopwatch
 
 from .. import datatools as dt
-from . import write_samples
+from . import write_samples, stan_seed
 from ..config import data_dir
 
 _log = logging.getLogger(__name__)
@@ -34,6 +33,8 @@ def run_model(model, data, inst, cfg, *, var='gender'):
     """
     Run a STAN model.
     """
+
+    seed = stan_seed(inst, var)
 
     users = data.profiles.assign(unum=np.arange(len(data.profiles), dtype='i4') + 1)
 
@@ -69,7 +70,7 @@ def run_model(model, data, inst, cfg, *, var='gender'):
     else:
         raise ValueError(f'unknown variant {var}')
 
-    fit = model.sampling(stan_data, **cfg)
+    fit = model.sampling(stan_data, seed=seed, check_hmc_diagnostics=True, **cfg)
     _log.info('full-model sampling for %s finished in %s', inst, timer)
     summary = fit.stansummary(pars=["mu", "sigma", "nMean", "nDisp", "recB", "recS", "recV"])
     print(summary)

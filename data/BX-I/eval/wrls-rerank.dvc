@@ -1,23 +1,25 @@
-cmd: python -m scripts.eval_algo --pretrained --rerank BX-I wrls
+cmd: python -m scripts.eval-algo --pretrained --rerank BX-I wrls
 deps:
-- path: scripts/eval_algo.py
-  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: scripts/eval-algo.py
+  md5: b236d22dcb1cc6d661edcb11be05d7da
 - path: data/BX-I/eval/wrls.model
-  md5: 4ab8bec9ec966cb2e2cde83603906198
+  md5: dfb85acaed5b76976c9762e342061531
+- path: data/BX-I/ratings.parquet
+  md5: c506f6e8a5b7dac27d973fa07f6eef78
 - path: data/BX-I/eval/test-ratings.parquet
-  md5: ce951afa66086d35769f0691d9747956
+  md5: c7b20e4d0b51e152de9855b9b40c4120
 - path: data/BX-I/tuning/wrls.json
   md5: 0a1584ec794cd8623d8b977882d7dd92
 outs:
 - path: data/BX-I/eval/wrls-rerank-recs.parquet
-  md5: a0dac0400bb8fd88c18c9eee29de088a
+  md5: 4cb08817c117c8c232c6b1f8517ee573
   cache: true
   metric: false
   persist: false
 - path: data/BX-I/eval/wrls-rerank.csv
-  md5: a96695822bae5d7cab6259cb65ea5c6b
+  md5: beb2f11b3fea1e71a1404230c285c6c6
   cache: true
   metric: false
   persist: false
 wdir: ../../..
-md5: 3b5cee70f66e921c87439a1d65b9ef7e
+md5: d155934abe486a7e1f873ae859c6c4a9

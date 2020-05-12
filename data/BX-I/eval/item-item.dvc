@@ -1,23 +1,25 @@
-cmd: python -m scripts.eval_algo --pretrained BX-I item-item
+cmd: python -m scripts.eval-algo --pretrained BX-I item-item
 deps:
-- path: scripts/eval_algo.py
-  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: scripts/eval-algo.py
+  md5: b236d22dcb1cc6d661edcb11be05d7da
 - path: data/BX-I/eval/item-item.model
-  md5: 80f27e7fdea46c40df9217fde1f538e2
+  md5: 720495ac4c2022c05408bea9d9491066
+- path: data/BX-I/ratings.parquet
+  md5: c506f6e8a5b7dac27d973fa07f6eef78
 - path: data/BX-I/eval/test-ratings.parquet
-  md5: ce951afa66086d35769f0691d9747956
+  md5: c7b20e4d0b51e152de9855b9b40c4120
 - path: data/BX-I/tuning/item-item.json
   md5: 309f9ff49e57efa47e2e62016ab20333
 outs:
 - path: data/BX-I/eval/item-item-recs.parquet
-  md5: a03dc567f0e77a3b520d63d623b56783
+  md5: 13c8cea478d13aa4ab843bd915115584
   cache: true
   metric: false
   persist: false
 - metric: true
   path: data/BX-I/eval/item-item-metrics.json
-  md5: 19088d9a2c77773e1a367f8bce8f4555
+  md5: 4d1e86e6bcba7ad5be87163fcb76bac2
   cache: true
   persist: false
 wdir: ../../..
-md5: e1c409a097c222a62faeaa3bef5f1064
+md5: 4c2e59357b3a54cd078e9bb917ba9bba

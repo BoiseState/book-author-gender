@@ -1,27 +1,52 @@
-md5: 01496e01440ad7ad90492384d590d6fb
+md5: eebb0f85e5dc2e63d566bfd510fb9f37
 cmd: python -m scripts.run-notebook --overwrite RecDataPrep.ipynb
 deps:
-- md5: a405c39d16e24999cbeef1a646763b29
+- md5: 38da3f25c1bd906f27d50f43a6bc05fb
   path: RecDataPrep.ipynb
 - path: data/author-gender.csv.gz
-  md5: 451bc3bb984fb7ad0c727025da6ced07
+  md5: 0f99ec9ce177a3d65b67f4e099f681d1
 - path: data/profile-data.pkl
-  md5: 74eaba8f483e0c1c0cf3dec3fdc0d709
+  md5: b8dc40cddc2b525490747f86ae5bf094
 - path: data/study-recs.parquet
-  md5: 4f6c4502ae0e4159fcba61ff95f83ee7
+  md5: bdff4bcd6b08294bbbd9ce94ead93433
 - path: data/AZ/ratings.parquet
-  md5: 1add0b5d70203ca01df2cc4e012986aa
+  md5: 3475e68661d518bafc241b90133432b2
 - path: data/BX-E/ratings.parquet
-  md5: 48566b768782e896794a631dbee42942
+  md5: 577aac37d2bbd0e32c14206beef5500a
 - path: data/BX-I/ratings.parquet
-  md5: 3d69f3df8b00127a78538232a7d13ba2
+  md5: c506f6e8a5b7dac27d973fa07f6eef78
 - path: data/GR-E/ratings.parquet
-  md5: 1485ad61d5ba06d26b0f30768bf0407d
+  md5: 06599aadedf38bb92204836748e09ebf
 - path: data/GR-I/ratings.parquet
-  md5: 3a43bd07ef0e55b7cba2617d48c6ee41
+  md5: 9482afe54bdc01ecd9d13622d1332de9
 outs:
 - path: data/rec-data.pkl
-  md5: b529691a580939fccc6235aec0150027
+  md5: 762952e738e20fc4f99843e51a292e0b
+  cache: true
+  metric: false
+  persist: false
+- path: data/AZ/inference/full-inputs.json
+  md5: 925716acd401069399eb87c2174e6402
+  cache: true
+  metric: false
+  persist: false
+- path: data/BX-E/inference/full-inputs.json
+  md5: 351c91a2c1586bef5335054a84269116
+  cache: true
+  metric: false
+  persist: false
+- path: data/BX-I/inference/full-inputs.json
+  md5: 4771fb432554ac6bd198d2f5c5db56f2
+  cache: true
+  metric: false
+  persist: false
+- path: data/GR-E/inference/full-inputs.json
+  md5: b04dc00cc67881650d1ec8e83fe05fac
+  cache: true
+  metric: false
+  persist: false
+- path: data/GR-I/inference/full-inputs.json
+  md5: 175b0d879e134ade50f2889b26d570b6
   cache: true
   metric: false
   persist: false
@@ -29,4 +54,4 @@ outs:
   cache: false
   metric: false
   persist: false
-  md5: 07e2741a5d3a91787b947d9acde926dd
+  md5: c079d2108b78676c09045199c8f2e8ff

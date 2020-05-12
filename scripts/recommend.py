@@ -2,23 +2,25 @@
 Generate recommendations
 
 Usage:
-  recommend.py <dataset> <algorithm>
+    recommend.py [options] <dataset> <algorithm>
+
+Options:
+    -n N
+        Recommend N items per user [default: 100].
 """
-from docopt import docopt
+
 import pickle
 import json
 
 from bookgender.logutils import start_script, LogFile
 from bookgender.config import data_dir, proc_count
+from bookgender.util import OptionReader, get_opt
 import bookgender.datatools as dt
-from bookgender.rec_ops import get_algorithm
 
 from lenskit import batch
 from lenskit.util import Stopwatch
 
 import pandas as pd
-
-LIST_SIZE = 100
 
 _log = start_script(__file__)
 
@@ -42,27 +44,35 @@ def job_template(data, algo):
     }
 
 
-def run_recs(data, algo):
-    ddir = data_dir / data
-    afn = dt.afname(algo)
+class RecOptions(OptionReader):
+    "Options for the recommend script"
+
+    data = get_opt('<dataset>')
+    algo = get_opt('<algorithm>')
+    n = get_opt('-n', int)
+
+
+def run_recs(opts):
+    ddir = data_dir / opts.data
+    afn = dt.afname(opts.algo)
     mfn = ddir / 'models' / f'{afn}.model'
     with LogFile(ddir / 'recs' / f'{afn}.log'):
-        _log.info('loading model for %s', algo)
+        _log.info('loading model for %s', opts.algo)
         with open(mfn, 'rb') as f:
             model = pickle.load(f)
 
-        _log.info('loading users for %s', data)
+        _log.info('loading users for %s', opts.data)
         users = pd.read_csv(ddir / 'sample-users.csv')
 
         _log.info('producing recs for %d users', len(users))
         timer = Stopwatch()
-        recs = batch.recommend(model, users.user, LIST_SIZE,
+        recs = batch.recommend(model, users.user, opts.n,
                                nprocs=max(proc_count() // 2, 1))
         timer.stop()
         _log.info('finished in %s', timer)
 
         _log.info('saving recommendations')
-        recs.to_parquet(ddir / 'recs' / f'{afn}.parquet', index=False)
+        recs.to_parquet(ddir / 'recs' / f'{afn}.parquet', index=False, compression='brotli')
         recs.to_csv(ddir / 'recs' / f'{afn}.csv.gz', index=False)
 
         metrics = ddir / 'recs' / f'{afn}.json'
@@ -71,5 +81,5 @@ def run_recs(data, algo):
 
 
 if __name__ == '__main__':
-    args = docopt(__doc__)
-    run_recs(args['<dataset>'], args['<algorithm>'])
+    opts = RecOptions(__doc__)
+    run_recs(opts)

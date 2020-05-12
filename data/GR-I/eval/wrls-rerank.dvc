@@ -1,23 +1,25 @@
-cmd: python -m scripts.eval_algo --pretrained --rerank GR-I wrls
+cmd: python -m scripts.eval-algo --pretrained --rerank GR-I wrls
 deps:
-- path: scripts/eval_algo.py
-  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: scripts/eval-algo.py
+  md5: b236d22dcb1cc6d661edcb11be05d7da
 - path: data/GR-I/eval/wrls.model
-  md5: 9810a79a93ed090e38405a30a9a6cb0d
+  md5: c658d7fd7ed891362693d61c9b47774a
+- path: data/GR-I/ratings.parquet
+  md5: 9482afe54bdc01ecd9d13622d1332de9
 - path: data/GR-I/eval/test-ratings.parquet
-  md5: 0d1e9582b4caa1a9fb5c00da36d5a1aa
+  md5: cbd670bc1036d435fcb24e905d8ec6ca
 - path: data/GR-I/tuning/wrls.json
   md5: 8f65bb547a1b42a9d870b02d2612df0d
 outs:
 - path: data/GR-I/eval/wrls-rerank-recs.parquet
-  md5: ccddc06f9fe56f303c1a411ab47f0d14
+  md5: d5c2723f1642ba2d357d30cd74f30c7d
   cache: true
   metric: false
   persist: false
 - path: data/GR-I/eval/wrls-rerank.csv
-  md5: 2bcb44d452f580b7bbc10d144c030443
+  md5: 3d32bd38afa55e977266a2b562776a36
   cache: true
   metric: false
   persist: false
 wdir: ../../..
-md5: d867af6f3e3b93f930fe529201a9d86a
+md5: ddf8f99d2becce9658c4e6e7b5b2bfc3

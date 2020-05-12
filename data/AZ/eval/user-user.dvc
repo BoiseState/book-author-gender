@@ -1,23 +1,25 @@
-cmd: python -m scripts.eval_algo --pretrained AZ user-user
+cmd: python -m scripts.eval-algo --pretrained AZ user-user
 deps:
-- path: scripts/eval_algo.py
-  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: scripts/eval-algo.py
+  md5: b236d22dcb1cc6d661edcb11be05d7da
 - path: data/AZ/eval/user-user.model
-  md5: 36d46f2aa3fec047ef7a8775e8afc512
+  md5: 0de4a59b148fe10a7ac187279339e562
+- path: data/AZ/ratings.parquet
+  md5: 3475e68661d518bafc241b90133432b2
 - path: data/AZ/eval/test-ratings.parquet
-  md5: 14807f645afe40091a14a9be0b7045c9
+  md5: 0108c1e90d17619931d77b5a3f1e62d6
 - path: data/AZ/tuning/user-user.json
   md5: cdf7fa82dbcb7bb596e8098f3f239834
 outs:
 - path: data/AZ/eval/user-user-recs.parquet
-  md5: d3ebc29b67023c162af950ac174c6b8e
+  md5: 09d0fbb40a09a8ff8200a44edc005445
   cache: true
   metric: false
   persist: false
 - metric: true
   path: data/AZ/eval/user-user-metrics.json
-  md5: 6aa6db02e14124a6af776964339454d4
+  md5: 6454bb7db018e592fde2236c6e198c18
   cache: true
   persist: false
 wdir: ../../..
-md5: db8d974fa366ee6cbae6185b35d90fc6
+md5: 6a498ca65db3ab616d7db1c7abd15bc8

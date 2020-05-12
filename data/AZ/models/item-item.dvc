@@ -1,21 +1,16 @@
-cmd: python -m scripts.train_model  AZ item-item
+cmd: python -m scripts.train-model AZ item-item
 deps:
 - path: bookgender/algorithms/item_item.py
   md5: 0240a6e1726c57ee1a1969a05b81cb89
 - path: data/AZ/tuning/item-item.json
   md5: 3f3a14a85d0020ead808622c55060a0a
 - path: data/AZ/ratings.parquet
-  md5: 1add0b5d70203ca01df2cc4e012986aa
+  md5: 3475e68661d518bafc241b90133432b2
 outs:
 - path: data/AZ/models/item-item.model
-  md5: 216fccc52ad855bdcae371540c9f09c4
+  md5: 48290fea5f9e537d54628f4b155e1fa3
   cache: true
   metric: false
   persist: false
-- metric: true
-  path: data/AZ/models/item-item.json
-  md5: 4d771a0ae1c9e6c0a32c1c4ee6a4dc21
-  cache: true
-  persist: false
 wdir: ../../..
-md5: 7bae1dc0999be066c9db8db39050a611
+md5: 854e07600e3d9b112ffe4dc7f47aa19d

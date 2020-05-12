@@ -1,32 +1,31 @@
 name: bookfair
 channels:
-- mdekstrand/label/dev
 - lenskit
+- mdekstrand/label/pre
 - mdekstrand
 - defaults
-- conda-forge
+- conda-forge  # last so it is not preferred
 dependencies:
 - python=3.7
 - pip
-- invoke
-- lenskit
 - docopt
-- pandas>=0.24,<1.0
+- numpy>=1.17
+- pandas>=0.24
 - pyarrow
-- xarray
 - fastparquet
+- lenskit=0.9
 - sqlalchemy
 - seaborn
+- plotnine
 - tqdm
 - zstandard
 - python-blosc
 - notebook
 - ipython
 - ipywidgets
-- jupyterlab
 - nbformat
 - nbconvert
-- pytables
+- papermill
 - cffi
 - joblib
 - postgresql>=11
@@ -35,36 +34,25 @@ dependencies:
 - tbb
 - scikit-learn
 - implicit
-- pystan
-- rpy2
 - tzlocal
 - simplegeneric
-- r-ggplot2
-- r-dplyr
 - hpfrec
 - colorama
-- humanize
 - requests
-- nodejs
-- git
 - flake8
-# DVC deps
-- contextlib2
+- dvc>=0.84
 - gitpython
-- configparser
-- pyyaml
-- paramiko>=2.4.1
-- configobj
-- pillow
-- ply
+- pydrive2
+- boto3
+- toml
+- nbdime
+- zarr
+# things for stan
+- cxx-compiler
+- make
+- ujson
 - pip:
-  - chromalog
-  - nbstripout
-  - nbdime
-  - papermill
-  - pystache
-  - dvc[s3]
-  - git+https://github.com/scikit-optimize/scikit-optimize#0.6
-  - arviz
-  - ggplot
-#   - scikit-optimize
+    - pystache
+    - scikit-optimize
+    - cmdstanpy>=0.9
+    - natural

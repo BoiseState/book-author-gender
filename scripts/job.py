@@ -7,6 +7,10 @@ Usage:
 Options:
     --no-slack
         Do not post to Slack when completed.
+    --retry-dvc
+        Re-run DVC if it fails (once).
+    --random-sleep
+        Randomly sleep before starting (to avoid lock contention)
     --commit
         Commit results to Git when completed.
     -t, --threading LAYER
@@ -21,7 +25,10 @@ import pathlib
 import subprocess
 import resource
 import requests
+import random
+import time
 from textwrap import dedent
+import natural.date
 
 from docopt import docopt
 
@@ -30,6 +37,7 @@ from bookgender.config import proc_count
 from scripts.make_tree import init_tree
 
 _log = start_script(__file__)
+
 
 class Notifier:
     def __init__(self, opts):
@@ -93,46 +101,78 @@ def set_limit(res, soft):
     resource.setrlimit(res, (soft, old_h))
 
 
-options = docopt(__doc__, options_first=True)
-slack = Notifier(options)
+def set_limits(options):
+    _log.info('setting resource limits')
+    set_limit(resource.RLIMIT_AS, resource.RLIM_INFINITY)
+    set_limit(resource.RLIMIT_NPROC, 1024)
+    # set_limit(resource.RLIMIT_STACK, 64 * 1024 * 1024)
 
-_log.info('setting resource limits')
-set_limit(resource.RLIMIT_AS, resource.RLIM_INFINITY)
-set_limit(resource.RLIMIT_NPROC, 1024)
-# set_limit(resource.RLIMIT_STACK, 64 * 1024 * 1024)
 
-if 'MKL_NUM_THREADS' not in os.environ:
-    _log.info('setting MKL thread count')
-    os.environ['MKL_NUM_THREADS'] = str(proc_count())
+def set_threads(options):
+    if 'MKL_NUM_THREADS' not in os.environ:
+        _log.info('setting MKL thread count')
+        os.environ['MKL_NUM_THREADS'] = str(proc_count())
 
-if 'NUMBA_NUM_THREADS' not in os.environ:
-    _log.info('setting Numba thread count')
-    os.environ['NUMBA_NUM_THREADS'] = str(proc_count())
+    if 'NUMBA_NUM_THREADS' not in os.environ:
+        _log.info('setting Numba thread count')
+        os.environ['NUMBA_NUM_THREADS'] = str(proc_count())
 
-thread_layer = options['--threading']
-if thread_layer:
-    os.environ['MKL_THREADING_LAYER'] = thread_layer
-    os.environ['NUMBA_THREADING_LAYER'] = thread_layer
+    thread_layer = options['--threading']
+    if thread_layer:
+        os.environ['MKL_THREADING_LAYER'] = thread_layer
+        os.environ['NUMBA_THREADING_LAYER'] = thread_layer
 
-tree_root = options['--tree-dir']
-if tree_root:
-    name = os.environ.get('SLURM_JOB_NAME', 'unnamed')
-    jid = os.environ.get('SLURM_JOB_ID', 'unknown')
-    tree = pathlib.Path(tree_root) / f'{name}-{jid}'
-    init_tree(tree)
 
-cmd = options['ARGS']
-_log.info('running command %s', cmd)
-slack.notify_start(cmd)
-try:
-    subprocess.run(cmd, check=True)
-    _log.info('job succeeded')
-    slack.notify_finish()
-except subprocess.CalledProcessError as e:
-    _log.error('job failed with code %d', e.returncode)
-    slack.notify_fail()
-    sys.exit(e.returncode)
+def treeify(options):
+    tree_root = options['--tree-dir']
+    if tree_root:
+        name = os.environ.get('SLURM_JOB_NAME', 'unnamed')
+        jid = os.environ.get('SLURM_JOB_ID', 'unknown')
+        tree = pathlib.Path(tree_root) / f'{name}-{jid}'
+        init_tree(tree)
 
-if options['--commit']:
-    subprocess.run(['git', 'commit', '-am', f'ran job {os.environ.get("SLURM_JOB_NAME")}'],
-                   check=True)
+
+def run(options, slack):
+    cmd = options['ARGS']
+
+    slack.notify_start(cmd)
+    start = time.time()
+    try:
+        _log.info('running command %s', cmd)
+        subprocess.run(cmd, check=True)
+        _log.info('job succeeded')
+        finish = time.time()
+        elapsed = finish - start
+        use = resource.getrusage(resource.RUSAGE_CHILDREN)
+        _log.info('CPU time: %s', natural.date.compress(use.ru_utime + use.ru_stime))
+        _log.info('Wall time: %s', natural.date.compress(elapsed))
+        slack.notify_finish()
+    except subprocess.CalledProcessError as e:
+        _log.error('job failed with code %d', e.returncode)
+        slack.notify_fail()
+        sys.exit(e.returncode)
+
+
+def commit(options):
+    if options['--commit']:
+        subprocess.run(['git', 'commit', '-am', f'ran job {os.environ.get("SLURM_JOB_NAME")}'],
+                       check=True)
+
+
+def main():
+    options = docopt(__doc__, options_first=True)
+    slack = Notifier(options)
+
+    set_limits(options)
+    set_threads(options)
+    treeify(options)
+    if options['--random-sleep']:
+        s = random.randint(10, 120)
+        _log.info('sleeping for %d seconds', s)
+        time.sleep(s)
+    run(options, slack)
+    commit(options)
+
+
+if __name__ == '__main__':
+    main()

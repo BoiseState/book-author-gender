@@ -1,1 +1,6 @@
-*.pdf
+/ProfileData/
+/AlgoPerf/
+/DataSummary/
+/PMA-profile/
+/PMA-profile-full/
+/RecModel

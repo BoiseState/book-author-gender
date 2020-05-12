@@ -1,24 +1,26 @@
-cmd: python -m scripts.eval_algo --drop-ratings -N wrls-imp --pretrained --rerank
+cmd: python -m scripts.eval-algo --drop-ratings -N wrls-imp --pretrained --rerank
   AZ wrls
 deps:
-- path: scripts/eval_algo.py
-  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: scripts/eval-algo.py
+  md5: b236d22dcb1cc6d661edcb11be05d7da
 - path: data/AZ/eval/wrls-imp.model
-  md5: 35ef75af237a01257043105d1ea04796
+  md5: 073b6e0c14647598a294c8c1f87d9350
+- path: data/AZ/ratings.parquet
+  md5: 3475e68661d518bafc241b90133432b2
 - path: data/AZ/eval/test-ratings.parquet
-  md5: 14807f645afe40091a14a9be0b7045c9
+  md5: 0108c1e90d17619931d77b5a3f1e62d6
 - path: data/AZ/tuning/wrls-imp.json
   md5: b59e14500a3f30cc28307adccc2f3593
 outs:
 - path: data/AZ/eval/wrls-imp-rerank-recs.parquet
-  md5: bcb369fab9d896c518dafc983d881805
+  md5: ea2b9128199cdc2569a75ed137ba67dd
   cache: true
   metric: false
   persist: false
 - path: data/AZ/eval/wrls-imp-rerank.csv
-  md5: dc1723ecc537d283118c69e1923f4714
+  md5: dfd385a748a0635c4951a143d1f6e986
   cache: true
   metric: false
   persist: false
 wdir: ../../..
-md5: d7826fc85db079dc1d86c78c96b14b31
+md5: c39b5ddf3ba115e5f2bf91c88c2170ae

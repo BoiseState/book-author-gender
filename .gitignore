@@ -27,6 +27,8 @@ envvars.bat
 .settings
 data_conf.ini
 config.ini
+db.cfg
+local.ini
 
 **/tuning/*.cp
 
@@ -34,3 +36,4 @@ config.ini
 build/
 .gradle
 gradle.properties
+/JobStats.html

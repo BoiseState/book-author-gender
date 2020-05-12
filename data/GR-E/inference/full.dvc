@@ -1,0 +1,30 @@
+cmd: python -m scripts.stan full GR-E
+deps:
+- path: scripts/stan.py
+  md5: a06c6b36d3452b0a429771cfc4886de8
+- path: random.toml
+  md5: 94d65def306915fef706865e476a68d5
+- path: stan.toml
+  md5: 16fafe8748a08e80d5d187572d358cda
+- path: models/full.stan
+  md5: e9f949c12dc6aba85f51315d32fea897
+- path: data/GR-E/inference/full-inputs.json
+  md5: b04dc00cc67881650d1ec8e83fe05fac
+outs:
+- path: data/GR-E/inference/full
+  md5: 6c765a832c203722ae732cfdcee5f3de.dir
+  cache: true
+  metric: false
+  persist: false
+- path: data/GR-E/inference/full-summary.csv
+  md5: 503eb8f983c98087b24037afed3ff7ed
+  cache: true
+  metric: false
+  persist: false
+- path: data/GR-E/inference/full-diag.txt
+  md5: b392bfe8221cdab8012094aac0475cd1
+  cache: true
+  metric: false
+  persist: false
+wdir: ../../..
+md5: 07cd47cec56b827fcfeaa943eb896b27

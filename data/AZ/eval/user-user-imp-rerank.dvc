@@ -1,24 +1,26 @@
-cmd: python -m scripts.eval_algo --drop-ratings -N user-user-imp --pretrained --rerank
+cmd: python -m scripts.eval-algo --drop-ratings -N user-user-imp --pretrained --rerank
   AZ user-user
 deps:
-- path: scripts/eval_algo.py
-  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: scripts/eval-algo.py
+  md5: b236d22dcb1cc6d661edcb11be05d7da
 - path: data/AZ/eval/user-user-imp.model
-  md5: 436cb13c2529c2b1d317dec4bc2eb187
+  md5: 764bc76feac5d9055950db06ca2908c6
+- path: data/AZ/ratings.parquet
+  md5: 3475e68661d518bafc241b90133432b2
 - path: data/AZ/eval/test-ratings.parquet
-  md5: 14807f645afe40091a14a9be0b7045c9
+  md5: 0108c1e90d17619931d77b5a3f1e62d6
 - path: data/AZ/tuning/user-user-imp.json
   md5: a942d231c1ce93fc7900fe2f57af868d
 outs:
 - path: data/AZ/eval/user-user-imp-rerank-recs.parquet
-  md5: 3a82c55cf9584b20551e5c95ac280bf9
+  md5: bac1d5c89687bf8ffad538b6e4d0b493
   cache: true
   metric: false
   persist: false
 - path: data/AZ/eval/user-user-imp-rerank.csv
-  md5: 515c891ff018d99b01e45cfa6213076a
+  md5: 79891a3de173c2f1b8343d66b8fe3b74
   cache: true
   metric: false
   persist: false
 wdir: ../../..
-md5: 64c30a5c0c68412d5101159512a69576
+md5: 2ee82c532feed11fcf7c01eaeababe47

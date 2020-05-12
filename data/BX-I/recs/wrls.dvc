@@ -1,26 +1,26 @@
 cmd: python -m scripts.recommend BX-I wrls
 deps:
 - path: scripts/recommend.py
-  md5: ab700085f93e80dd7657a692a4f20712
+  md5: 891b8a8a8a89964c10747a584626051c
 - path: data/BX-I/sample-users.csv
-  md5: 67fe9d012af9671a7066772ff7a07f62
+  md5: 52bbd43ef60e2b702a80b64ce8907f95
 - path: data/BX-I/models/wrls.model
-  md5: 966c9fb17f1683b6bcf10279fe4cd7d4
+  md5: c19bf145137f02e1b8416a503bfb400f
 outs:
 - path: data/BX-I/recs/wrls.parquet
-  md5: 03bf8b7316077e39857e147bf2fcf238
+  md5: 6a96c65298c98578f3be463de745cf28
   cache: true
   metric: false
   persist: false
 - path: data/BX-I/recs/wrls.csv.gz
-  md5: 1e32fc3eb611ea3590cdfb39d599f619
+  md5: 7e7f39306dc31e3f829cc4a312ce534c
   cache: true
   metric: false
   persist: false
 - metric: true
   path: data/BX-I/recs/wrls.json
-  md5: bc251af5650db95b51047f05494769e3
+  md5: 4d055c2b84564ea4c8ff4d5c2841b8c8
   cache: true
   persist: false
 wdir: ../../..
-md5: b8fa1187bb982a8805527a195585b506
+md5: 6489e3e86f16177947e6d153527d776d

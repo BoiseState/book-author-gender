@@ -1,0 +1,13 @@
+md5: 2002d4f45f13731c29e77dc9568ddac8
+cmd: python -m scripts.run-notebook --overwrite JobStats.ipynb
+deps:
+- md5: c798b22eb6486db265a3e69e99c8f9aa
+  path: JobStats.ipynb
+outs:
+- path: JobStats.html
+  cache: true
+  metric: false
+  persist: false
+  md5: 8b273a7b6e5b7d2bc9405f1c8f6c13b0
+always_changed: true
+locked: true

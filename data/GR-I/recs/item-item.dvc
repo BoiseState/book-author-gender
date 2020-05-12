@@ -1,26 +1,26 @@
 cmd: python -m scripts.recommend GR-I item-item
 deps:
 - path: scripts/recommend.py
-  md5: ab700085f93e80dd7657a692a4f20712
+  md5: 891b8a8a8a89964c10747a584626051c
 - path: data/GR-I/sample-users.csv
-  md5: e73561663da36c040609ab574ec16485
+  md5: b0bce84d652838718bdf26937d655582
 - path: data/GR-I/models/item-item.model
-  md5: ad083591ed9ccb5512b8cd4c2f0375e0
+  md5: 547ee0abab36ff9c50f30c79455d2bee
 outs:
 - path: data/GR-I/recs/item-item.parquet
-  md5: 887e5a26885403a6caf7772b54d68895
+  md5: 14045d48266235b7b1ca87f2d86c0322
   cache: true
   metric: false
   persist: false
 - path: data/GR-I/recs/item-item.csv.gz
-  md5: c22918109ad95acf90f89d74118e4f1c
+  md5: a32def6eb0b3f6c3f9899be70d6b6a35
   cache: true
   metric: false
   persist: false
 - metric: true
   path: data/GR-I/recs/item-item.json
-  md5: 4757ff3f48f12ac4b2e381ef7b6b65d6
+  md5: 55daf4de792b3f12a46bd34f1c0da0da
   cache: true
   persist: false
 wdir: ../../..
-md5: f591b71b81ea849c0b23555e2debfb56
+md5: b678e3ea7c7a7ca80230d57089468153

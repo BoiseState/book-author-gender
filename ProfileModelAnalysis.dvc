@@ -1,23 +1,28 @@
-md5: 9422c8a530bf333478bca1e106ed3aff
+md5: b2cefa0180881ebd8aa92ea9449d34e2
 cmd: python -m scripts.run-notebook --overwrite ProfileModelAnalysis.ipynb
 deps:
-- md5: 74dbddd95095416f601b8c00e7bba213
+- md5: 2a8229c164c41c44b73b5b578103eb29
   path: ProfileModelAnalysis.ipynb
 - path: data/profile-data.pkl
-  md5: 74eaba8f483e0c1c0cf3dec3fdc0d709
-- path: data/BX-I/profile-samples.h5
-  md5: 9af737438d8134b520006ce96283368a
-- path: data/BX-E/profile-samples.h5
-  md5: 3aa72e2ada645d05defedbc61324bd8d
-- path: data/AZ/profile-samples.h5
-  md5: 83bd3fa761c8c7b01bb46360a8b79a29
-- path: data/GR-I/profile-samples.h5
-  md5: 68c852b263defaca1f9fd3d5a0cf6476
-- path: data/GR-E/profile-samples.h5
-  md5: ff0b41fd53fd8504299f6522fd4b6d94
+  md5: b8dc40cddc2b525490747f86ae5bf094
+- path: data/BX-I/inference/profile/samples.zarr
+  md5: 2f62b98f8fc60c4aef57f0fcfe93387d
+- path: data/BX-E/inference/profile/samples.zarr
+  md5: 6c70123350d56ff5e951c07e1cb81090
+- path: data/AZ/inference/profile/samples.zarr
+  md5: ec2e0ceac6c426207cd8d54d32c41416
+- path: data/GR-I/inference/profile/samples.zarr
+  md5: 0c08e09c5e217ab38f8bfe24b564689a
+- path: data/GR-E/inference/profile/samples.zarr
+  md5: dfef01582b1206494425d2d007ce03b6
 outs:
-- md5: 914efd068befc3c159bb9d919d8b02ed
+- md5: fdd7a2c6470fc4e058036deb3d3c478d
   path: ProfileModelAnalysis.html
   cache: false
+  metric: false
+  persist: false
+- path: figures/PMA-profile
+  md5: 1454a5112b854d5bc236b4770df0cb3d.dir
+  cache: true
   metric: false
   persist: false

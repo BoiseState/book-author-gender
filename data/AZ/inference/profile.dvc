@@ -1,0 +1,30 @@
+cmd: python -m scripts.stan profile AZ
+deps:
+- path: scripts/stan.py
+  md5: a06c6b36d3452b0a429771cfc4886de8
+- path: random.toml
+  md5: 94d65def306915fef706865e476a68d5
+- path: stan.toml
+  md5: 16fafe8748a08e80d5d187572d358cda
+- path: models/profile.stan
+  md5: aa2b24319d011ff87e08570b709ae424
+- path: data/AZ/inference/profile-inputs.json
+  md5: f3aa8dc377f505039d573743f8a58b6c
+outs:
+- path: data/AZ/inference/profile
+  md5: 801909ab1de89e70220c1f4e026cd094.dir
+  cache: true
+  metric: false
+  persist: false
+- path: data/AZ/inference/profile-summary.csv
+  md5: 34276e31f79a4d4081e26ac44dfdd9d1
+  cache: true
+  metric: false
+  persist: false
+- path: data/AZ/inference/profile-diag.txt
+  md5: f09e340cd6d2a00b5731f8a03939a380
+  cache: true
+  metric: false
+  persist: false
+wdir: ../../..
+md5: 368e7450de4871a77054f3273ff42ddf

@@ -1,16 +1,16 @@
 cmd: python -m scripts.export --book-hashes
 deps:
-- md5: a7b482d366d6f874f74f9d08cf553c5b
+- md5: 14d177af18c1f0e89825f8cf264f76d0
   path: data/version-stamp.txt
-md5: 2a67d9b4f50e24c3352df15c631d0171
+md5: 71f83b96eaacd6d30a497660358039a1
 outs:
 - cache: true
-  md5: 5d4478581d01bd1b65f215b7e452e433
+  md5: 3550b3bcdae6f6e2fafef358f085ed80
   metric: false
   path: data/book-hash.csv.gz
   persist: false
 - cache: true
-  md5: 85481518dc25385f58b314d8863d1be0
+  md5: 18972df4929aba7a99edfb40776328c5
   metric: false
   path: data/book-hash.parquet
   persist: false

@@ -1,20 +1,22 @@
 deps:
-- md5: 123e5a813bfa0d2ad59839c59836d472
+- md5: 6849d012cf70fc32aa1e0bbd0f75d772
   path: data/study-users.csv
-- md5: c910ee428970d2ce786dd0a939651d54
+- md5: 96a523f5b6b061003c83d2ca73908cae
   path: data/study-recs.csv.gz
-- path: PySummary.html
-  md5: 37c4cd02509855b00692cbf74e34d5a4
+- path: DataSummary.html
+  md5: c1b37430a00474a49bcb94998c544eff
 - path: AlgoPerf.html
-  md5: 457f36ee1866e206217d502cc3ee89ff
+  md5: 393efbd8863564dccf35d6cac83bfb5b
 - path: ProfileDataPrep.html
-  md5: 6c9275d89ea04a660d8097fa85414ea0
+  md5: 76fcd39867af65650b09c0aee574ad3b
 - path: ProfileModelAnalysis.html
-  md5: 914efd068befc3c159bb9d919d8b02ed
+  md5: fdd7a2c6470fc4e058036deb3d3c478d
 - path: ProfileModelFullAnalysis.html
-  md5: 8ee2d7a45009ea588509d1ee01e1fd3b
+  md5: 1e322b11c6e0a7bc1e1a278a1fb1df95
 - path: RecDataPrep.html
-  md5: 07e2741a5d3a91787b947d9acde926dd
+  md5: c079d2108b78676c09045199c8f2e8ff
 - path: RecModelAnalysis.html
-  md5: 4a6ba5b30c6758f4d75060cf2c297754
-md5: 97183bfbd5034fbf6e44b3b67162ccf5
+  md5: f206afa1a59a8e8014d8aca8443bc753
+- path: RecCorrelations.html
+  md5: 26633f06d321377f155c055cf9f6e97f
+md5: a2e363daf82219de39e575e1cdcb5f00

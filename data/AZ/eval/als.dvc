@@ -1,23 +1,25 @@
-cmd: python -m scripts.eval_algo --pretrained AZ als
+cmd: python -m scripts.eval-algo --pretrained AZ als
 deps:
-- path: scripts/eval_algo.py
-  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: scripts/eval-algo.py
+  md5: b236d22dcb1cc6d661edcb11be05d7da
 - path: data/AZ/eval/als.model
-  md5: b16ceb84931ba7f861ca9b8797c87e0b
+  md5: 8eaff6177c486e120b9200cd53ea1ec1
+- path: data/AZ/ratings.parquet
+  md5: 3475e68661d518bafc241b90133432b2
 - path: data/AZ/eval/test-ratings.parquet
-  md5: 14807f645afe40091a14a9be0b7045c9
+  md5: 0108c1e90d17619931d77b5a3f1e62d6
 - path: data/AZ/tuning/als.json
   md5: c096c581c6cb187328a13b93afe9b288
 outs:
 - path: data/AZ/eval/als-recs.parquet
-  md5: 2aa6b1326ee3e074282a0fc0d0c1b4f8
+  md5: 2ccff9827b7070b35dc14514325171c0
   cache: true
   metric: false
   persist: false
 - metric: true
   path: data/AZ/eval/als-metrics.json
-  md5: 4ed98b5115e1161b8e1ef08c0931556b
+  md5: 9df955a72ef6a70c3858a5cafb709962
   cache: true
   persist: false
 wdir: ../../..
-md5: b08f1e2eaa4ea1d9371ea2adc2859b62
+md5: 4d14da46754a051d9c84699ca76e505c

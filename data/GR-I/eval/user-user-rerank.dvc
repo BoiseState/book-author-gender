@@ -1,23 +1,25 @@
-cmd: python -m scripts.eval_algo --pretrained --rerank GR-I user-user
+cmd: python -m scripts.eval-algo --pretrained --rerank GR-I user-user
 deps:
-- path: scripts/eval_algo.py
-  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: scripts/eval-algo.py
+  md5: b236d22dcb1cc6d661edcb11be05d7da
 - path: data/GR-I/eval/user-user.model
-  md5: 772e587c81e9cfb028fe1ebe249724c5
+  md5: 084f8ff6639a3c2ca744f049716e982b
+- path: data/GR-I/ratings.parquet
+  md5: 9482afe54bdc01ecd9d13622d1332de9
 - path: data/GR-I/eval/test-ratings.parquet
-  md5: 0d1e9582b4caa1a9fb5c00da36d5a1aa
+  md5: cbd670bc1036d435fcb24e905d8ec6ca
 - path: data/GR-I/tuning/user-user.json
   md5: 807351c5c2b16cd4abd294ad47553076
 outs:
 - path: data/GR-I/eval/user-user-rerank-recs.parquet
-  md5: 88b59af1905c5743334e707ea7313b91
+  md5: ed8a162ba72628a406611cb89d382d40
   cache: true
   metric: false
   persist: false
 - path: data/GR-I/eval/user-user-rerank.csv
-  md5: 10b43ace88cc166b21a6bb0c1673f1dd
+  md5: 1c46a71e0addc2c4cdca329c04d374f4
   cache: true
   metric: false
   persist: false
 wdir: ../../..
-md5: 7f304ae07346f6c6ebbadf2fb8cbe7bd
+md5: 16390e764591aab5efcd0323e2986e2a

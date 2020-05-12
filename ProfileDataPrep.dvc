@@ -1,18 +1,69 @@
-md5: cff7f1e5263afafd45d77be463281bde
+md5: 8539bd16cb41bc6ecea6ad84b3827485
 cmd: python -m scripts.run-notebook --overwrite ProfileDataPrep.ipynb
-wdir: .
 deps:
-- md5: 873b1de99feb35d035e738c4e6e24700
+- md5: 26f2e16b51bb7ea20ba490bfd1f6f195
   path: ProfileDataPrep.ipynb
 - path: data/loc-books.csv.gz
-  md5: 322caeceab397a4d686af56346368fc4
+  md5: 2acea0c5a86119338792e3a39e525e02
 - path: data/author-gender.csv.gz
-  md5: 451bc3bb984fb7ad0c727025da6ced07
+  md5: 0f99ec9ce177a3d65b67f4e099f681d1
 - path: data/study-ratings.csv
-  md5: c1d238d5b6340048d3d4688bbf2f72f6
+  md5: b4746e18d4efd730c4f4afa1add35063
+- path: data/book-hash.parquet
+  md5: 18972df4929aba7a99edfb40776328c5
 outs:
 - path: data/profile-data.pkl
-  md5: 74eaba8f483e0c1c0cf3dec3fdc0d709
+  md5: b8dc40cddc2b525490747f86ae5bf094
+  cache: true
+  metric: false
+  persist: false
+- path: data/AZ/inference/profile-inputs.json
+  md5: f3aa8dc377f505039d573743f8a58b6c
+  cache: true
+  metric: false
+  persist: false
+- path: data/AZ/inference/profile-dcode-inputs.json
+  md5: 49143959385e2a9244b9e4630455e744
+  cache: true
+  metric: false
+  persist: false
+- path: data/BX-I/inference/profile-inputs.json
+  md5: b165828d112688f380ff8128c91bb574
+  cache: true
+  metric: false
+  persist: false
+- path: data/BX-I/inference/profile-dcode-inputs.json
+  md5: 4385095a48862915cb62de85b9a29e2e
+  cache: true
+  metric: false
+  persist: false
+- path: data/BX-E/inference/profile-inputs.json
+  md5: 2c63209d89438c747174a730ef96fd5b
+  cache: true
+  metric: false
+  persist: false
+- path: data/BX-E/inference/profile-dcode-inputs.json
+  md5: ed1c98ec22403d8c28ac3bb9ef9fe381
+  cache: true
+  metric: false
+  persist: false
+- path: data/GR-I/inference/profile-inputs.json
+  md5: 0d4e46bcb198a3f82d76e764d8c9d35d
+  cache: true
+  metric: false
+  persist: false
+- path: data/GR-I/inference/profile-dcode-inputs.json
+  md5: 0def8b119e74d2b16d27b6ba71efd2f5
+  cache: true
+  metric: false
+  persist: false
+- path: data/GR-E/inference/profile-inputs.json
+  md5: f56843faf4f1ee2bb9737c6bbb0c74c2
+  cache: true
+  metric: false
+  persist: false
+- path: data/GR-E/inference/profile-dcode-inputs.json
+  md5: d06bb7b78ae4a594ddf4781c0359319f
   cache: true
   metric: false
   persist: false
@@ -20,4 +71,9 @@ outs:
   cache: false
   metric: false
   persist: false
-  md5: 6c9275d89ea04a660d8097fa85414ea0
+  md5: 76fcd39867af65650b09c0aee574ad3b
+- path: figures/ProfileData
+  md5: 10c08a66f978da21f79e10127f8f459b.dir
+  cache: true
+  metric: false
+  persist: false

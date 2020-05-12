@@ -1,25 +1,30 @@
 cmd: python -m scripts.run-notebook --overwrite RecModelAnalysis.ipynb
 deps:
-- md5: 36513a1377b6df78d6fdddc4eb95e0ab
+- md5: d6e47b2b711d832b711da70af1a79378
   path: RecModelAnalysis.ipynb
 - path: data/profile-data.pkl
-  md5: 74eaba8f483e0c1c0cf3dec3fdc0d709
+  md5: b8dc40cddc2b525490747f86ae5bf094
 - path: data/rec-data.pkl
-  md5: b529691a580939fccc6235aec0150027
-- path: data/BX-I/full-samples.h5
-  md5: 9022caebaca5d9aebc88f7b50f9b13aa
-- path: data/BX-E/full-samples.h5
-  md5: afa276ed86f88af3000c1f043170da8b
-- path: data/AZ/full-samples.h5
-  md5: 400e22570cdbb066f8eb4c8ca2a30c87
-- path: data/GR-I/full-samples.h5
-  md5: b7392f870334291e5332c6ae8cece458
-- path: data/GR-E/full-samples.h5
-  md5: e2337cde4b6b797f081a99c213eca92a
+  md5: 762952e738e20fc4f99843e51a292e0b
+- path: data/BX-I/inference/full/samples.zarr
+  md5: b469ecbe9a7d54f9921999c5da5d8b6c
+- path: data/BX-E/inference/full/samples.zarr
+  md5: 6f7ed8f874276f58bf03abae49adf383
+- path: data/AZ/inference/full/samples.zarr
+  md5: 81cbd2c3d69481dd53722d73c4bf305a
+- path: data/GR-I/inference/full/samples.zarr
+  md5: 2666a77cb6cf7284d2cf07404a370391
+- path: data/GR-E/inference/full/samples.zarr
+  md5: d9f44907416628b513c61bf61c93c3b5
 outs:
-- md5: 4a6ba5b30c6758f4d75060cf2c297754
+- md5: f206afa1a59a8e8014d8aca8443bc753
   path: RecModelAnalysis.html
   cache: false
   metric: false
   persist: false
-md5: eb733d46a5d5aafbd4b1ee29f6678d50
+- path: figures/RecModel
+  md5: 2a6dfdb73e2640ce86cef0020331860c.dir
+  cache: true
+  metric: false
+  persist: false
+md5: e2e072821c34fa38af2bcd837fcdd312

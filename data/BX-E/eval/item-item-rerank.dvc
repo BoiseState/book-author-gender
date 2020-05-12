@@ -1,23 +1,25 @@
-cmd: python -m scripts.eval_algo --pretrained --rerank BX-E item-item
+cmd: python -m scripts.eval-algo --pretrained --rerank BX-E item-item
 deps:
-- path: scripts/eval_algo.py
-  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: scripts/eval-algo.py
+  md5: b236d22dcb1cc6d661edcb11be05d7da
 - path: data/BX-E/eval/item-item.model
-  md5: 22cc91203d8b6b445998dc2382341bb2
+  md5: 59dca5e008d3a782c80f34f647b69842
+- path: data/BX-E/ratings.parquet
+  md5: 577aac37d2bbd0e32c14206beef5500a
 - path: data/BX-E/eval/test-ratings.parquet
-  md5: 594b329bfefc7c641e7c1fee32121f03
+  md5: 73704908a4839fbe84fe7617d58cf3c1
 - path: data/BX-E/tuning/item-item.json
   md5: 0b292e8423a99c94ef9668a6575c5a82
 outs:
 - path: data/BX-E/eval/item-item-rerank-recs.parquet
-  md5: c35c975752622bffcdd396618d429e30
+  md5: e5f0f65a7adfdcf2d51e8aaa2cdaea15
   cache: true
   metric: false
   persist: false
 - path: data/BX-E/eval/item-item-rerank.csv
-  md5: 0a54b457c67bb96705da56fc5f2d891d
+  md5: 8e5e8efd75f4129c1880abf1d1da50ec
   cache: true
   metric: false
   persist: false
 wdir: ../../..
-md5: fed4d192d55cfe77ed1f5f74da4d0fc8
+md5: 78a72f6735d893055bedb2d3e4f157ab

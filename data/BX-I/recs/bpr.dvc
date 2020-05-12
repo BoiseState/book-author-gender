@@ -1,26 +1,26 @@
 cmd: python -m scripts.recommend BX-I bpr
 deps:
 - path: scripts/recommend.py
-  md5: ab700085f93e80dd7657a692a4f20712
+  md5: 891b8a8a8a89964c10747a584626051c
 - path: data/BX-I/sample-users.csv
-  md5: 67fe9d012af9671a7066772ff7a07f62
+  md5: 52bbd43ef60e2b702a80b64ce8907f95
 - path: data/BX-I/models/bpr.model
-  md5: 32128a2422035fe6a25d419b8e6ac704
+  md5: 580c8fc0b91e913e4e7c1f4f5c251824
 outs:
 - path: data/BX-I/recs/bpr.parquet
-  md5: 97ca73c4b4a2e028a958417b543bea6c
+  md5: 97aaf750855565dfa039977a13dfa83a
   cache: true
   metric: false
   persist: false
 - path: data/BX-I/recs/bpr.csv.gz
-  md5: c9400bcc57a303601a983d5dd6294511
+  md5: 3329e7851c18eedf89f63231c8f6cfdc
   cache: true
   metric: false
   persist: false
 - metric: true
   path: data/BX-I/recs/bpr.json
-  md5: 00f0025726b39f579b21c4996d0f1def
+  md5: 0826c653987eabb6faef9068b404b5da
   cache: true
   persist: false
 wdir: ../../..
-md5: edbe73099fd9bafded4fa7114d510ebb
+md5: 443f9a693066eb59004d7bf40327a1e3

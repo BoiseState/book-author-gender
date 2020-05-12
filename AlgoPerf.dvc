@@ -1,16 +1,22 @@
-md5: c40a78f743cc3ae3a910cae333c74678
+md5: cc6a8ef2c890fbbcaa6e30dbd6d353ca
 cmd: python -m scripts.run-notebook --overwrite AlgoPerf.ipynb
-wdir: .
 deps:
-- md5: 38da73589ee46e311973eecc2f31fdc7
+- md5: be053eac60ee92f20c6f50f189f495db
   path: AlgoPerf.ipynb
 - path: data/rec-perf.csv
-  md5: 5d9af4d209e0b4ec9a9acacbea01e78e
+  md5: 9ae207339471ad02952b8b530d12aaaa
 - path: data/rec-tune.json
   md5: 7a4233cdb93e2eeeef1e73282222385e
+- path: data/rerank-perf.csv
+  md5: 98f997e7b48a00347219a89f87448dec
 outs:
-- md5: 457f36ee1866e206217d502cc3ee89ff
+- md5: 393efbd8863564dccf35d6cac83bfb5b
   path: AlgoPerf.html
   cache: false
+  metric: false
+  persist: false
+- path: figures/AlgoPerf
+  md5: d835e160aca232361138316231229642.dir
+  cache: true
   metric: false
   persist: false

@@ -1,16 +1,18 @@
-cmd: python -m scripts.train_model --train-data eval AZ user-user
+cmd: python -m scripts.train-model --train-data eval AZ user-user
 deps:
 - path: bookgender/algorithms/user_user.py
   md5: 316ebcd6b040c5e80baa889e6cdbcf97
 - path: data/AZ/tuning/user-user.json
   md5: cdf7fa82dbcb7bb596e8098f3f239834
-- path: data/AZ/eval/train-ratings.parquet
-  md5: 19f8714d439dbd93b991d8c076bb2758
+- path: data/AZ/ratings.parquet
+  md5: 3475e68661d518bafc241b90133432b2
+- path: data/AZ/eval/test-ratings.parquet
+  md5: 0108c1e90d17619931d77b5a3f1e62d6
 outs:
 - path: data/AZ/eval/user-user.model
-  md5: 36d46f2aa3fec047ef7a8775e8afc512
+  md5: 0de4a59b148fe10a7ac187279339e562
   cache: true
   metric: false
   persist: false
 wdir: ../../..
-md5: 096f0f72c71ec9af6e5207ece068fdb9
+md5: 12b0e9cf3d3f0644d2ea3e7ba8d6d130

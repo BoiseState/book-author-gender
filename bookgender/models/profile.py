@@ -12,7 +12,7 @@ from lenskit.util import Stopwatch
 
 from .. import datatools as dt
 from ..config import data_dir
-from . import write_samples
+from . import write_samples, stan_seed
 
 _log = logging.getLogger(__name__)
 
@@ -32,6 +32,8 @@ def run_model(model, env, inst, cfg, *, var='gender'):
     Run a STAN model.
     """
 
+    seed = stan_seed(inst, var)
+
     data = env.profiles.loc[inst, :]
 
     _log.info('running profile model on %d profiles for %s', len(data), inst)
@@ -49,7 +51,7 @@ def run_model(model, env, inst, cfg, *, var='gender'):
     else:
         raise ValueError(f'unknown variant {var}')
 
-    fit = model.sampling(stan_data, **cfg)
+    fit = model.sampling(stan_data, seed=seed, check_hmc_diagnostics=True, **cfg)
     _log.info('profile sample for %s finished in %s', inst, timer)
     summary = fit.stansummary(pars=["mu", "sigma", "thetaP", "nP", "yP"])
     print(summary)

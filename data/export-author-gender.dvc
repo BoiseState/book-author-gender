@@ -1,16 +1,16 @@
 cmd: python -m scripts.export --authors
 deps:
-- md5: 395dbe40b2bddbfb0048c4817b7eba2a
+- md5: 14d177af18c1f0e89825f8cf264f76d0
   path: data/version-stamp.txt
-md5: 5064025e301c037e40c647973300ce54
+md5: fd483222cdec7d592ac46669f743eca7
 outs:
 - cache: true
-  md5: 451bc3bb984fb7ad0c727025da6ced07
+  md5: 0f99ec9ce177a3d65b67f4e099f681d1
   metric: false
   path: data/author-gender.csv.gz
   persist: false
 - cache: true
-  md5: 981c9c9254d60f6706cb1f56f97de692
+  md5: 4a759cca0af8d3228437e4426fc2961a
   metric: false
   path: data/author-gender.parquet
   persist: false

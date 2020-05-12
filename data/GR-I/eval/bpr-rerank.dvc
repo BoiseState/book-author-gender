@@ -1,23 +1,25 @@
-cmd: python -m scripts.eval_algo --pretrained --rerank GR-I bpr
+cmd: python -m scripts.eval-algo --pretrained --rerank GR-I bpr
 deps:
-- path: scripts/eval_algo.py
-  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: scripts/eval-algo.py
+  md5: b236d22dcb1cc6d661edcb11be05d7da
 - path: data/GR-I/eval/bpr.model
-  md5: 4c11e1d7354c395c54901fa5702dfbf4
+  md5: 9c18b613e339df443580778a574dada0
+- path: data/GR-I/ratings.parquet
+  md5: 9482afe54bdc01ecd9d13622d1332de9
 - path: data/GR-I/eval/test-ratings.parquet
-  md5: 0d1e9582b4caa1a9fb5c00da36d5a1aa
+  md5: cbd670bc1036d435fcb24e905d8ec6ca
 - path: data/GR-I/tuning/bpr.json
   md5: ac7ad0478388d83250529fc2f735bb98
 outs:
 - path: data/GR-I/eval/bpr-rerank-recs.parquet
-  md5: b780185aaad6c163a746f5467cb6d33a
+  md5: 97a4b569c1e0f332ce6b65d46a8c5bb7
   cache: true
   metric: false
   persist: false
 - path: data/GR-I/eval/bpr-rerank.csv
-  md5: 4f7a8be714f59e73447a0269974534a5
+  md5: b8188abca212c88d9b6cff7f8ad8a955
   cache: true
   metric: false
   persist: false
 wdir: ../../..
-md5: a3442f9407e18a51fe68e34fab5b9ec7
+md5: 4d1bbe0fdefa287e35de07099e4c7986

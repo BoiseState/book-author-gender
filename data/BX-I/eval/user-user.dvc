@@ -1,23 +1,25 @@
-cmd: python -m scripts.eval_algo --pretrained BX-I user-user
+cmd: python -m scripts.eval-algo --pretrained BX-I user-user
 deps:
-- path: scripts/eval_algo.py
-  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: scripts/eval-algo.py
+  md5: b236d22dcb1cc6d661edcb11be05d7da
 - path: data/BX-I/eval/user-user.model
-  md5: b45e73c4012699df7deac10b3a58bee7
+  md5: 5ec386a81c2773f3b4537a8c8308c7a5
+- path: data/BX-I/ratings.parquet
+  md5: c506f6e8a5b7dac27d973fa07f6eef78
 - path: data/BX-I/eval/test-ratings.parquet
-  md5: ce951afa66086d35769f0691d9747956
+  md5: c7b20e4d0b51e152de9855b9b40c4120
 - path: data/BX-I/tuning/user-user.json
   md5: 7abdbec2bcc88fe50f6871f780aa98be
 outs:
 - path: data/BX-I/eval/user-user-recs.parquet
-  md5: b0606d1cb4c7cce4014072e3a3d88f9c
+  md5: 41ba79071cd37bf7ce48c9d88cf8f3e9
   cache: true
   metric: false
   persist: false
 - metric: true
   path: data/BX-I/eval/user-user-metrics.json
-  md5: 38e18e21e151653df6b377601d882e84
+  md5: 76a97d15b3603ab583543f9eac03195b
   cache: true
   persist: false
 wdir: ../../..
-md5: 8feda32063a8051a66026ab1bc9b6a5b
+md5: aff091cb3bad2ca46de5bf5d3ba451e3

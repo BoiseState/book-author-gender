@@ -1,25 +1,27 @@
-cmd: python -m scripts.sample_users AZ
+cmd: python -m scripts.sample-users AZ
 deps:
-- md5: 5ed40578850434b9cbe35a4cac3def88
-  path: scripts/sample_users.py
-- md5: 395dbe40b2bddbfb0048c4817b7eba2a
+- md5: d25464ac09ef4ea94e41b3fd9b74b6e9
+  path: scripts/sample-users.py
+- md5: 14d177af18c1f0e89825f8cf264f76d0
   path: data/version-stamp.txt
-- md5: 1add0b5d70203ca01df2cc4e012986aa
+- md5: 3475e68661d518bafc241b90133432b2
   path: data/AZ/ratings.parquet
-md5: 63372a45d6a65ced8dcb0009212f827a
+- path: random.toml
+  md5: 94d65def306915fef706865e476a68d5
+md5: d0e188e5c57afea69a7db5c71efb2cb4
 outs:
 - cache: true
-  md5: b1d4d02f9fd67d5ab80bba3ec87ae7cc
+  md5: 0790421d4631d611469117e5d0ada350
   metric: false
   path: data/AZ/sample-users.csv
   persist: false
 - cache: true
-  md5: d8a6456011ad78260551f2a0ab274b26
+  md5: ffc740558ef7f861c6a1808b5e8ca123
   metric: false
   path: data/AZ/sample-ratings.csv
   persist: false
 - cache: true
-  md5: 7b11e7b1c03cec70bfe6925ecae10021
+  md5: a93df8cd0891ae187441ad2565b89d6b
   metric: true
   path: data/AZ/sample-stats.json
   persist: false

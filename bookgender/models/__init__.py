@@ -2,6 +2,7 @@ from os import fspath
 import logging
 
 import tables
+from lenskit.util.random import derive_seed
 
 _log = logging.getLogger(__name__)
 
@@ -18,3 +19,9 @@ def write_samples(path, samples, title=None, **extra):
 
         for k, v in extra.items():
             h5.create_array(h5.root, k, obj=v)
+
+
+def stan_seed(*keys):
+    seed = derive_seed(*keys)
+    stan_seed = seed.generate_state(1)[0] & 0x80000000  # put in range of int
+    _log.info('using random seed %s (from %s)', stan_seed, seed)

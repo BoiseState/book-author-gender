@@ -1,23 +1,25 @@
-cmd: python -m scripts.eval_algo --pretrained --rerank BX-I bpr
+cmd: python -m scripts.eval-algo --pretrained --rerank BX-I bpr
 deps:
-- path: scripts/eval_algo.py
-  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: scripts/eval-algo.py
+  md5: b236d22dcb1cc6d661edcb11be05d7da
 - path: data/BX-I/eval/bpr.model
-  md5: 59f85fbbd13e806b2ad1ea735c7606b1
+  md5: 198cb168352f040a4180498ad09356ae
+- path: data/BX-I/ratings.parquet
+  md5: c506f6e8a5b7dac27d973fa07f6eef78
 - path: data/BX-I/eval/test-ratings.parquet
-  md5: ce951afa66086d35769f0691d9747956
+  md5: c7b20e4d0b51e152de9855b9b40c4120
 - path: data/BX-I/tuning/bpr.json
   md5: 208fb35169f8376a4faee070b19e2e30
 outs:
 - path: data/BX-I/eval/bpr-rerank-recs.parquet
-  md5: 87d9aafdc4a7e783ddebc2fd1c59c231
+  md5: 73fe951dd4702630a480f42844af2d69
   cache: true
   metric: false
   persist: false
 - path: data/BX-I/eval/bpr-rerank.csv
-  md5: 5274ed9642850266aa03ef055d359786
+  md5: 344deaae10427b874e2645dd4edd983d
   cache: true
   metric: false
   persist: false
 wdir: ../../..
-md5: 8bfcc9f422b9d7f61e4928bcf645c489
+md5: 3061fe5abbbbf2072c4ed62d50173505

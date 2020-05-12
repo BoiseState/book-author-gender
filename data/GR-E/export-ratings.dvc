@@ -1,16 +1,11 @@
 cmd: python -m scripts.export --ratings GR-E
 deps:
-- md5: 395dbe40b2bddbfb0048c4817b7eba2a
+- md5: 14d177af18c1f0e89825f8cf264f76d0
   path: data/version-stamp.txt
-md5: 2d8ebb14bb034a9a4c1dea3b40101299
+md5: 3011b466efe640fef703c6795548142b
 outs:
 - cache: true
-  md5: 49dd978af73e5ec4a572361cdbb9f73b
-  metric: false
-  path: data/GR-E/ratings.csv.gz
-  persist: false
-- cache: true
-  md5: 1485ad61d5ba06d26b0f30768bf0407d
+  md5: 06599aadedf38bb92204836748e09ebf
   metric: false
   path: data/GR-E/ratings.parquet
   persist: false

@@ -1,26 +1,26 @@
 cmd: python -m scripts.recommend GR-I user-user
 deps:
 - path: scripts/recommend.py
-  md5: ab700085f93e80dd7657a692a4f20712
+  md5: 891b8a8a8a89964c10747a584626051c
 - path: data/GR-I/sample-users.csv
-  md5: e73561663da36c040609ab574ec16485
+  md5: b0bce84d652838718bdf26937d655582
 - path: data/GR-I/models/user-user.model
-  md5: 015c8ae327f3027487d2995053f279eb
+  md5: 3db33c1cb4f6e92d205d54134f1f1591
 outs:
 - path: data/GR-I/recs/user-user.parquet
-  md5: 2e68ed6bb981e55ae7da393fe3c0792d
+  md5: ad8365b78b9114e1ef535f0727c0cd12
   cache: true
   metric: false
   persist: false
 - path: data/GR-I/recs/user-user.csv.gz
-  md5: 441addf4192df83b39f6240450448db9
+  md5: bc88f1cb92f9004021785724821d6255
   cache: true
   metric: false
   persist: false
 - metric: true
   path: data/GR-I/recs/user-user.json
-  md5: f8be97036fe042a66e1def9d92006a3f
+  md5: 798c7e99715c65161a2e8d3df8fdda91
   cache: true
   persist: false
 wdir: ../../..
-md5: 192bcbfc70adc7a5daa08e5c957a5036
+md5: cc14125eb8d21919ab91891df9144e45

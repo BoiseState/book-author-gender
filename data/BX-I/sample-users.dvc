@@ -1,25 +1,27 @@
-cmd: python -m scripts.sample_users BX-I
+cmd: python -m scripts.sample-users BX-I
 deps:
-- md5: 5ed40578850434b9cbe35a4cac3def88
-  path: scripts/sample_users.py
-- md5: 395dbe40b2bddbfb0048c4817b7eba2a
+- md5: d25464ac09ef4ea94e41b3fd9b74b6e9
+  path: scripts/sample-users.py
+- md5: 14d177af18c1f0e89825f8cf264f76d0
   path: data/version-stamp.txt
-- md5: 3d69f3df8b00127a78538232a7d13ba2
+- md5: c506f6e8a5b7dac27d973fa07f6eef78
   path: data/BX-I/ratings.parquet
-md5: 08afa1e7bfad2eab6dfc523ea5bac63e
+- path: random.toml
+  md5: 94d65def306915fef706865e476a68d5
+md5: 626e5e874301e72a6bbc9c39986d9dc2
 outs:
 - cache: true
-  md5: 67fe9d012af9671a7066772ff7a07f62
+  md5: 52bbd43ef60e2b702a80b64ce8907f95
   metric: false
   path: data/BX-I/sample-users.csv
   persist: false
 - cache: true
-  md5: 3d2d654f62138512e2a49f0a229cc484
+  md5: 7ccc9274ad2ada54a4a550c8655c709a
   metric: false
   path: data/BX-I/sample-ratings.csv
   persist: false
 - cache: true
-  md5: d4fbb676d6257c0b1d15e1bde1ad352c
+  md5: a069b03b6c876a68bdc3b5e45773f117
   metric: true
   path: data/BX-I/sample-stats.json
   persist: false

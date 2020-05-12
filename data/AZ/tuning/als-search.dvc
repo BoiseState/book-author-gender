@@ -1,13 +1,13 @@
-cmd: python -m scripts.search_model AZ als
+cmd: python -m scripts.search-model AZ als
 deps:
-- path: scripts/search_model.py
-  md5: ceb12d6491c6b2adcf6b364dff30c6ec
-- path: data/AZ/tuning/train-ratings.parquet
-  md5: 2a5c104037ed90660c8a06c65c17b55e
+- path: scripts/search-model.py
+  md5: 04c6a15ca67aae90b50b38a0aedc6f7a
+- path: data/AZ/ratings.parquet
+  md5: 86d593d2de5c640b908f757272d98128
 - path: data/AZ/tuning/test-ratings.parquet
   md5: 39737a21758a2a0ed8bb566082ad64db
 - path: bookgender/algorithms/als.py
-  md5: 981761e6f9c48c6951fb3899cf66a8c4
+  md5: 8f271139f0a7c1926be7d20f033f457a
 outs:
 - path: data/AZ/tuning/als.opt
   md5: 2b386308c6ddcf4d95472e7b3da0124a
@@ -20,5 +20,5 @@ outs:
   md5: c096c581c6cb187328a13b93afe9b288
   persist: false
 wdir: ../../..
-md5: 805aafbc3258439380fcf9c34d896ee4
+md5: 0d6515678259c490b742db858f07d3a9
 locked: true

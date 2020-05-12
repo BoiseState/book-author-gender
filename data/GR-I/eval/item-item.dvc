@@ -1,23 +1,25 @@
-cmd: python -m scripts.eval_algo GR-I item-item
+cmd: python -m scripts.eval-algo --pretrained GR-I item-item
 deps:
-- path: scripts/eval_algo.py
-  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: scripts/eval-algo.py
+  md5: b236d22dcb1cc6d661edcb11be05d7da
 - path: data/GR-I/eval/item-item.model
-  md5: 3d75df676e453f8eeaae1ab5adb83889
+  md5: b7e64f469ac2b51b949cfaa13751ed07
+- path: data/GR-I/ratings.parquet
+  md5: 9482afe54bdc01ecd9d13622d1332de9
 - path: data/GR-I/eval/test-ratings.parquet
-  md5: 0d1e9582b4caa1a9fb5c00da36d5a1aa
+  md5: cbd670bc1036d435fcb24e905d8ec6ca
 - path: data/GR-I/tuning/item-item.json
   md5: 747e95128ad3a909dcadd276c5f283f9
 outs:
 - path: data/GR-I/eval/item-item-recs.parquet
-  md5: b00b626d3286896047c5b265dd8a174b
+  md5: ef9b7abfb986ba9abc7d833efde5ae4e
   cache: true
   metric: false
   persist: false
 - metric: true
   path: data/GR-I/eval/item-item-metrics.json
-  md5: 4547fbafeb9de9c86b894d6dbcd375c0
+  md5: 893e37a0db8cf607c9332f59e0ab09df
   cache: true
   persist: false
 wdir: ../../..
-md5: 377821f02519490eaab75507ae3f3851
+md5: 086c14da12f9d7cd3c1d218da00a5ccd

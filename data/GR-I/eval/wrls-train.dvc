@@ -1,16 +1,18 @@
-cmd: python -m scripts.train_model --train-data eval GR-I wrls
+cmd: python -m scripts.train-model --train-data eval GR-I wrls
 deps:
 - path: bookgender/algorithms/wrls.py
   md5: fd0089120bc6e1a6e36457a2a1b74adc
 - path: data/GR-I/tuning/wrls.json
   md5: 8f65bb547a1b42a9d870b02d2612df0d
-- path: data/GR-I/eval/train-ratings.parquet
-  md5: 72552cacda7efa06a0efa797957d00e9
+- path: data/GR-I/ratings.parquet
+  md5: 9482afe54bdc01ecd9d13622d1332de9
+- path: data/GR-I/eval/test-ratings.parquet
+  md5: cbd670bc1036d435fcb24e905d8ec6ca
 outs:
 - path: data/GR-I/eval/wrls.model
-  md5: 9810a79a93ed090e38405a30a9a6cb0d
+  md5: c658d7fd7ed891362693d61c9b47774a
   cache: true
   metric: false
   persist: false
 wdir: ../../..
-md5: 98c994e302bcb58b9bc56137df374552
+md5: 2942ad585f0a006923e672ea0b4bab5d

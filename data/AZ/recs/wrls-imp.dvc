@@ -1,26 +1,26 @@
 cmd: python -m scripts.recommend AZ wrls-imp
 deps:
 - path: scripts/recommend.py
-  md5: ab700085f93e80dd7657a692a4f20712
+  md5: 891b8a8a8a89964c10747a584626051c
 - path: data/AZ/sample-users.csv
-  md5: b1d4d02f9fd67d5ab80bba3ec87ae7cc
+  md5: 0790421d4631d611469117e5d0ada350
 - path: data/AZ/models/wrls-imp.model
-  md5: ef74e03dd381edfa9c16cbe7448e01f0
+  md5: a9614339467d2e10a6138877972e5064
 outs:
 - path: data/AZ/recs/wrls-imp.parquet
-  md5: 8dbd4c35bf66234fd1ff6e09cf5b1100
+  md5: d93b2eaa1ed0daf2cdd14065f0066485
   cache: true
   metric: false
   persist: false
 - path: data/AZ/recs/wrls-imp.csv.gz
-  md5: 999d8f6956c790703c8df96e424db75b
+  md5: 0cd266ed64dee15ac76c4bc1e02c2787
   cache: true
   metric: false
   persist: false
 - metric: true
   path: data/AZ/recs/wrls-imp.json
-  md5: c09e6845cda47eb46960afca7442e7cf
+  md5: f591aaa73b8d41be2d8a0876626bedf9
   cache: true
   persist: false
 wdir: ../../..
-md5: c1994bbe2c35975d5c6f1d3860fb28cb
+md5: fa070df06f5745a04fcccdcd96e321af

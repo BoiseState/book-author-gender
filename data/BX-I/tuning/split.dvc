@@ -1,29 +1,16 @@
-cmd: python -m scripts.split_ratings BX-I
+cmd: python -m scripts.split-ratings -d tuning BX-I
 deps:
+- path: random.toml
+- path: scripts/split-ratings.py
+  md5: c2493bb1384703a74a6a6ed7e4fe7e0d
 - path: data/BX-I/ratings.parquet
-  md5: 6b3e3b81c822f6dd2b78a8a99bf9d062
-- path: scripts/split_ratings.py
-  md5: 9c6d7d37d4b551203a830c2306f60885
+  md5: 169aa8089fb032a84510d8b65607e748
 outs:
-- path: data/BX-I/tuning/train-ratings.csv.gz
-  md5: 860fe435d4187432e213bf13b7ddc731
-  cache: true
-  metric: false
-  persist: false
-- path: data/BX-I/tuning/train-ratings.parquet
-  md5: c880d96b53ed419ab21beab18ca9ae63
-  cache: true
-  metric: false
-  persist: false
-- path: data/BX-I/tuning/test-ratings.csv.gz
-  md5: 1ac3e69cc9c515d03db003cec2f8c25a
-  cache: true
-  metric: false
-  persist: false
 - path: data/BX-I/tuning/test-ratings.parquet
   md5: 1be15559f6c2929f879261a13c83535d
   cache: true
   metric: false
   persist: false
 wdir: ../../..
-md5: c36baf40a0f26d676fccb4f5f1cc923b
+md5: 3bf752ad8f8217c6240ed36533fd22dd
+locked: true

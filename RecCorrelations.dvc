@@ -1,0 +1,15 @@
+md5: 17228151e40b6cfd8d898681761eda36
+cmd: python -m scripts.run-notebook --overwrite RecCorrelations.ipynb
+deps:
+- md5: 0c176e0fe95ff803ff7af3a91f1893b4
+  path: RecCorrelations.ipynb
+- path: data/profile-data.pkl
+  md5: b8dc40cddc2b525490747f86ae5bf094
+- path: data/rec-data.pkl
+  md5: 762952e738e20fc4f99843e51a292e0b
+outs:
+- md5: 26633f06d321377f155c055cf9f6e97f
+  path: RecCorrelations.html
+  cache: false
+  metric: false
+  persist: false

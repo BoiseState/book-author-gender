@@ -1,16 +1,11 @@
 cmd: python -m scripts.export --ratings bx-i
 deps:
-- md5: 395dbe40b2bddbfb0048c4817b7eba2a
+- md5: 14d177af18c1f0e89825f8cf264f76d0
   path: data/version-stamp.txt
-md5: fbb09db39e6ccd02aefac4f21fc808db
+md5: e721afa0cfb4bab7b5d9887586353d93
 outs:
 - cache: true
-  md5: ea028721b33093b29d42b1dcde422a51
-  metric: false
-  path: data/BX-I/ratings.csv.gz
-  persist: false
-- cache: true
-  md5: 3d69f3df8b00127a78538232a7d13ba2
+  md5: c506f6e8a5b7dac27d973fa07f6eef78
   metric: false
   path: data/BX-I/ratings.parquet
   persist: false

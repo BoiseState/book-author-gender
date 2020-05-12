@@ -1,6 +1,3 @@
 *.bat text eol=crlf
 *.sh text eol=lf
 
-*.ipynb	diff=jupyternotebook
-
-*.ipynb	merge=jupyternotebook

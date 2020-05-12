@@ -1,13 +1,13 @@
-cmd: python -m scripts.search_model BX-E als
+cmd: python -m scripts.search-model BX-E als
 deps:
-- path: scripts/search_model.py
-  md5: ceb12d6491c6b2adcf6b364dff30c6ec
-- path: data/BX-E/tuning/train-ratings.parquet
-  md5: 8fc25492056cd2d009334bb06a07976b
+- path: scripts/search-model.py
+  md5: 04c6a15ca67aae90b50b38a0aedc6f7a
+- path: data/BX-E/ratings.parquet
+  md5: a88d560cc2ed6a95116a30400211d36d
 - path: data/BX-E/tuning/test-ratings.parquet
   md5: c0b6a027719beddef7498af63570a80b
 - path: bookgender/algorithms/als.py
-  md5: 981761e6f9c48c6951fb3899cf66a8c4
+  md5: 8f271139f0a7c1926be7d20f033f457a
 outs:
 - path: data/BX-E/tuning/als.opt
   md5: 714103785e6a3f6dded3bfb33e063ee6
@@ -20,5 +20,5 @@ outs:
   md5: ff7679dcb4491c12031522c4cb3ce0f8
   persist: false
 wdir: ../../..
-md5: fcfb31bcee9588c4855cb5c7588174bb
+md5: 2a9a517c47fc3b75e81b02b0639b26f5
 locked: true

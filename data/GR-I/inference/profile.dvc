@@ -1,0 +1,30 @@
+cmd: python -m scripts.stan profile GR-I
+deps:
+- path: scripts/stan.py
+  md5: a06c6b36d3452b0a429771cfc4886de8
+- path: random.toml
+  md5: 94d65def306915fef706865e476a68d5
+- path: stan.toml
+  md5: 16fafe8748a08e80d5d187572d358cda
+- path: models/profile.stan
+  md5: aa2b24319d011ff87e08570b709ae424
+- path: data/GR-I/inference/profile-inputs.json
+  md5: 0d4e46bcb198a3f82d76e764d8c9d35d
+outs:
+- path: data/GR-I/inference/profile
+  md5: 15610542b425906be0e481f3b183f284.dir
+  cache: true
+  metric: false
+  persist: false
+- path: data/GR-I/inference/profile-summary.csv
+  md5: 2cf6ddf9ea3394297b281caaf5a56f4b
+  cache: true
+  metric: false
+  persist: false
+- path: data/GR-I/inference/profile-diag.txt
+  md5: af38422dac88a0223084613cfe71769b
+  cache: true
+  metric: false
+  persist: false
+wdir: ../../..
+md5: 9dc127c27928aa5a62ef4bf45c6ff4b4

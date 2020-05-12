@@ -1,4 +1,3 @@
-// This file is generated from models.md
 data {
     // The number of users
     int<lower=0> J;
@@ -21,28 +20,8 @@ data {
     int<lower=0> ry[NL];
 
 }
-transformed data {
-    // The model performs better when we model number of books 
-    // _after 5_ from negative binomial
-    int<lower=0> shiftN[J];
 
-    // Recommendation list (smoothed) proportion female
-    vector<lower=0,upper=1>[NL] rp;
-    // The logit of the proportion (log odds)
-    vector[NL] rll;
-
-    for (i in 1:J) {
-        shiftN[i] = n[i] - 5;
-    }
-
-    rp = (to_vector(ry) + 1) ./ (to_vector(rn) + 2);
-    rll = logit(rp);
-}
 parameters {
-    // Mean and dispersion of user profile sizes
-    real<lower=0> nMean;
-    real<lower=0> nDisp;
-
     // mean of user profile bias
     real mu;
     // SD of user profile bias
@@ -56,39 +35,33 @@ parameters {
     vector[A] recS;
     // Recommender response variance
     vector<lower=0>[A] recV;
+
+    // Individual recommender noise
+    vector[NL] _noiseR;
 }
-transformed parameters {
-    // User smoothed biases, as proportions/probabilities
-    vector<lower=0,upper=1>[J] theta;
 
-    vector[NL] rbias;
-    vector[NL] noiseR;
-
-    theta = inv_logit(nTheta);
-
-    rbias = recB[ra] + recS[ra] .* nTheta[ru];
-    noiseR = rll - rbias;
-}
 model {
+    vector[NL] rbias;
+    vector[J] theta = inv_logit(nTheta);
+
     // profile prior distribution
-    nMean ~ exponential(0.001);
-    nDisp ~ exponential(0.001);
-    mu ~ normal(0, 100);
-    sigma ~ exponential(0.001);
+    mu ~ normal(0, 10);
+    sigma ~ exponential(0.1);
 
     // rec list priors
-    recB ~ normal(0, 100);
-    recS ~ normal(0, 100);
-    recV ~ exponential(0.001);
+    recB ~ normal(0, 10);
+    recS ~ normal(0, 10);
+    recV ~ exponential(2);  // encourage to be small
 
 
     // profile likelihood model
-    shiftN ~ neg_binomial_2(nMean, nDisp);
-    y ~ binomial(n, theta);
     nTheta ~ normal(mu, sigma);
+    y ~ binomial(n, theta);
 
     // rec list likelihood model - noise and binomial choice
-    noiseR ~ normal(0, recV[ra]);
+    _noiseR ~ normal(0, recV[ra]);
+    rbias = inv_logit(recB[ra] + recS[ra] .* nTheta[ru] + _noiseR);
+    ry ~ binomial(rn, rbias);
 }
 
 generated quantities {
@@ -97,8 +70,6 @@ generated quantities {
     // Simulate a user + their recommendation output proportions
     real nThetaP;
     real<lower=0, upper=1> thetaP;
-    int<lower=5> nP = 0;
-    int<lower=0> yP;
 
     vector[A] biasP;
     vector[A] noiseP;
@@ -106,8 +77,6 @@ generated quantities {
 
     nThetaP = normal_rng(mu, sigma);
     thetaP = inv_logit(nThetaP);
-    nP = neg_binomial_2_rng(nMean, nDisp) + 5;
-    yP = binomial_rng(nP, thetaP);
 
     biasP = recB + recS * nThetaP;
     for (a in 1:A) {
@@ -117,10 +86,13 @@ generated quantities {
 
     // accumulate profile log_lik
     for (i in 1:J) {
-        log_lik[i] = binomial_lpmf(y[i] | n[i], theta[i]) + neg_binomial_2_lpmf(shiftN[i] | nMean, nDisp);
+        log_lik[i] = binomial_lpmf(y[i] | n[i], inv_logit(nTheta[i]));
     }
+    
     // accumulate list log_lik
     for (i in 1:NL) {
-        log_lik[ru[i]] += normal_lpdf(rll[i] | recB[ra[i]] + recS[ra[i]] .* nTheta[ru[i]], recV[ra[i]]);
+        int ai = ra[i];
+        log_lik[ru[i]] += binomial_lpmf(ry[i] | rn[i], inv_logit(recB[ai] + recS[ai] * nTheta[ru[i]] + _noiseR[i]));
+        log_lik[ru[i]] += normal_lpdf(_noiseR[i] | 0, recV[ai]);
     }
 }

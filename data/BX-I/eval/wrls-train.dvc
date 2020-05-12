@@ -1,16 +1,18 @@
-cmd: python -m scripts.train_model --train-data eval BX-I wrls
+cmd: python -m scripts.train-model --train-data eval BX-I wrls
 deps:
 - path: bookgender/algorithms/wrls.py
   md5: fd0089120bc6e1a6e36457a2a1b74adc
 - path: data/BX-I/tuning/wrls.json
   md5: 0a1584ec794cd8623d8b977882d7dd92
-- path: data/BX-I/eval/train-ratings.parquet
-  md5: 76e04a6f7f24e43bddea10480ae91615
+- path: data/BX-I/ratings.parquet
+  md5: c506f6e8a5b7dac27d973fa07f6eef78
+- path: data/BX-I/eval/test-ratings.parquet
+  md5: c7b20e4d0b51e152de9855b9b40c4120
 outs:
 - path: data/BX-I/eval/wrls.model
-  md5: 4ab8bec9ec966cb2e2cde83603906198
+  md5: dfb85acaed5b76976c9762e342061531
   cache: true
   metric: false
   persist: false
 wdir: ../../..
-md5: 1d3e3341fa55f090d0fa4423b11c35f2
+md5: 6743d4482930767b71e0e41d7437991c

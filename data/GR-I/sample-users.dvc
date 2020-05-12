@@ -1,25 +1,27 @@
-cmd: python -m scripts.sample_users GR-I
+cmd: python -m scripts.sample-users GR-I
 deps:
-- md5: 5ed40578850434b9cbe35a4cac3def88
-  path: scripts/sample_users.py
-- md5: 395dbe40b2bddbfb0048c4817b7eba2a
+- md5: d25464ac09ef4ea94e41b3fd9b74b6e9
+  path: scripts/sample-users.py
+- md5: 14d177af18c1f0e89825f8cf264f76d0
   path: data/version-stamp.txt
-- md5: 3a43bd07ef0e55b7cba2617d48c6ee41
+- md5: 9482afe54bdc01ecd9d13622d1332de9
   path: data/GR-I/ratings.parquet
-md5: 4727a4e231a3feb0d7287f4d7a28f78d
+- path: random.toml
+  md5: 94d65def306915fef706865e476a68d5
+md5: 0bfdf49bd3ac6356fff827decbea7a1b
 outs:
 - cache: true
-  md5: e73561663da36c040609ab574ec16485
+  md5: b0bce84d652838718bdf26937d655582
   metric: false
   path: data/GR-I/sample-users.csv
   persist: false
 - cache: true
-  md5: fc90a275e30c11ea298b0ab1f2a7072d
+  md5: 25c73ee62d109fe3518884fa6a997ec4
   metric: false
   path: data/GR-I/sample-ratings.csv
   persist: false
 - cache: true
-  md5: ca417177e7d91579aa4842f9ec87f95f
+  md5: f8978a54bd7c123ef05b4181c735457e
   metric: true
   path: data/GR-I/sample-stats.json
   persist: false

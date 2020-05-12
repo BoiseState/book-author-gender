@@ -1,16 +1,18 @@
-cmd: python -m scripts.train_model --train-data eval BX-I bpr
+cmd: python -m scripts.train-model --train-data eval BX-I bpr
 deps:
 - path: bookgender/algorithms/bpr.py
   md5: 081433ad549e146182ccc657f77ee5bc
 - path: data/BX-I/tuning/bpr.json
   md5: 208fb35169f8376a4faee070b19e2e30
-- path: data/BX-I/eval/train-ratings.parquet
-  md5: 76e04a6f7f24e43bddea10480ae91615
+- path: data/BX-I/ratings.parquet
+  md5: c506f6e8a5b7dac27d973fa07f6eef78
+- path: data/BX-I/eval/test-ratings.parquet
+  md5: c7b20e4d0b51e152de9855b9b40c4120
 outs:
 - path: data/BX-I/eval/bpr.model
-  md5: 59f85fbbd13e806b2ad1ea735c7606b1
+  md5: 198cb168352f040a4180498ad09356ae
   cache: true
   metric: false
   persist: false
 wdir: ../../..
-md5: f1ce62307f967b243665af6bdbc97b71
+md5: 2d7c9ebaf74f2b405231f8b96a368e04

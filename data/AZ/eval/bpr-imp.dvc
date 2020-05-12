@@ -1,23 +1,25 @@
-cmd: python -m scripts.eval_algo --drop-ratings -N bpr-imp --pretrained AZ bpr
+cmd: python -m scripts.eval-algo --drop-ratings -N bpr-imp --pretrained AZ bpr
 deps:
-- path: scripts/eval_algo.py
-  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: scripts/eval-algo.py
+  md5: b236d22dcb1cc6d661edcb11be05d7da
 - path: data/AZ/eval/bpr-imp.model
-  md5: ccd7bda8628e43b3f0a41092907f6f23
+  md5: 0eec50b4f39caff0c379710a9ae78cdf
+- path: data/AZ/ratings.parquet
+  md5: 3475e68661d518bafc241b90133432b2
 - path: data/AZ/eval/test-ratings.parquet
-  md5: 14807f645afe40091a14a9be0b7045c9
+  md5: 0108c1e90d17619931d77b5a3f1e62d6
 - path: data/AZ/tuning/bpr-imp.json
   md5: 4fb124217be60caa17ebe3e02ef33d4f
 outs:
 - path: data/AZ/eval/bpr-imp-recs.parquet
-  md5: f7d7fc2cf75a66b421d13d15823cb738
+  md5: 1f27290cbe4e78f07b2be1a1f5052501
   cache: true
   metric: false
   persist: false
 - metric: true
   path: data/AZ/eval/bpr-imp-metrics.json
-  md5: 023b8593b39d0b6ba3e59131dddb10c2
+  md5: 0feb6b6c2aacd3f03ed3bc7c81ee330f
   cache: true
   persist: false
 wdir: ../../..
-md5: 3b0ec7b4f885f47d3458f7484e9265b2
+md5: 02fe80973b6394292b81293062bb0c00

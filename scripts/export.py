@@ -1,5 +1,5 @@
 """
-Export author information.
+Export general data from the database.
 
 Usage:
     export.py --authors
@@ -58,21 +58,22 @@ def export_ratings(data):
     path = data_dir / data / 'ratings'
     columns = ', '.join(ds.columns)
 
+    order = f'{ds.ts_column}, user, item' if ds.ts_column else 'user, item'
+
     query = f'''
         SELECT user_id AS user, book_id AS item, {columns}
         FROM {ds.table}
-        ORDER BY user, item
+        ORDER BY {order}
     '''
     _log.info('reading ratings from %s', ds.table)
-    ratings = dt.load_table(query)
-    if not ds.has_ratings:
-        ratings = ratings.loc[:, ('user', 'item')]
+    ratings = dt.load_table(query, dtype={
+        'user': 'i4',
+        'item': 'i4',
+        'rating': 'f4',
+        'nactions': 'i4'
+    })
 
     path.parent.mkdir(parents=True, exist_ok=True)
-    csvf = path.with_suffix('.csv.gz')
-    _log.info('writing ratings to %s', csvf)
-    ratings.to_csv(csvf, index=False)
-
     pqf = path.with_suffix('.parquet')
     _log.info('writing ratings to %s', pqf)
     ratings.to_parquet(pqf, index=False)

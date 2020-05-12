@@ -1,0 +1,30 @@
+cmd: python -m scripts.stan profile BX-E
+deps:
+- path: scripts/stan.py
+  md5: a06c6b36d3452b0a429771cfc4886de8
+- path: random.toml
+  md5: 94d65def306915fef706865e476a68d5
+- path: stan.toml
+  md5: 16fafe8748a08e80d5d187572d358cda
+- path: models/profile.stan
+  md5: aa2b24319d011ff87e08570b709ae424
+- path: data/BX-E/inference/profile-inputs.json
+  md5: 2c63209d89438c747174a730ef96fd5b
+outs:
+- path: data/BX-E/inference/profile
+  md5: d68be20343281835d8559ed41b878a5b.dir
+  cache: true
+  metric: false
+  persist: false
+- path: data/BX-E/inference/profile-summary.csv
+  md5: 24a8e61870a78edcc5c42313ccc887e3
+  cache: true
+  metric: false
+  persist: false
+- path: data/BX-E/inference/profile-diag.txt
+  md5: c93d99ca9d4e17d6925c48931fef84da
+  cache: true
+  metric: false
+  persist: false
+wdir: ../../..
+md5: 2105d313e788f3989927541f5b33215e

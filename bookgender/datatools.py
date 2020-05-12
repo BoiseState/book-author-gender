@@ -21,14 +21,14 @@ from .config import db_uri
 
 _log = logging.getLogger(__name__)
 
-DS = namedtuple('DS', ['table', 'columns', 'has_ratings'])
+DS = namedtuple('DS', ['table', 'columns', 'ts_column'])
 
 datasets = {
-    'AZ': DS('az.rating', ['rating', 'timestamp'], True),
-    'BX-E': DS('bx.rating', ['rating'], True),
-    'BX-I': DS('bx.add_action', ['nactions'], False),
-    'GR-E': DS('gr.rating', ['rating', 'timestamp'], True),
-    'GR-I': DS('gr.add_action', ['nactions', 'first_time', 'last_time'], True)
+    'AZ': DS('az.rating', ['rating', 'timestamp'], 'timestamp'),
+    'BX-E': DS('bx.rating', ['rating'], None),
+    'BX-I': DS('bx.add_action', ['nactions'], None),
+    'GR-E': DS('gr.rating', ['rating', 'timestamp'], 'timestamp'),
+    'GR-I': DS('gr.add_action', ['nactions', 'first_time', 'last_time'], 'first_time')
 }
 
 
@@ -137,7 +137,7 @@ class _LoadThread(threading.Thread):
             cur.copy_expert(self.query, self.chan)
 
 
-def load_table(query):
+def load_table(query, **kwargs):
     """
     Load a table from PostgreSQL using the CSV reader.  This is often more
     efficient than using Pandas read_sql().
@@ -149,7 +149,7 @@ def load_table(query):
         dbc.autocommit = True
         thread = _LoadThread(dbc, cq.format(q))
         thread.start()
-        data = pd.read_csv(thread.reader)
+        data = pd.read_csv(thread.reader, **kwargs)
         thread.join()
     finally:
         dbc.close()

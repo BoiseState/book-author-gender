@@ -20,7 +20,7 @@ class OptionReader:
 def get_opt(key, xf=None):
     def read(self):
         v = self.options[key]
-        if xf:
+        if xf and v is not None:
             v = xf(v)
         return v
     read.__doc__ = f'Read option {key}'

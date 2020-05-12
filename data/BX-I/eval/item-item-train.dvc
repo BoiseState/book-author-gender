@@ -1,16 +1,18 @@
-cmd: python -m scripts.train_model --train-data eval BX-I item-item
+cmd: python -m scripts.train-model --train-data eval BX-I item-item
 deps:
 - path: bookgender/algorithms/item_item.py
   md5: 0240a6e1726c57ee1a1969a05b81cb89
 - path: data/BX-I/tuning/item-item.json
   md5: 309f9ff49e57efa47e2e62016ab20333
-- path: data/BX-I/eval/train-ratings.parquet
-  md5: 76e04a6f7f24e43bddea10480ae91615
+- path: data/BX-I/ratings.parquet
+  md5: c506f6e8a5b7dac27d973fa07f6eef78
+- path: data/BX-I/eval/test-ratings.parquet
+  md5: c7b20e4d0b51e152de9855b9b40c4120
 outs:
 - path: data/BX-I/eval/item-item.model
-  md5: 80f27e7fdea46c40df9217fde1f538e2
+  md5: 720495ac4c2022c05408bea9d9491066
   cache: true
   metric: false
   persist: false
 wdir: ../../..
-md5: 481bb963f61c9c58c8c47ea042b8dddb
+md5: dcea04290c482edbb52f8eb1aae416ae

@@ -1,23 +1,25 @@
-cmd: python -m scripts.eval_algo --pretrained AZ item-item
+cmd: python -m scripts.eval-algo --pretrained AZ item-item
 deps:
-- path: scripts/eval_algo.py
-  md5: 9ad1b2646e4272c1130a2f0e2d37af68
+- path: scripts/eval-algo.py
+  md5: b236d22dcb1cc6d661edcb11be05d7da
 - path: data/AZ/eval/item-item.model
-  md5: ad48c7e7921e6d6e6a13e68677f2111c
+  md5: 6af61a0cd46f5ef91b7d5daf8877dc2c
+- path: data/AZ/ratings.parquet
+  md5: 3475e68661d518bafc241b90133432b2
 - path: data/AZ/eval/test-ratings.parquet
-  md5: 14807f645afe40091a14a9be0b7045c9
+  md5: 0108c1e90d17619931d77b5a3f1e62d6
 - path: data/AZ/tuning/item-item.json
   md5: 3f3a14a85d0020ead808622c55060a0a
 outs:
 - path: data/AZ/eval/item-item-recs.parquet
-  md5: 56b63f5ec7478cd98082f0109fe36b1c
+  md5: a5fdacda8110f2defc7b3bdb41a6b739
   cache: true
   metric: false
   persist: false
 - metric: true
   path: data/AZ/eval/item-item-metrics.json
-  md5: 7caeec0e82297d6ce33a48b1f406fa40
+  md5: a82c7223df207df865751eaf0a5fe388
   cache: true
   persist: false
 wdir: ../../..
-md5: c42bd211a79c3aed11ae7b0eb3089ec0
+md5: e2ad17dcbcaa245d578d26f15d2b1703

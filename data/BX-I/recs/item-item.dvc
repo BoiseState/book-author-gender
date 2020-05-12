@@ -1,26 +1,26 @@
 cmd: python -m scripts.recommend BX-I item-item
 deps:
 - path: scripts/recommend.py
-  md5: ab700085f93e80dd7657a692a4f20712
+  md5: 891b8a8a8a89964c10747a584626051c
 - path: data/BX-I/sample-users.csv
-  md5: 67fe9d012af9671a7066772ff7a07f62
+  md5: 52bbd43ef60e2b702a80b64ce8907f95
 - path: data/BX-I/models/item-item.model
-  md5: cf8cddfe1429a8aa691bebdb18a3ed9b
+  md5: bc4440c2f6ecd3148296e385b9bcb3eb
 outs:
 - path: data/BX-I/recs/item-item.parquet
-  md5: 379fb493e0a1adde63bfc9e8e28be30a
+  md5: f8235d0088541cf71cc9eee7d5621153
   cache: true
   metric: false
   persist: false
 - path: data/BX-I/recs/item-item.csv.gz
-  md5: 576e2f10c6e3ce9ec776242ae12b6ecd
+  md5: 32f7d9ec6a2a7da6d1a35b4c506b472a
   cache: true
   metric: false
   persist: false
 - metric: true
   path: data/BX-I/recs/item-item.json
-  md5: 98d475a1e448eb03258e22e6ac14f2fc
+  md5: 9bf166b9a1fa66dfba499d0e7a87528a
   cache: true
   persist: false
 wdir: ../../..
-md5: b558aaadec683972ec1748c9efe9cd74
+md5: bd1fe972f70b18ef70ef0c812fff7ca0

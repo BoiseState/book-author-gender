@@ -18,7 +18,8 @@ def setup(debug=False):
 
     root = logging.getLogger()
     root.addHandler(ch)
-    root.setLevel(logging.INFO)
+    root.setLevel(logging.DEBUG)
+    logging.getLogger('numba').setLevel(logging.INFO)
 
     logging.getLogger('dvc').setLevel(logging.ERROR)
     logging.getLogger('lenskit').setLevel(logging.DEBUG)

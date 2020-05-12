@@ -4,6 +4,3 @@
 /sample-ratings.csv
 /sample-stats.json
 *.h5
-*.pkl.zstd
-/profile-samples.h5
-/full-samples.h5

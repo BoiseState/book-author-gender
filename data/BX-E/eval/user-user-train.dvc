@@ -1,16 +1,18 @@
-cmd: python -m scripts.train_model --train-data eval BX-E user-user
+cmd: python -m scripts.train-model --train-data eval BX-E user-user
 deps:
 - path: bookgender/algorithms/user_user.py
   md5: 316ebcd6b040c5e80baa889e6cdbcf97
 - path: data/BX-E/tuning/user-user.json
   md5: 50fd40f0ceef51a4e3e529f84bdce15b
-- path: data/BX-E/eval/train-ratings.parquet
-  md5: aa7fc06ec6bbc978c0334f2e1fddc696
+- path: data/BX-E/ratings.parquet
+  md5: 577aac37d2bbd0e32c14206beef5500a
+- path: data/BX-E/eval/test-ratings.parquet
+  md5: 73704908a4839fbe84fe7617d58cf3c1
 outs:
 - path: data/BX-E/eval/user-user.model
-  md5: 3aff7d6c6fc4cd65f7e2f5413b0236f8
+  md5: f80143c3cf5a6ee98f36c7bbe992d258
   cache: true
   metric: false
   persist: false
 wdir: ../../..
-md5: 92bdf661b4bc3cce288669edd98d2ee3
+md5: cd34dcc392b63d9c0532eb6ae297f002

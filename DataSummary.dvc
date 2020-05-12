@@ -1,0 +1,30 @@
+md5: eebb786f7d5522afdaa4f6d9a61123dc
+cmd: python -m scripts.run-notebook --overwrite DataSummary.ipynb
+deps:
+- md5: 83c495a16f9c1f94be5762726f51b6f1
+  path: DataSummary.ipynb
+- path: data/loc-books.csv.gz
+  md5: 2acea0c5a86119338792e3a39e525e02
+- path: data/author-gender.csv.gz
+  md5: 0f99ec9ce177a3d65b67f4e099f681d1
+- path: data/AZ/ratings.parquet
+  md5: 3475e68661d518bafc241b90133432b2
+- path: data/BX-E/ratings.parquet
+  md5: 577aac37d2bbd0e32c14206beef5500a
+- path: data/BX-I/ratings.parquet
+  md5: c506f6e8a5b7dac27d973fa07f6eef78
+- path: data/GR-E/ratings.parquet
+  md5: 06599aadedf38bb92204836748e09ebf
+- path: data/GR-I/ratings.parquet
+  md5: 9482afe54bdc01ecd9d13622d1332de9
+outs:
+- md5: c1b37430a00474a49bcb94998c544eff
+  path: DataSummary.html
+  cache: false
+  metric: false
+  persist: false
+- path: figures/DataSummary
+  md5: 8139092f8349cb47f9ef172d8f2e93f4.dir
+  cache: true
+  metric: false
+  persist: false

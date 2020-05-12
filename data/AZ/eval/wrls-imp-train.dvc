@@ -1,17 +1,19 @@
-cmd: python -m scripts.train_model --drop-ratings -N wrls-imp --train-data eval AZ
+cmd: python -m scripts.train-model --drop-ratings -N wrls-imp --train-data eval AZ
   wrls
 deps:
 - path: bookgender/algorithms/wrls.py
   md5: fd0089120bc6e1a6e36457a2a1b74adc
 - path: data/AZ/tuning/wrls-imp.json
   md5: b59e14500a3f30cc28307adccc2f3593
-- path: data/AZ/eval/train-ratings.parquet
-  md5: 19f8714d439dbd93b991d8c076bb2758
+- path: data/AZ/ratings.parquet
+  md5: 3475e68661d518bafc241b90133432b2
+- path: data/AZ/eval/test-ratings.parquet
+  md5: 0108c1e90d17619931d77b5a3f1e62d6
 outs:
 - path: data/AZ/eval/wrls-imp.model
-  md5: 35ef75af237a01257043105d1ea04796
+  md5: 073b6e0c14647598a294c8c1f87d9350
   cache: true
   metric: false
   persist: false
 wdir: ../../..
-md5: 708724a0860090e69d3e96ee097f3de6
+md5: b8932399c0db9c6b7463d41f340798c8

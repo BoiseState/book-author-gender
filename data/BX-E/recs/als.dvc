@@ -1,26 +1,26 @@
 cmd: python -m scripts.recommend BX-E als
 deps:
 - path: scripts/recommend.py
-  md5: ab700085f93e80dd7657a692a4f20712
+  md5: 891b8a8a8a89964c10747a584626051c
 - path: data/BX-E/sample-users.csv
-  md5: bc0a2e20f3504af20c26bea0dfa45887
+  md5: d16339658f60544540c6d900892d57f9
 - path: data/BX-E/models/als.model
-  md5: ac99fa89fb44c5a703093b80a64e8076
+  md5: cf787c74f216ac6c89a6cfb9fde7a358
 outs:
 - path: data/BX-E/recs/als.parquet
-  md5: b4d7a3c3fda0dcd8ece618f0437a6b3d
+  md5: 467d479ba9bf316b3444945fed2058a2
   cache: true
   metric: false
   persist: false
 - path: data/BX-E/recs/als.csv.gz
-  md5: 8bb6d4facd56bc9eb87eb6d908c7cf6a
+  md5: a2ca41dc61501c8ca6bceeb27bbec808
   cache: true
   metric: false
   persist: false
 - metric: true
   path: data/BX-E/recs/als.json
-  md5: 42ee46e3455984b0d936f12e93c3bb63
+  md5: 8c7937c71fa9c3ddb0457891cfcf977f
   cache: true
   persist: false
 wdir: ../../..
-md5: b05bcf19231e64ffa2a96f09f8b6fc15
+md5: f9bffc93b110cab07177328ba2fc2937
