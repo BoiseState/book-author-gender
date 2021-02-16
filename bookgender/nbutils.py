@@ -3,6 +3,7 @@ Utility functions for notebooks.
 """
 
 from pathlib import Path
+import warnings
 import plotnine as pn
 
 _fig_root = Path('figures')
@@ -33,5 +34,9 @@ def make_plot(data, aes, *args, file=None, height=5, width=7, theme=theme_paper(
         plt = plt + a
     plt = plt + theme + pn.theme(**kwargs)
     if file is not None:
-        plt.save(_fig_dir / file, height=height, width=width)
+        outf = _fig_dir / file
+        if outf.suffix:
+            warnings.warn('file has suffix, ignoring')
+        plt.save(outf.with_suffix('.pdf'), height=height, width=width)
+        plt.save(outf.with_suffix('.png'), height=height, width=width, dpi=300)
     return plt

@@ -1,6 +1,6 @@
 cmd: python -m scripts.run-notebook --overwrite RecModelAnalysis.ipynb
 deps:
-- md5: d6e47b2b711d832b711da70af1a79378
+- md5: 36ce26343e26b937e541ab1091a3d956
   path: RecModelAnalysis.ipynb
 - path: data/profile-data.pkl
   md5: b8dc40cddc2b525490747f86ae5bf094
@@ -17,14 +17,14 @@ deps:
 - path: data/GR-E/inference/full/samples.zarr
   md5: d9f44907416628b513c61bf61c93c3b5
 outs:
-- md5: f206afa1a59a8e8014d8aca8443bc753
+- md5: bf8d9199b127742f5e876c18344ae7d2
   path: RecModelAnalysis.html
   cache: false
   metric: false
   persist: false
 - path: figures/RecModel
-  md5: 2a6dfdb73e2640ce86cef0020331860c.dir
+  md5: e789a0f381f632a7508a64e00e862286.dir
   cache: true
   metric: false
   persist: false
-md5: e2e072821c34fa38af2bcd837fcdd312
+md5: f306d427bbaabe33481f7468ab5b6cec

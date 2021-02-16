@@ -1,7 +1,7 @@
-md5: b2cefa0180881ebd8aa92ea9449d34e2
+md5: cd4bfcb15a7501483bdd5f8135d38b63
 cmd: python -m scripts.run-notebook --overwrite ProfileModelAnalysis.ipynb
 deps:
-- md5: 2a8229c164c41c44b73b5b578103eb29
+- md5: f60aed2ac2f128fafb4e9ec800bd65ba
   path: ProfileModelAnalysis.ipynb
 - path: data/profile-data.pkl
   md5: b8dc40cddc2b525490747f86ae5bf094
@@ -16,13 +16,13 @@ deps:
 - path: data/GR-E/inference/profile/samples.zarr
   md5: dfef01582b1206494425d2d007ce03b6
 outs:
-- md5: fdd7a2c6470fc4e058036deb3d3c478d
+- md5: f2887c77509ec8061b60e8c126ecc55c
   path: ProfileModelAnalysis.html
   cache: false
   metric: false
   persist: false
 - path: figures/PMA-profile
-  md5: 1454a5112b854d5bc236b4770df0cb3d.dir
+  md5: c2bc802dba4870b16d910c5bae668ed3.dir
   cache: true
   metric: false
   persist: false

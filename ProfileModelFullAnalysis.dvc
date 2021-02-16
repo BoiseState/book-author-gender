@@ -1,14 +1,14 @@
-md5: 8148d47b23266e4f62c1af7c02f014f5
+md5: f5363ae4ff933e5efd4ad08ac290ee03
 cmd: python -m scripts.run-notebook -o ProfileModelFullAnalysis.html -p ProfileModelFullAnalysis.json
   ProfileModelAnalysis.ipynb
 deps:
 - path: ProfileModelFullAnalysis.json
   md5: 760f09b9bb33cb84334d21d12f6697ea
-- md5: 2a8229c164c41c44b73b5b578103eb29
+- md5: f60aed2ac2f128fafb4e9ec800bd65ba
   path: ProfileModelAnalysis.ipynb
 # depend on profile model analysis outputs, to force ordering
 - path: ProfileModelAnalysis.html
-  md5: fdd7a2c6470fc4e058036deb3d3c478d
+  md5: f2887c77509ec8061b60e8c126ecc55c
 - path: data/profile-data.pkl
   md5: b8dc40cddc2b525490747f86ae5bf094
 - path: data/BX-I/inference/full/samples.zarr
@@ -22,13 +22,13 @@ deps:
 - path: data/GR-E/inference/full/samples.zarr
   md5: d9f44907416628b513c61bf61c93c3b5
 outs:
-- md5: 1e322b11c6e0a7bc1e1a278a1fb1df95
+- md5: 98fe1493ae79ce85881118340076909d
   path: ProfileModelFullAnalysis.html
   cache: false
   metric: false
   persist: false
 - path: figures/PMA-profile-full
-  md5: 20c7640f65e805d5fb4d3d957a4092f3.dir
+  md5: 9bfaa71606cb90e2d6d73062d31b5600.dir
   cache: true
   metric: false
   persist: false
